@@ -9,13 +9,15 @@ CC	=	gcc
 
 WAY	=	./src
 
-SRC	=	
+SRC	=	$(WAY)/main.c			\
+		$(WAY)/loop_game/loop_game.c	\
+		$(WAY)/graphique/generate_window.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
 CFLAGS	=	-W -Wall -Wextra -Werror -g3 -I./include
 
-LDFLAGS	=
+LDFLAGS	=	-lcsfml-system -lcsfml-window -lcsfml-graphics -lm
 
 WAY_LIB	=	./lib/my
 
