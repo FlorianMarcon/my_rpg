@@ -8,6 +8,6 @@
 #ifndef GAME_
 #define GAME_
 
-int	loop_game(void);
+int	loop_game(char *path);
 
 #endif

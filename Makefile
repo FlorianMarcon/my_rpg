@@ -12,6 +12,11 @@ WAY	=	./src
 SRC	=	$(WAY)/main.c			\
 		$(WAY)/loop_game/loop_game.c	\
 		$(WAY)/graphique/generate_window.c	\
+		$(WAY)/generate_list_map/fill_map.c		\
+		$(WAY)/generate_list_map/fill_matter.c		\
+		$(WAY)/generate_list_map/fill_setting.c		\
+		$(WAY)/generate_list_map/generate_map.c		\
+		$(WAY)/utilitaries/create_quad.c		\
 
 OBJ	=	$(SRC:.c=.o)
 
