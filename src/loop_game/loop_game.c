@@ -10,6 +10,7 @@
 #include "graphique.h"
 #include "map.h"
 #include "my_printf.h"
+#include "my.h"
 
 map_t	*generate_map(char *path);
 
@@ -32,7 +33,8 @@ void	display_map(map_t *map, window_t *win)
 int	loop_game(char *path)
 {
 	window_t *win = generate_window(1280, 800, 32);
-	map_t *map = generate_map(path);
+	linked_list_t *list = generate_list_map(path);
+	map_t *map = (map_t *)list->data;
 
 	if (win == NULL || map == NULL)
 		return (84);

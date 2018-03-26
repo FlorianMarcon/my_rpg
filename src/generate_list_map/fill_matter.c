@@ -11,31 +11,43 @@
 #include "get_next_line.h"
 #include <stdlib.h>
 
+sfRenderStates	*fill_one_matter(char *str)
+{
+	sfRenderStates *states;
+
+	if (str == NULL)
+		return (NULL);
+	if ((states = malloc(sizeof(*states))) == NULL) {
+		free (str);
+		return (NULL);
+	}
+	states->blendMode = sfBlendNone;
+	states->transform = sfTransform_Identity;
+	states->shader = NULL;
+	states->texture = sfTexture_createFromFile(str, NULL);
+	if (states->texture == NULL) {
+		free(states);
+		states = NULL;
+	}
+	return (states);
+}
 int	fill_matter(map_t *map, int fd)
 {
 	char *str = get_next_line(fd);
-	char *str_two = get_next_line(fd);
 
-	if (str == NULL || str_two == NULL)
+	if (str == NULL)
 		return (1);
-	map->state = malloc(sizeof(*(map->state)));
-	map->state_bottom = malloc(sizeof(*(map->state_bottom)));
-	if (map->state == NULL/* || map->state_bottom == NULL*/) {
-		free(str);
+	map->state_floor = fill_one_matter(str);
+	free(str);
+	if (map->state_floor == NULL)
 		return (1);
-	}
-	map->state->blendMode = sfBlendNone;
-	map->state_bottom->blendMode = sfBlendNone;
-	map->state->transform = sfTransform_Identity;
-	map->state_bottom->transform = sfTransform_Identity;
-	map->state->shader = NULL;
-	map->state_bottom->shader = NULL;
-	map->state->texture = sfTexture_createFromFile(str, NULL);
-	map->state_bottom->texture = sfTexture_createFromFile(str_two, NULL);
-	if (map->state->texture == NULL) {
-		free(str);
-		free(map->state);
+	str = get_next_line(fd);
+	map->state_bottom = fill_one_matter(str);
+	if (map->state_bottom == NULL) {
+		free(map->state_floor);
+		map->state_floor = NULL;
 		return (1);
 	}
+	free(str);
 	return (0);
 }

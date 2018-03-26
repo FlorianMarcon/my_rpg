@@ -17,7 +17,7 @@ int	fill_setting(map_t *map, int fd)
 
 	if (str == NULL)
 		return (1);
-	if ((tab = parsing_str(str, ' ')) == NULL || len_tab(tab) != 3) {
+	if ((tab = parsing_str(str, ' ' | '\t')) == NULL || len_tab(tab) != 3) {
 		free(str);
 		return (1);
 	}

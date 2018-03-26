@@ -16,7 +16,12 @@ SRC	=	$(WAY)/main.c			\
 		$(WAY)/generate_list_map/fill_matter.c		\
 		$(WAY)/generate_list_map/fill_setting.c		\
 		$(WAY)/generate_list_map/generate_map.c		\
+		$(WAY)/generate_list_map/generate_list_map.c		\
+		$(WAY)/generate_list_map/generate_sprite_map.c		\
 		$(WAY)/utilitaries/create_quad.c		\
+		$(WAY)/utilitaries/project_iso_point.c		\
+		$(WAY)/utilitaries/create_two_d_map.c		\
+		$(WAY)/utilitaries/create_line.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

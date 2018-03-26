@@ -13,9 +13,15 @@ SRC	=	$(WAY)/generate_list_map/fill_map.c		\
 		$(WAY)/generate_list_map/fill_matter.c		\
 		$(WAY)/generate_list_map/fill_setting.c		\
 		$(WAY)/generate_list_map/generate_map.c		\
+		$(WAY)/generate_list_map/generate_sprite_map.c		\
+		$(WAY)/generate_list_map/generate_list_map.c	\
 		$(WAY)/utilitaries/create_quad.c		\
+		$(WAY)/utilitaries/project_iso_point.c		\
+		$(WAY)/utilitaries/create_two_d_map.c		\
 
-SRC_UT	=
+SRC_UT	=	./generate_list_map/fill/tests_utils.c		\
+		./generate_list_map/fill/tests_utils_second.c		\
+		./generate_list_map/generate_list_map/tests_utils.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
