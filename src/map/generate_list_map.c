@@ -16,19 +16,20 @@ linked_list_t	*generate_list_map(char *path)
 	DIR *dir = opendir(path);
 	struct dirent *file;
 	linked_list_t *list = NULL;
-	char *name;
+	map_t *map;
 
 	if (dir == NULL)
 		return (NULL);
 	while ((file = readdir(dir)) != NULL) {
-		name = my_strcat(path, file->d_name);
-		if (list == NULL) {
-			list = create_list(generate_map(my_strcat(path, file->d_name)));
+		map = generate_map(my_strcat(path, file->d_name));
+		if (map == NULL) {
+		} else if (list == NULL) {
+			list = create_list(map);
 		} else {
-			create_node(list, file->d_name);
+			create_node(list, map);
 
 		}
-		free(name);
 	}
+	closedir(dir);
 	return (list);
 }

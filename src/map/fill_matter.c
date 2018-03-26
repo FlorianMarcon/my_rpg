@@ -18,7 +18,7 @@ sfRenderStates	*fill_one_matter(char *str)
 	if (str == NULL)
 		return (NULL);
 	if ((states = malloc(sizeof(*states))) == NULL) {
-		free (str);
+		free(str);
 		return (NULL);
 	}
 	states->blendMode = sfBlendNone;

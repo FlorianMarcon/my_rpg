@@ -10,6 +10,7 @@
 
 #include <SFML/Graphics.h>
 #include "my.h"
+#include "graphique.h"
 
 #define SCALING_X 45
 #define SCALING_Y 45
@@ -36,6 +37,7 @@ typedef struct map {
 	int y_center;
 }map_t;
 
+// generate_map
 int	fill_setting(map_t *map, int fd);
 
 int	fill_map(map_t *map, int fd);
@@ -62,5 +64,11 @@ void	generate_sprite_map(map_t *map);
 map_t	*generate_map(char *path);
 
 linked_list_t	*generate_list_map(char *path);
+
+// other
+
+void	display_map(map_t *map, window_t *win);
+
+map_t	*search_map(linked_list_t *list, int number);
 
 #endif

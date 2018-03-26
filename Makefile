@@ -12,12 +12,13 @@ WAY	=	./src
 SRC	=	$(WAY)/main.c			\
 		$(WAY)/loop_game/loop_game.c	\
 		$(WAY)/graphique/generate_window.c	\
-		$(WAY)/generate_list_map/fill_map.c		\
-		$(WAY)/generate_list_map/fill_matter.c		\
-		$(WAY)/generate_list_map/fill_setting.c		\
-		$(WAY)/generate_list_map/generate_map.c		\
-		$(WAY)/generate_list_map/generate_list_map.c		\
-		$(WAY)/generate_list_map/generate_sprite_map.c		\
+		$(WAY)/map/fill_map.c		\
+		$(WAY)/map/fill_matter.c		\
+		$(WAY)/map/fill_setting.c		\
+		$(WAY)/map/generate_map.c		\
+		$(WAY)/map/generate_list_map.c		\
+		$(WAY)/map/generate_sprite_map.c		\
+		$(WAY)/map/display_map.c		\
 		$(WAY)/utilitaries/create_quad.c		\
 		$(WAY)/utilitaries/project_iso_point.c		\
 		$(WAY)/utilitaries/create_two_d_map.c		\

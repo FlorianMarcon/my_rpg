@@ -9,19 +9,21 @@ CC	=	gcc
 
 WAY	=	../src
 
-SRC	=	$(WAY)/generate_list_map/fill_map.c		\
-		$(WAY)/generate_list_map/fill_matter.c		\
-		$(WAY)/generate_list_map/fill_setting.c		\
-		$(WAY)/generate_list_map/generate_map.c		\
-		$(WAY)/generate_list_map/generate_sprite_map.c		\
-		$(WAY)/generate_list_map/generate_list_map.c	\
+SRC	=	$(WAY)/map/fill_map.c			\
+		$(WAY)/map/fill_matter.c		\
+		$(WAY)/map/fill_setting.c		\
+		$(WAY)/map/generate_map.c		\
+		$(WAY)/map/generate_sprite_map.c	\
+		$(WAY)/map/generate_list_map.c		\
+		$(WAY)/map/search_map.c			\
 		$(WAY)/utilitaries/create_quad.c		\
 		$(WAY)/utilitaries/project_iso_point.c		\
 		$(WAY)/utilitaries/create_two_d_map.c		\
 
-SRC_UT	=	./generate_list_map/fill/tests_utils.c		\
-		./generate_list_map/fill/tests_utils_second.c		\
-		./generate_list_map/generate_list_map/tests_utils.c	\
+SRC_UT	=	./map/fill/tests_utils.c		\
+		./map/fill/tests_utils_second.c		\
+		./map/generate_list_map/tests_utils.c	\
+		./map/search_map/tests_utils.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

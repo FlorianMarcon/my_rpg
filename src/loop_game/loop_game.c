@@ -12,24 +12,6 @@
 #include "my_printf.h"
 #include "my.h"
 
-map_t	*generate_map(char *path);
-
-void	display_map(map_t *map, window_t *win)
-{
-	int i = 0;
-
-	while (map->arr_bottom[i] != NULL) {
-		sfRenderWindow_drawVertexArray(win->window, map->arr_bottom[i], map->state_bottom);
-		i++;
-	}
-	i = 0;
-	while (i != (map->width - 1) * (map->height - 1) && map->arr_vertex[i] != NULL) {
-		if (map->state->texture != NULL) {
-			sfRenderWindow_drawVertexArray(win->window, map->arr_vertex[i], map->state);
-		}
-		i++;
-	}
-}
 int	loop_game(char *path)
 {
 	window_t *win = generate_window(1280, 800, 32);

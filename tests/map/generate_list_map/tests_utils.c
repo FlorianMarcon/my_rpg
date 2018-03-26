@@ -21,3 +21,12 @@ Test(generate_list_map, test1)
 	}
 	cr_assert(i > 2);
 }
+Test(generate_list_map, test2)
+{
+	linked_list_t *list = generate_list_map("../map/");
+	map_t *map;
+
+	cr_assert_neq(list, NULL);
+	map = (map_t *)list->data;
+	cr_assert_neq(map, NULL);
+}
