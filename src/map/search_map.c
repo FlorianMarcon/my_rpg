@@ -13,9 +13,7 @@ map_t	*search_map(linked_list_t *list, int number)
 
 	while (list != NULL) {
 		map = (map_t *)list->data;
-		my_printf("aa\n");
 		if (map != NULL) {
-			my_printf("nb = %i\n", map->number);
 			if (map->number == number)
 				return (map);
 		}

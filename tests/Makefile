@@ -19,11 +19,13 @@ SRC	=	$(WAY)/map/fill_map.c			\
 		$(WAY)/utilitaries/create_quad.c		\
 		$(WAY)/utilitaries/project_iso_point.c		\
 		$(WAY)/utilitaries/create_two_d_map.c		\
+		$(WAY)/graphique/generate_sprite_from_file.c	\
 
 SRC_UT	=	./map/fill/tests_utils.c		\
 		./map/fill/tests_utils_second.c		\
 		./map/generate_list_map/tests_utils.c	\
 		./map/search_map/tests_utils.c	\
+		./graphique/generate_sprite_from_file/tests_utils.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

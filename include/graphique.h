@@ -18,4 +18,8 @@ typedef struct window {
 
 window_t	*generate_window(int width, int height, int bits_per_pixels);
 
+sfSprite	*generate_sprite_from_file(char *path);
+
+void	display_sprite(sfRenderWindow *win, sfSprite *spr, sfRenderStates *sta);
+
 #endif

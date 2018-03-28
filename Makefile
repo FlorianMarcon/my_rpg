@@ -12,17 +12,22 @@ WAY	=	./src
 SRC	=	$(WAY)/main.c			\
 		$(WAY)/loop_game/loop_game.c	\
 		$(WAY)/graphique/generate_window.c	\
+		$(WAY)/graphique/generate_sprite_from_file.c	\
+		$(WAY)/graphique/display_sprite.c	\
 		$(WAY)/map/fill_map.c		\
 		$(WAY)/map/fill_matter.c		\
 		$(WAY)/map/fill_setting.c		\
 		$(WAY)/map/generate_map.c		\
 		$(WAY)/map/generate_list_map.c		\
-		$(WAY)/map/generate_sprite_map.c		\
+		$(WAY)/map/generate_sprite_map.c	\
 		$(WAY)/map/display_map.c		\
+		$(WAY)/map/search_map.c			\
 		$(WAY)/utilitaries/create_quad.c		\
 		$(WAY)/utilitaries/project_iso_point.c		\
 		$(WAY)/utilitaries/create_two_d_map.c		\
 		$(WAY)/utilitaries/create_line.c		\
+		$(WAY)/utilitaries/initialisation_game.c	\
+		$(WAY)/utilitaries/display.c			\
 
 OBJ	=	$(SRC:.c=.o)
 
