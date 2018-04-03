@@ -17,11 +17,7 @@ int	loop_game(void)
 	if (game == NULL)
 		return (84);
 	while (sfRenderWindow_isOpen(game->win->window)) {
-		while (sfRenderWindow_pollEvent(game->win->window, &game->win->event))
-		{
-			if (game->win->event.type == sfEvtClosed)
-			sfRenderWindow_close(game->win->window);
-		}
+		event(game);
 		sfRenderWindow_clear(game->win->window, sfBlack);
 		display(game);
 		sfRenderWindow_display(game->win->window);

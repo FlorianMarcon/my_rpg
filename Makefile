@@ -22,6 +22,8 @@ SRC	=	$(WAY)/main.c			\
 		$(WAY)/map/generate_sprite_map.c	\
 		$(WAY)/map/display_map.c		\
 		$(WAY)/map/search_map.c			\
+		$(WAY)/map/change_map.c			\
+		$(WAY)/event/event.c			\
 		$(WAY)/utilitaries/create_quad.c		\
 		$(WAY)/utilitaries/project_iso_point.c		\
 		$(WAY)/utilitaries/create_two_d_map.c		\

@@ -23,8 +23,8 @@ typedef struct map {
 	int **map;
 	sfVector2f **map_iso;
 
-	sfRenderStates *state;
 	sfRenderStates *state_floor;
+	sfRenderStates *state_teleport;
 	sfRenderStates *state_bottom;
 	sfVertexArray **arr_vertex;
 	sfVertexArray **arr_bottom;

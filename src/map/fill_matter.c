@@ -35,6 +35,7 @@ int	fill_matter(map_t *map, int fd)
 {
 	char *str = get_next_line(fd);
 
+	my_printf("%s\n", str);
 	if (str == NULL)
 		return (1);
 	map->state_floor = fill_one_matter(str);

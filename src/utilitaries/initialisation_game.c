@@ -8,6 +8,7 @@
 #include "graphique.h"
 #include "game.h"
 #include "map.h"
+#include <stdbool.h>
 
 game_t	*initialisation_game(void)
 {
@@ -21,7 +22,9 @@ game_t	*initialisation_game(void)
 		free(game);
 		return (NULL);
 	}
-	game->map = search_map(game->list_map, 1);
+	game->index = 1;
+	game->map = search_map(game->list_map, game->index);
+	game->change_map = false;
 	game->background = generate_sprite_from_file(BACKGROUND);
 	return (game);
 }

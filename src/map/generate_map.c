@@ -10,6 +10,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "game.h"
 #include "map.h"
 #include "my_printf.h"
 
@@ -21,7 +22,7 @@ int	fill_all(map_t *map, int fd)
 	if (fill_matter(map, fd)) {
 		return (1);
 	} else if (fill_map(map, fd)) {
-		free(map->state);
+		//free(map->state);
 		return (1);
 	} else
 		return (0);
