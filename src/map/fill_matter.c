@@ -23,8 +23,8 @@ sfRenderStates	*fill_one_matter(char *str)
 	}
 	states->blendMode = sfBlendNone;
 	states->transform = sfTransform_Identity;
-	states->shader //= sfShader_createFromFile();
-	states->texture; = sfTexture_createFromFile(str, NULL);
+	states->shader = NULL;
+	states->texture = sfTexture_createFromFile(str, NULL);
 	if (states->texture == NULL) {
 		free(states);
 		states = NULL;
