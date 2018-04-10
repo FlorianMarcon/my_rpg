@@ -6,12 +6,13 @@
 
 SRC	=	src/init_menu/create_men.c	\
 		src/init_menu/create_men2.c	\
+		src/init_menu/create_set.c	\
 		src/main.c			\
 
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	my_world
+NAME	=	menu
 
 CFLAGS	=	-W -Wall -Wextra  -I./include -g3
 

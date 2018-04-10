@@ -17,6 +17,12 @@
 #ifndef HEADER_MY_
 #define HEADER_MY_
 
+typedef struct set {
+	sfSprite *sprite;
+	sfTexture *texture;
+	sfVector2f pos;
+} set_t;
+
 typedef struct lock {
 	int lock;
 } lock_t;
@@ -51,9 +57,11 @@ typedef struct menu {
 
 menu_t	*init_menu(void);
 
-void	set_pos_men(menu_t *men);
+set_t	*init_set(void);
 
-void	draw_menu(menu_t *men, sfRenderWindow *window, lock_t *lock);
+void	set_pos_men(menu_t *men, set_t *set);
+
+void	draw_menu(menu_t *men, sfRenderWindow *window, lock_t *lock, set_t *set);
 
 void	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock);
 

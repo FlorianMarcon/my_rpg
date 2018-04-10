@@ -9,6 +9,7 @@
 
 int	main(void)
 {
+	set_t *set = init_set();
 	lock_t *ptr = malloc(sizeof(lock_t));
 	menu_t *men = init_menu();
 	sfVideoMode mode = {1200, 1000, 32};
@@ -17,7 +18,7 @@ int	main(void)
 	sfVector2i pos1;
 
 	ptr->lock = 0;
-	set_text_menu(men);
+	set_text_menu(men, set);
 	while (sfRenderWindow_isOpen(window)) {
 		pos1 = sfMouse_getPositionRenderWindow(window);
 		while(sfRenderWindow_pollEvent(window, &event)){
@@ -25,9 +26,9 @@ int	main(void)
 				sfRenderWindow_close(window);
 		}
 		men->pos_sts.x -= 0.1;
-		set_pos_men(men);
+		set_pos_men(men, set);
 		sfRenderWindow_clear(window, sfWhite);
-		draw_menu(men, window, ptr);
+		draw_menu(men, window, ptr, set);
 		anim_menu(men, window, pos1, ptr);
 		sfRenderWindow_display(window);
 	}

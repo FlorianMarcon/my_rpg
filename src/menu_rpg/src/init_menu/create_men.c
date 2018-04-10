@@ -33,20 +33,20 @@ menu_t	*init_menu(void)
 	elem->sprite5 = sfSprite_create();
 	elem->sprite6 = sfSprite_create();
 	elem->sprite7 = sfSprite_create();
-	elem->texture = sfTexture_createFromFile("src/play_on.png", NULL); 
-	elem->texture1 = sfTexture_createFromFile("src/play_off.png", NULL);
-	elem->texture2 = sfTexture_createFromFile("src/quit_on.png", NULL);
-	elem->texture3 = sfTexture_createFromFile("src/quit_off.png", NULL);
-	elem->texture4 = sfTexture_createFromFile("src/setting_on.png", NULL);
-	elem->texture5 = sfTexture_createFromFile("src/setting_off.png", NULL);
-	elem->texture6 = sfTexture_createFromFile("src/bckl.png", NULL);
-	elem->texture7 = sfTexture_createFromFile("src/stars.png", NULL);
+	elem->texture = sfTexture_createFromFile("src/png_menu/play_on.png", NULL); 
+	elem->texture1 = sfTexture_createFromFile("src/png_menu/play_off.png", NULL);
+	elem->texture2 = sfTexture_createFromFile("src/png_menu/quit_on.png", NULL);
+	elem->texture3 = sfTexture_createFromFile("src/png_menu/quit_off.png", NULL);
+	elem->texture4 = sfTexture_createFromFile("src/png_menu/setting_on.png", NULL);
+	elem->texture5 = sfTexture_createFromFile("src/png_menu/setting_off.png", NULL);
+	elem->texture6 = sfTexture_createFromFile("src/png_menu/bckl.png", NULL);
+	elem->texture7 = sfTexture_createFromFile("src/png_menu/stars.png", NULL);
 	elem = suite_init_menu(elem);
 	
 	return (elem);
 }
 
-void	set_text_menu(menu_t *men)
+void	set_text_menu(menu_t *men, set_t *set)
 {
 	sfSprite_setTexture(men->sprite, men->texture, sfTrue);
 	sfSprite_setTexture(men->sprite1, men->texture1, sfTrue);
@@ -56,9 +56,10 @@ void	set_text_menu(menu_t *men)
 	sfSprite_setTexture(men->sprite5, men->texture5, sfTrue);
 	sfSprite_setTexture(men->sprite6, men->texture6, sfTrue);
 	sfSprite_setTexture(men->sprite7, men->texture7, sfTrue);
+	sfSprite_setTexture(set->sprite, set->texture, sfTrue);
 }
 
-void	set_pos_men(menu_t *men)
+void	set_pos_men(menu_t *men, set_t *set)
 {
 	sfSprite_setPosition(men->sprite, men->pos_but);
 	sfSprite_setPosition(men->sprite1, men->pos_but1);
@@ -68,4 +69,5 @@ void	set_pos_men(menu_t *men)
 	sfSprite_setPosition(men->sprite5, men->pos_but5);
 	sfSprite_setPosition(men->sprite6, men->pos_bck);
 	sfSprite_setPosition(men->sprite7, men->pos_sts);
+	sfSprite_setPosition(set->sprite, set->pos);
 }
