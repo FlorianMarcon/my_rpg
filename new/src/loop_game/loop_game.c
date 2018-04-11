@@ -16,13 +16,15 @@ int	loop_game(void)
 
 	if (game == NULL)
 		return (84);
-	game->map = generate_map_graph(game->list_map->data);
-	while (sfRenderWindow_isOpen(game->win->window)) {
+	game->map = search_map(game->list_map, game->index);
+	game->map_graph = generate_map_graph(game->map);
+	while (sfRenderWindow_isOpen(game->win->window) && game->map_graph != NULL) {
 		event(game);
 		sfRenderWindow_clear(game->win->window, sfBlack);
 		display(game);
 		sfRenderWindow_display(game->win->window);
 	}
+	destroy_map_graph(game->map_graph);
 	free(game->win);
 	free(game);
 	return (0);

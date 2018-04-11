@@ -13,5 +13,5 @@
 void	display(game_t *game)
 {
 	display_sprite(game->win->window, game->background, NULL);
-	display_map(game->map, game->win);
+	display_map(game->map_graph, game->win, game->draw_line);
 }

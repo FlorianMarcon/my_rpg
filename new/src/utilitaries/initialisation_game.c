@@ -23,9 +23,9 @@ game_t	*initialisation_game(void)
 		free(game);
 		return (NULL);
 	}
-//	game->index = 1;
+	game->index = 1;
 //	game->map = search_map(game->list_map, game->index);
-//	game->change_map = false;
+	game->draw_line = false;
 	game->background = generate_sprite_from_file(BACKGROUND);
 	return (game);
 }

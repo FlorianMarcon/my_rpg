@@ -15,6 +15,9 @@ SRC	=	$(WAY)/main.c			\
 		$(WAY)/map/generate_map.c		\
 		$(WAY)/map/generate_list_map.c		\
 		$(WAY)/map/generate_map_graph.c		\
+		$(WAY)/map/destroy.c		\
+		$(WAY)/map/search_map.c		\
+		$(WAY)/utilitaries/change_map.c		\
 		$(WAY)/utilitaries/initialisation_game.c	\
 		$(WAY)/utilitaries/is_extension.c	\
 		$(WAY)/utilitaries/create_two_d_map.c	\
@@ -26,6 +29,7 @@ SRC	=	$(WAY)/main.c			\
 		$(WAY)/graphique/generate_sprite_from_file.c	\
 		$(WAY)/graphique/display_sprite.c	\
 		$(WAY)/graphique/generate_state.c	\
+		$(WAY)/graphique/destroy_vertex_array.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

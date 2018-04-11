@@ -13,16 +13,17 @@
 #define BACKGROUND "./matter/background.jpg"
 
 #include <stdbool.h>
-#include "map.h"
 #include "graphique.h"
 #include "my.h"
+#include "map.h"
 
 typedef struct game_s {
 
 	// map
 	linked_list_t *list_map;
-	map_graph_t *map;
-	bool change_map;
+	map_t *map;
+	map_graph_t *map_graph;
+	bool draw_line;
 
 //	map_t *map;
 	int index;
@@ -47,8 +48,6 @@ void	display(game_t *game);
 
 void	event(game_t *game);
 
-void	change_map(game_t *game);
-
 //utilitaries
 
 int	is_extension(char *str, char *ext);
@@ -63,5 +62,7 @@ sfVertexArray *create_quad(sfVector2f point1, sfVector2f point2,\
 sfVertexArray *create_quad_bottom_map(sfVector2f point1, sfVector2f point2);
 
 sfVertexArray   *create_line(sfVector2f point1, sfVector2f point2, sfColor color);
+
+int	change_map(game_t *game, int index);
 
 #endif

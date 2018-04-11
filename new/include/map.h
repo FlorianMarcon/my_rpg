@@ -9,6 +9,7 @@
 #define MAP_
 
 #include <SFML/Graphics.h>
+#include <stdbool.h>
 #include "my.h"
 #include "graphique.h"
 
@@ -81,6 +82,10 @@ linked_list_t	*generate_list_map(char *path);
 map_graph_t	*generate_map_graph(map_t *map);
 
 // other
-void	display_map(map_graph_t *map, window_t *win);
+void	display_map(map_graph_t *map, window_t *win, bool line);
+
+void	destroy_map_graph(map_graph_t *map);
+
+map_t	*search_map(linked_list_t *list_map, int index);
 
 #endif
