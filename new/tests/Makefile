@@ -12,6 +12,10 @@ WAY	=	../src
 SRC	=	$(WAY)/utilitaries/is_extension.c	\
 		$(WAY)/map/generate_map.c		\
 		$(WAY)/map/generate_list_map.c		\
+		$(WAY)/map/generate_map_graph.c		\
+		$(WAY)/utilitaries/create_two_d_map.c	\
+		$(WAY)/utilitaries/create_quad.c	\
+		$(WAY)/utilitaries/project_iso_point.c	\
 #		$(WAY)/map/generate_object.c		\
 
 SRC_UT	=	./utilitaries/is_extension/tests_utils.c	\

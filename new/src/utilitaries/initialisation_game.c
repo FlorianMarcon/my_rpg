@@ -18,7 +18,7 @@ game_t	*initialisation_game(void)
 		return (NULL);
 	game->win = generate_window(1280, 800, 32);
 //	game->list_texture = generate_list_object(PATH_DIR_OBJ);
-//	game->list_map = generate_list_map(game->list_texture, PATH_DIR_MAP);
+	game->list_map = generate_list_map(PATH_DIR_MAP);
 	if (game->win == NULL) {
 		free(game);
 		return (NULL);
@@ -26,6 +26,6 @@ game_t	*initialisation_game(void)
 //	game->index = 1;
 //	game->map = search_map(game->list_map, game->index);
 //	game->change_map = false;
-//	game->background = generate_sprite_from_file(BACKGROUND);
+	game->background = generate_sprite_from_file(BACKGROUND);
 	return (game);
 }

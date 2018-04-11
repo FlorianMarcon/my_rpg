@@ -25,7 +25,9 @@ int	fill_setting(int fd, map_t *map)
 		if (len_tab(tab) == 3) {
 			res = 0;
 			map->width = my_getnbr(tab[0]);
+			map->x_center = map->width / 2;
 			map->height = my_getnbr(tab[1]);
+			map->y_center = map->height / 2;
 			map->number = my_getnbr(tab[2]);
 		}
 		free(str);

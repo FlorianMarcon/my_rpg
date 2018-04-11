@@ -29,14 +29,6 @@ typedef struct sprite_s {
 
 typedef struct map {
 	int **map;
-//	sfVector2f **map_iso;
-
-//	sfRenderStates *state_floor;
-//	sfRenderStates *state_teleport;
-//	sfRenderStates *state_bottom;
-//	sfVertexArray **arr_vertex;
-//	sfVertexArray **arr_bottom;
-//	sfVertexArray **arr_line;
 
 	int width;
 	int height;
@@ -46,11 +38,23 @@ typedef struct map {
 	char *path_sprite_teleport;
 	char *path_sprite_bottom;
 
-//	int x_center;
-//	int y_center;
+	int x_center;
+	int y_center;
 
 //	linked_list_t *list_object;
 }map_t;
+
+typedef struct map_graph_s {
+	map_t *map;
+	sfVector2f **iso;
+
+	sfVertexArray **arr_floor;
+	sfRenderStates *state_floor;
+	sfVertexArray **arr_bottom;
+	sfRenderStates *state_bottom;
+	sfVertexArray **arr_line;
+
+}map_graph_t;
 
 typedef struct object_s {
 	char *name;
@@ -73,5 +77,10 @@ int	fill_map(int fd, map_t *map);
 int	fill_path_sprite(int fd, map_t *map);
 
 linked_list_t	*generate_list_map(char *path);
+
+map_graph_t	*generate_map_graph(map_t *map);
+
+// other
+void	display_map(map_graph_t *map, window_t *win);
 
 #endif
