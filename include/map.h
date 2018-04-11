@@ -19,6 +19,14 @@
 #define TRANSLA_X 5
 #define TRANSLA_Y -1
 
+typedef struct sprite_s {
+	sfTexture *texture;
+	sfSprite *sprite;
+	sfIntRect *rect;
+	sfVector2u size;
+	int max_rect;
+}sprite_t;
+
 typedef struct map {
 	int **map;
 	sfVector2f **map_iso;
@@ -35,7 +43,19 @@ typedef struct map {
 	int number;
 	int x_center;
 	int y_center;
+
+	linked_list_t *list_object;
 }map_t;
+
+typedef struct object_s {
+	char *name;
+
+	sfTexture *texture;
+	sfIntRect *rect;
+	int max_rect;
+
+	int number;
+}object_t;
 
 // generate_map
 int	fill_setting(map_t *map, int fd);
@@ -48,8 +68,6 @@ sfRenderStates	*fill_one_matter(char *str);
 
 void	generate_sprite_map(map_t *map);
 
-map_t	*generate_map(char *path);
-
 sfVector2f	project_iso_point(int x, int y, map_t *map);
 
 sfVector2f	**create_two_d_map(map_t *map);
@@ -61,14 +79,24 @@ sfVertexArray *create_quad_bottom_map(sfVector2f point1, sfVector2f point2);
 
 void	generate_sprite_map(map_t *map);
 
-map_t	*generate_map(char *path);
+map_t	*generate_map(linked_list_t *text, char *path);
 
-linked_list_t	*generate_list_map(char *path);
+linked_list_t	*generate_list_map(linked_list_t *texture, char *path);
+
+void	generate_sprite_line_map(map_t *map);
+
+// generate_object
+
+object_t	*generate_object(char *path);
+
+linked_list_t	*generate_list_object(char *path);
 
 // other
 
 void	display_map(map_t *map, window_t *win);
 
 map_t	*search_map(linked_list_t *list, int number);
+
+sfVertexArray	*create_line(sfVector2f point1, sfVector2f point2, sfColor color);
 
 #endif

@@ -20,6 +20,5 @@ sfSprite	*generate_sprite_from_file(char *path)
 		return (NULL);
 	}
 	sfSprite_setTexture(sprite, text, sfTrue);
-	//sfTexture_destroy(text);
 	return (sprite);
 }

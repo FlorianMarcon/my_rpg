@@ -23,4 +23,14 @@ void	display_map(map_t *map, window_t *win)
 		}
 		i++;
 	}
+
+	linked_list_t *list = map->list_object;
+	sprite_t *sprite;
+
+	while (list != NULL) {
+		sprite = (sprite_t *)list->data;
+		if (sprite != NULL)
+			sfRenderWindow_drawSprite(win->window, sprite->sprite, NULL);
+		list = list->next;
+	}
 }

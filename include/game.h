@@ -8,7 +8,8 @@
 #ifndef GAME_
 #define GAME_
 
-#define PATH "./map/"
+#define PATH_DIR_MAP "./map/"
+#define PATH_DIR_OBJ "./object/"
 #define BACKGROUND "./matter/background.jpg"
 
 #include <stdbool.h>
@@ -21,6 +22,7 @@ typedef struct game_s {
 	// map
 	linked_list_t *list_map;
 	bool change_map;
+
 	map_t *map;
 	int index;
 
@@ -28,6 +30,9 @@ typedef struct game_s {
 	window_t *win;
 	sfSprite *background;
 
+	//object
+
+	linked_list_t *list_texture;
 	// joueur
 //	sfvector2i pos;
 

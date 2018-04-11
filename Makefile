@@ -23,6 +23,8 @@ SRC	=	$(WAY)/main.c			\
 		$(WAY)/map/display_map.c		\
 		$(WAY)/map/search_map.c			\
 		$(WAY)/map/change_map.c			\
+		$(WAY)/map/generate_object.c		\
+		$(WAY)/map/generate_list_object.c	\
 		$(WAY)/event/event.c			\
 		$(WAY)/utilitaries/create_quad.c		\
 		$(WAY)/utilitaries/project_iso_point.c		\
