@@ -9,25 +9,19 @@ CC	=	gcc
 
 WAY	=	../src
 
-SRC	=	$(WAY)/map/fill_map.c			\
-		$(WAY)/map/fill_matter.c		\
-		$(WAY)/map/fill_setting.c		\
+SRC	=	$(WAY)/utilitaries/is_extension.c	\
 		$(WAY)/map/generate_map.c		\
-		$(WAY)/map/generate_sprite_map.c	\
 		$(WAY)/map/generate_list_map.c		\
-		$(WAY)/map/generate_object.c		\
-		$(WAY)/map/search_map.c			\
-		$(WAY)/utilitaries/create_quad.c		\
-		$(WAY)/utilitaries/project_iso_point.c		\
-		$(WAY)/utilitaries/create_two_d_map.c		\
-		$(WAY)/graphique/generate_sprite_from_file.c	\
+		$(WAY)/map/generate_map_graph.c		\
+		$(WAY)/utilitaries/create_two_d_map.c	\
+		$(WAY)/utilitaries/create_quad.c	\
+		$(WAY)/utilitaries/project_iso_point.c	\
+#		$(WAY)/map/generate_object.c		\
 
-SRC_UT	=	./map/fill/tests_utils.c		\
-		./map/fill/tests_utils_second.c		\
+SRC_UT	=	./utilitaries/is_extension/tests_utils.c	\
+		./map/generate_map/tests_utils.c	\
 		./map/generate_list_map/tests_utils.c	\
-		./map/search_map/tests_utils.c		\
-		./map/generate_object/tests_utils.c	\
-		./graphique/generate_sprite_from_file/tests_utils.c	\
+#		./map/generate_object/tests_utils.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

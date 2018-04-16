@@ -5,16 +5,17 @@
 ** change_map
 */
 
-#include <stdbool.h>
+#include "map.h"
 #include "game.h"
 
-void	change_map(game_t *game)
+int	change_map(game_t *game, int index)
 {
-//	map_t *map = game->map;
+	map_t *map = search_map(game->list_map, index);
 
-//	(void)game;
-	game->index++;
-	game->map = search_map(game->list_map, game->index);
-	my_printf("change\n");
-	game->change_map = false;
+	if (map == NULL)
+		return (1);
+	destroy_map_graph(game->map_graph);
+	game->map = map;
+	game->map_graph = generate_map_graph(game->map);
+	return (0);
 }

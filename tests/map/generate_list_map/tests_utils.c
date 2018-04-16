@@ -1,32 +1,19 @@
 /*
 ** EPITECH PROJECT, 2017
-** tests_utils
+** generate_list_map
 ** File description:
-** tests_utils
+** generate_list_map
 */
 
 #include <criterion/criterion.h>
-#include "map.h"
 #include "my.h"
+#include "map.h"
 
 Test(generate_list_map, test1)
 {
-	linked_list_t *list = generate_list_map("../map/");
-	int i = 0;
+	linked_list_t *list = generate_list_map("./data/");
 
 	cr_assert_neq(list, NULL);
-	while (list != NULL) {
-		list = list->next;
-		i++;
-	}
-	cr_assert(i > 2);
-}
-Test(generate_list_map, test2)
-{
-	linked_list_t *list = generate_list_map("../map/");
-	map_t *map;
+	cr_assert_eq(list->next, NULL);
 
-	cr_assert_neq(list, NULL);
-	map = (map_t *)list->data;
-	cr_assert_neq(map, NULL);
 }

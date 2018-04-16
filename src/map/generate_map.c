@@ -8,98 +8,103 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include "game.h"
+#include "my.h"
 #include "map.h"
-#include "my_printf.h"
 
-sprite_t	*generate_sprite_from_object(object_t *obj, sfVector2f pos)
+int	fill_setting(int fd, map_t *map)
 {
-	sprite_t *sprite = malloc(sizeof(*sprite));
+	char *str = get_next_line(fd);
+	char **tab;
+	int res = 1;
 
-	sprite->texture = sfTexture_copy(obj->texture);
-	sprite->sprite = sfSprite_create();
-	sfSprite_setTexture(sprite->sprite, sprite->texture, sfTrue);
-	sprite->rect = malloc(sizeof(*sprite->rect));
-	sprite->rect->width = obj->rect->width;
-	sprite->rect->height = obj->rect->height;
-	sprite->rect->left = obj->rect->left;
-	sprite->rect->top = obj->rect->top;
-	sprite->max_rect = obj->max_rect;
-	sprite->size = sfTexture_getSize(sprite->texture);
-	pos.y = pos.y - sprite->size.y + SCALING_Y;
-	pos.x = pos.x - (SCALING_X / 2);
-	sfSprite_setPosition(sprite->sprite, pos);
-	return (sprite);
-}
-
-object_t	*search_object(linked_list_t *list, int nb)
-{
-	object_t *obj;
-
-	while (list != NULL) {
-		obj = (object_t *)list->data;
-		if (obj != NULL && obj->number == nb)
-			return (obj);
-		list = list->next;
+	if (str == NULL) {
+	} else if ((tab = parsing_str(str, ' ' | '\t')) == NULL) {
+		free(str);
+	} else {
+		if (len_tab(tab) == 3) {
+			res = 0;
+			map->width = my_getnbr(tab[0]);
+			map->x_center = map->width / 2;
+			map->height = my_getnbr(tab[1]);
+			map->y_center = map->height / 2;
+			map->number = my_getnbr(tab[2]);
+		}
+		free(str);
+		free(tab);
 	}
-	return (NULL);
+	return (res);
 }
-void	generate_sprite_map_object(linked_list_t *text, map_t *map)
+int	fill_path_sprite(int fd, map_t *map)
 {
-	linked_list_t *list = NULL;
-	object_t *obj;
-	sprite_t *sprite = NULL;
+	char *str;
 
-	for (int x = 0; x != map->width; x++) {
-		for (int y = 0; y != map->height; y++) {
-			if ((obj = search_object(text, map->map[y][x])) != NULL)
-				sprite = generate_sprite_from_object(obj, (map->map_iso[y][x]));
-			if (list == NULL && sprite != NULL)
-				list = create_list(sprite);
-			if (list != NULL && sprite != NULL)
-				create_node(list, sprite);
-			sprite = NULL;
+	if ((str = get_next_line(fd)) == NULL)
+		return (1);
+	map->path_sprite_floor = str;
+	if ((str = get_next_line(fd)) == NULL) {
+		free(map->path_sprite_floor);
+		return (1);
+	}
+	map->path_sprite_teleport = str;
+	if ((str = get_next_line(fd)) == NULL) {
+		free(map->path_sprite_floor);
+		free(map->path_sprite_teleport);
+		return (1);
+	}
+	map->path_sprite_bottom = str;
+	return (0);
+}
+
+int     fill_map(int fd, map_t *map)
+{
+	char *str;
+	char **tab;
+	int **arr_map = malloc(sizeof(*(map->map)) * (map->height));
+
+	if (arr_map == NULL)
+		return (1);
+	for (int y = 0; y != map->height; y++) {
+		str = get_next_line(fd);
+		if (str == NULL) {
+			free(arr_map);
+			return (1);
+		} else if ((arr_map[y] = malloc(sizeof(*(arr_map[y])) * (map->width))) == NULL) {
+			free(str);
+			free(arr_map);
+			return (1);
+		} else {
+			tab = parsing_str(str, ' ');
+			for (int x = 0; x != map->width && tab[x] != NULL; x++)
+				arr_map[y][x] = my_getnbr(tab[x]);
+			free(tab);
 		}
 	}
-	map->list_object = list;
+	map->map = arr_map;
+	return (0);
 }
 
-int	fill_all(map_t *map, int fd)
-{
-	if (fill_setting(map, fd)) {
-		return (1);
-	}
-	if (fill_matter(map, fd)) {
-		return (1);
-	} else if (fill_map(map, fd)) {
-		//free(map->state);
-		return (1);
-	} else
-		return (0);
-}
 
-map_t	*generate_map(linked_list_t *text, char *path)
+map_t	*generate_map(char *path)
 {
-	(void)text;
-	map_t *map;
 	int fd = open(path, O_RDONLY);
+	map_t *map;
+	int res = 0;
 
 	if (fd == -1)
 		return (NULL);
-	if ((map = malloc(sizeof(*map))) == NULL) {
+	else if ((map = malloc(sizeof(*map))) == NULL) {
 		close(fd);
-		return (NULL);
-	} else if (fill_all(map, fd)) {
-		free(map);
-		close(fd);
-		return (NULL);
 	} else {
-		close(fd);
-		generate_sprite_map(map);
-		generate_sprite_map_object(text, map);
-//		generate_sprite_line_map(map);
-		return (map);
+		res += fill_setting(fd, map);
+		res += fill_path_sprite(fd, map);
+		res += fill_map(fd, map);
+		if (res != 0) {
+			free(map);
+			map = NULL;
+		} else
+			map->iso = create_two_d_map(map);
 	}
+	return (map);
 }

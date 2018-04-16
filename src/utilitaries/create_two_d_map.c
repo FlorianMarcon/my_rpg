@@ -8,6 +8,7 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 #include "map.h"
+#include "game.h"
 
 sfVector2f	**create_two_d_map(map_t *map)
 {

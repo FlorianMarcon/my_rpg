@@ -9,6 +9,7 @@
 #define MAP_
 
 #include <SFML/Graphics.h>
+#include <stdbool.h>
 #include "my.h"
 #include "graphique.h"
 
@@ -20,83 +21,87 @@
 #define TRANSLA_Y -1
 
 typedef struct sprite_s {
+	int x;
+	int y;
 	sfTexture *texture;
 	sfSprite *sprite;
+
 	sfIntRect *rect;
+
 	sfVector2u size;
+
 	int max_rect;
 }sprite_t;
 
 typedef struct map {
 	int **map;
-	sfVector2f **map_iso;
-
-	sfRenderStates *state_floor;
-	sfRenderStates *state_teleport;
-	sfRenderStates *state_bottom;
-	sfVertexArray **arr_vertex;
-	sfVertexArray **arr_bottom;
-	sfVertexArray **arr_line;
+	sfVector2f **iso;
 
 	int width;
 	int height;
 	int number;
+
+	char *path_sprite_floor;
+	char *path_sprite_teleport;
+	char *path_sprite_bottom;
+
 	int x_center;
 	int y_center;
 
-	linked_list_t *list_object;
 }map_t;
+
+typedef struct map_graph_s {
+	map_t *map;
+	sfVector2f **iso;
+
+	sfVertexArray **arr_floor;
+	sfRenderStates *state_floor;
+	sfRenderStates *state_telep;
+	sfVertexArray **arr_bottom;
+	sfRenderStates *state_bottom;
+	sfVertexArray **arr_line;
+
+	linked_list_t *list_obj;
+}map_graph_t;
 
 typedef struct object_s {
 	char *name;
 
 	sfTexture *texture;
-	sfIntRect *rect;
+	sfIntRect rect;
+	sfVector2u size;
 	int max_rect;
 
 	int number;
 }object_t;
 
 // generate_map
-int	fill_setting(map_t *map, int fd);
 
-int	fill_map(map_t *map, int fd);
+map_t	*generate_map(char *path);
 
-int	fill_matter(map_t *map, int fd);
+int	fill_setting(int fd, map_t *map);
 
-sfRenderStates	*fill_one_matter(char *str);
+int	fill_map(int fd, map_t *map);
 
-void	generate_sprite_map(map_t *map);
+int	fill_path_sprite(int fd, map_t *map);
 
-sfVector2f	project_iso_point(int x, int y, map_t *map);
+linked_list_t	*generate_list_map(char *path);
 
-sfVector2f	**create_two_d_map(map_t *map);
+// generate object
 
-sfVertexArray *create_quad(sfVector2f point1, sfVector2f point2,\
-					sfVector2f point3, sfVector2f point4);
-
-sfVertexArray *create_quad_bottom_map(sfVector2f point1, sfVector2f point2);
-
-void	generate_sprite_map(map_t *map);
-
-map_t	*generate_map(linked_list_t *text, char *path);
-
-linked_list_t	*generate_list_map(linked_list_t *texture, char *path);
-
-void	generate_sprite_line_map(map_t *map);
-
-// generate_object
-
-object_t	*generate_object(char *path);
+object_t	*search_object(linked_list_t *list_obj, int index);
 
 linked_list_t	*generate_list_object(char *path);
 
+object_t	*generate_object(char *file);
+
+linked_list_t	*generate_list_sprite(map_t *map, linked_list_t *list_texture);
+
 // other
+void	display_map(map_graph_t *map, window_t *win, bool line);
 
-void	display_map(map_t *map, window_t *win);
+void	destroy_map_graph(map_graph_t *map);
 
-map_t	*search_map(linked_list_t *list, int number);
-
-sfVertexArray	*create_line(sfVector2f point1, sfVector2f point2, sfColor color);
+map_t	*search_map(linked_list_t *list_map, int index);
 
 #endif

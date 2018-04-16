@@ -7,17 +7,15 @@
 
 #include "map.h"
 
-map_t	*search_map(linked_list_t *list, int number)
+map_t	*search_map(linked_list_t *list_map, int index)
 {
-	map_t *map = NULL;
+	map_t *map;
 
-	while (list != NULL) {
-		map = (map_t *)list->data;
-		if (map != NULL) {
-			if (map->number == number)
-				return (map);
-		}
-		list = list->next;
+	while (list_map != NULL) {
+		map = (map_t *)list_map->data;
+		if (map != NULL && map->number == index)
+			return (map);
+		list_map = list_map->next;
 	}
 	return (NULL);
 }

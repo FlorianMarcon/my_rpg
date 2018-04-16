@@ -22,4 +22,8 @@ sfSprite	*generate_sprite_from_file(char *path);
 
 void	display_sprite(sfRenderWindow *win, sfSprite *spr, sfRenderStates *sta);
 
+sfRenderStates 	*generate_state(char *str, char *shader);
+
+void	destroy_vertex_array(sfVertexArray **arr);
+
 #endif
