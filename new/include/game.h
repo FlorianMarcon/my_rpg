@@ -34,7 +34,7 @@ typedef struct game_s {
 
 	//object
 
-	//linked_list_t *list_texture;
+	linked_list_t *list_obj;
 	// joueur
 //	sfvector2i pos;
 
@@ -64,5 +64,7 @@ sfVertexArray *create_quad_bottom_map(sfVector2f point1, sfVector2f point2);
 sfVertexArray   *create_line(sfVector2f point1, sfVector2f point2, sfColor color);
 
 int	change_map(game_t *game, int index);
+
+map_graph_t	*generate_map_graph(map_t *map, game_t *game);
 
 #endif

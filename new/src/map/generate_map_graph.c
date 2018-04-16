@@ -68,20 +68,23 @@ sfVertexArray	**generate_sprite_line(map_graph_t *map)
 	return (arr_line);
 }
 
-map_graph_t	*generate_map_graph(map_t *map)
+map_graph_t	*generate_map_graph(map_t *map, game_t *game)
 {
 	map_graph_t *graph;
 
+	(void)game;
 	if (map == NULL)
 		return (NULL);
 	if ((graph = malloc(sizeof(*graph))) == NULL)
 		return (NULL);
 	graph->map = map;
 	graph->iso = create_two_d_map(map);
+	map->iso = create_two_d_map(map);
 	graph->arr_floor = generate_sprite_floor(graph);
 	graph->state_floor = generate_state(map->path_sprite_floor, NULL);
 	graph->arr_bottom = generate_sprite_bottom(graph);
 	graph->state_bottom = generate_state(map->path_sprite_bottom, NULL);
 	graph->arr_line = generate_sprite_line(graph);
+	graph->list_obj = generate_list_sprite(map, game->list_obj);
 	return (graph);
 }

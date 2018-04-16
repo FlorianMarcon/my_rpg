@@ -16,6 +16,6 @@ int	change_map(game_t *game, int index)
 		return (1);
 	destroy_map_graph(game->map_graph);
 	game->map = map;
-	game->map_graph = generate_map_graph(game->map);
+	game->map_graph = generate_map_graph(game->map, game);
 	return (0);
 }

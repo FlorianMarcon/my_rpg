@@ -17,7 +17,7 @@ game_t	*initialisation_game(void)
 	if (game == NULL)
 		return (NULL);
 	game->win = generate_window(1280, 800, 32);
-//	game->list_texture = generate_list_object(PATH_DIR_OBJ);
+	game->list_obj = generate_list_object(PATH_DIR_OBJ);
 	game->list_map = generate_list_map(PATH_DIR_MAP);
 	if (game->win == NULL) {
 		free(game);

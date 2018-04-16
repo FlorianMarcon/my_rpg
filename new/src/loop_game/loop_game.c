@@ -17,7 +17,7 @@ int	loop_game(void)
 	if (game == NULL)
 		return (84);
 	game->map = search_map(game->list_map, game->index);
-	game->map_graph = generate_map_graph(game->map);
+	game->map_graph = generate_map_graph(game->map, game);
 	while (sfRenderWindow_isOpen(game->win->window) && game->map_graph != NULL) {
 		event(game);
 		sfRenderWindow_clear(game->win->window, sfBlack);

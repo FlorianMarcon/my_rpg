@@ -30,6 +30,9 @@ SRC	=	$(WAY)/main.c			\
 		$(WAY)/graphique/display_sprite.c	\
 		$(WAY)/graphique/generate_state.c	\
 		$(WAY)/graphique/destroy_vertex_array.c	\
+		$(WAY)/object/generate_object.c		\
+		$(WAY)/object/generate_list_object.c		\
+		$(WAY)/object/search_object.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

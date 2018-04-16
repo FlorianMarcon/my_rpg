@@ -21,15 +21,21 @@
 #define TRANSLA_Y -1
 
 typedef struct sprite_s {
+	int x;
+	int y;
 	sfTexture *texture;
 	sfSprite *sprite;
+
 	sfIntRect *rect;
+
 	sfVector2u size;
+
 	int max_rect;
 }sprite_t;
 
 typedef struct map {
 	int **map;
+	sfVector2f **iso;
 
 	int width;
 	int height;
@@ -42,7 +48,6 @@ typedef struct map {
 	int x_center;
 	int y_center;
 
-//	linked_list_t *list_object;
 }map_t;
 
 typedef struct map_graph_s {
@@ -55,13 +60,15 @@ typedef struct map_graph_s {
 	sfRenderStates *state_bottom;
 	sfVertexArray **arr_line;
 
+	linked_list_t *list_obj;
 }map_graph_t;
 
 typedef struct object_s {
 	char *name;
 
 	sfTexture *texture;
-	sfIntRect *rect;
+	sfIntRect rect;
+	sfVector2u size;
 	int max_rect;
 
 	int number;
@@ -79,7 +86,15 @@ int	fill_path_sprite(int fd, map_t *map);
 
 linked_list_t	*generate_list_map(char *path);
 
-map_graph_t	*generate_map_graph(map_t *map);
+// generate object
+
+object_t	*search_object(linked_list_t *list_obj, int index);
+
+linked_list_t	*generate_list_object(char *path);
+
+object_t	*generate_object(char *file);
+
+linked_list_t	*generate_list_sprite(map_t *map, linked_list_t *list_texture);
 
 // other
 void	display_map(map_graph_t *map, window_t *win, bool line);

@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include "game.h"
 #include "my.h"
 #include "map.h"
 
@@ -102,7 +103,8 @@ map_t	*generate_map(char *path)
 		if (res != 0) {
 			free(map);
 			map = NULL;
-		}
+		} else
+			map->iso = create_two_d_map(map);
 	}
 	return (map);
 }
