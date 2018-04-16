@@ -56,6 +56,7 @@ typedef struct map_graph_s {
 
 	sfVertexArray **arr_floor;
 	sfRenderStates *state_floor;
+	sfRenderStates *state_telep;
 	sfVertexArray **arr_bottom;
 	sfRenderStates *state_bottom;
 	sfVertexArray **arr_line;
