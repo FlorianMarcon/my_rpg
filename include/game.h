@@ -13,6 +13,7 @@
 #define BACKGROUND "./matter/background.jpg"
 
 #include <stdbool.h>
+#include "move_perso.h"
 #include "graphique.h"
 #include "my.h"
 #include "map.h"
@@ -25,7 +26,7 @@ typedef struct game_s {
 	map_graph_t *map_graph;
 	bool draw_line;
 
-//	map_t *map;
+	//map_t *map;
 	int index;
 
 	// window
@@ -33,12 +34,12 @@ typedef struct game_s {
 	sfSprite *background;
 
 	//object
-
 	linked_list_t *list_obj;
-	// joueur
-//	sfvector2i pos;
 
-}game_t;
+	// joueur
+	perso_t *perso;
+
+} game_t;
 
 game_t	*initialisation_game(void);
 
@@ -66,5 +67,15 @@ sfVertexArray   *create_line(sfVector2f point1, sfVector2f point2, sfColor color
 int	change_map(game_t *game, int index);
 
 map_graph_t	*generate_map_graph(map_t *map, game_t *game);
+
+void	dep_right(game_t *game);
+
+void	dep_left(game_t *game);
+
+void	dep_up(game_t *game);
+
+void	dep_down(game_t *game);
+
+void	affect_move_perso(game_t *game);
 
 #endif

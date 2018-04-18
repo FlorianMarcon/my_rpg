@@ -18,11 +18,12 @@ int	loop_game(void)
 		return (84);
 	game->map = search_map(game->list_map, game->index);
 	game->map_graph = generate_map_graph(game->map, game);
-	while (sfRenderWindow_isOpen(game->win->window) && game->map_graph != NULL) {
+	game->perso->position.x = game->map->iso[0][0].x - 27;
+	game->perso->position.y = game->map->iso[0][0].y - 32;
+	while (sfRenderWindow_isOpen(game->win->window) &&
+					game->map_graph != NULL) {
 		event(game);
-		sfRenderWindow_clear(game->win->window, sfBlack);
 		display(game);
-		sfRenderWindow_display(game->win->window);
 	}
 	destroy_map_graph(game->map_graph);
 	free(game->win);

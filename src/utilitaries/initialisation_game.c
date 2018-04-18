@@ -27,5 +27,6 @@ game_t	*initialisation_game(void)
 //	game->map = search_map(game->list_map, game->index);
 	game->draw_line = false;
 	game->background = generate_sprite_from_file(BACKGROUND);
+	game->perso = create_my_perso();
 	return (game);
 }

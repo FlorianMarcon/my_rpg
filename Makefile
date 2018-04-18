@@ -11,6 +11,14 @@ WAY	=	./src
 
 SRC	=	$(WAY)/main.c			\
 		$(WAY)/event.c			\
+
+SRC	+=	$(WAY)/move_perso/win.c			\
+		$(WAY)/move_perso/clock.c		\
+		$(WAY)/move_perso/create_perso.c	\
+		$(WAY)/move_perso/deplacement.c		\
+		$(WAY)/move_perso/display.c		\
+		$(WAY)/move_perso/move_perso.c	\
+		$(WAY)/move_perso/detect_obj.c		\
 		$(WAY)/loop_game/loop_game.c	\
 		$(WAY)/map/generate_map.c		\
 		$(WAY)/map/generate_list_map.c		\

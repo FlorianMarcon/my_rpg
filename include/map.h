@@ -33,7 +33,7 @@ typedef struct sprite_s {
 	int max_rect;
 }sprite_t;
 
-typedef struct map {
+typedef struct map_s {
 	int **map;
 	sfVector2f **iso;
 
@@ -98,6 +98,7 @@ object_t	*generate_object(char *file);
 linked_list_t	*generate_list_sprite(map_t *map, linked_list_t *list_texture);
 
 // other
+
 void	display_map(map_graph_t *map, window_t *win, bool line);
 
 void	destroy_map_graph(map_graph_t *map);
