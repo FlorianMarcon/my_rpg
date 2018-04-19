@@ -64,7 +64,7 @@ sfVertexArray *create_quad_bottom_map(sfVector2f point1, sfVector2f point2);
 
 sfVertexArray   *create_line(sfVector2f point1, sfVector2f point2, sfColor color);
 
-int	change_map(game_t *game, int index);
+int	change_map(game_t *game);
 
 map_graph_t	*generate_map_graph(map_t *map, game_t *game);
 
@@ -77,5 +77,7 @@ void	dep_up(game_t *game);
 void	dep_down(game_t *game);
 
 void	affect_move_perso(game_t *game);
+
+void	display_map(game_t *game, window_t *win, bool line);
 
 #endif

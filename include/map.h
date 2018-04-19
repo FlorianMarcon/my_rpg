@@ -99,8 +99,6 @@ linked_list_t	*generate_list_sprite(map_t *map, linked_list_t *list_texture);
 
 // other
 
-void	display_map(map_graph_t *map, window_t *win, bool line);
-
 void	destroy_map_graph(map_graph_t *map);
 
 map_t	*search_map(linked_list_t *list_map, int index);

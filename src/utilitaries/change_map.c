@@ -8,11 +8,14 @@
 #include "map.h"
 #include "game.h"
 
-int	change_map(game_t *game, int index)
+int	change_map(game_t *game)
 {
-	map_t *map = search_map(game->list_map, index);
+	map_t *map;
+	int here = game->map->map[game->perso->x][game->perso->y];
 
-	if (map == NULL)
+	if (here > 20 || here <= 0)
+		return (0);
+	if ((map = search_map(game->list_map, here)) == NULL)
 		return (1);
 	destroy_map_graph(game->map_graph);
 	game->map = map;
