@@ -21,10 +21,14 @@ typedef struct set {
 	sfSprite *sprite;
 	sfTexture *texture;
 	sfVector2f pos;
+	sfSprite *sprite1;
+	sfTexture *texture1;
+	sfVector2f pos1;
 } set_t;
 
 typedef struct lock {
 	int lock;
+	int lock1;
 } lock_t;
 
 typedef struct menu {
@@ -36,6 +40,7 @@ typedef struct menu {
 	sfSprite *sprite5;
 	sfSprite *sprite6;
 	sfSprite *sprite7;
+	sfSprite *sprite8;
 	sfTexture *texture;
 	sfTexture *texture1;
 	sfTexture *texture2;
@@ -44,12 +49,14 @@ typedef struct menu {
 	sfTexture *texture5;
 	sfTexture *texture6;
 	sfTexture *texture7;
+	sfTexture *texture8;
 	sfVector2f pos_but;
 	sfVector2f pos_but1;
 	sfVector2f pos_but2;
 	sfVector2f pos_but3;
 	sfVector2f pos_but4;
 	sfVector2f pos_but5;
+	sfVector2f pos_but8;
 	sfVector2f pos_bck;
 	sfVector2f pos_sts;
 	void(*callback)(struct menu *ptr);
@@ -63,6 +70,6 @@ void	set_pos_men(menu_t *men, set_t *set);
 
 void	draw_menu(menu_t *men, sfRenderWindow *window, lock_t *lock, set_t *set);
 
-void	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock);
+void	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set);
 
 #endif
