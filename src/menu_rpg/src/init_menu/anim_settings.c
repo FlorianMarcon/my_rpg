@@ -8,7 +8,7 @@
 #include "header.h"
 
 
-void	anim_check(menu_t *men, sfRenderWindow *window, sfVector2i pos1)
+void	anim_check(menu_t *men, sfVector2i pos1)
 {
 	if ((pos1.x >= 658) && (pos1.x <= 739)) {
 		if (sfMouse_isButtonPressed(sfMouseLeft))
