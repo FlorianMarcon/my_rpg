@@ -72,4 +72,12 @@ void	draw_menu(menu_t *men, sfRenderWindow *window, lock_t *lock, set_t *set);
 
 void	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set);
 
+void	set_text_menu(menu_t *men, set_t *set);
+
+void	anim_check(menu_t *men, sfVector2i pos1);
+
+void	anim_but1(menu_t *menu, sfRenderWindow *window, sfVector2i pos1);
+
+void	anim_back(set_t *set, sfRenderWindow *win, sfVector2i pos1, lock_t *lock);
+
 #endif
