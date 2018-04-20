@@ -29,7 +29,6 @@ linked_list_t	*generate_list_object(char *path)
 		else
 			obj = NULL;
 		if (obj != NULL) {
-			my_printf("%s\n", obj->name);
 			if (list == NULL) {
 				list = create_list(obj);
 			} else
@@ -69,8 +68,11 @@ sprite_t	*add_object_graph_list(map_t *map, linked_list_t *tex, sfVector2i *a)
 		obj = search_object(tex, index);
 		if (obj == NULL || (spr = generate_sprite_from_object(obj, &pos)) == NULL)
 			return (NULL);
-		else
+		else {
+			spr->x = a->x;
+			spr->y = a->y;
 			return (spr);
+		}
 	}
 	return (NULL);
 }

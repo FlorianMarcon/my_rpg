@@ -9,7 +9,7 @@
 #ifndef HEADER_
 #define HEADER_
 
-#include "game.h"
+//#include "game.h"
 #include "map.h"
 
 typedef struct my_clock_s
