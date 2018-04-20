@@ -49,4 +49,6 @@ void	display_map(game_t *game, window_t *win, bool line)
 			sfRenderWindow_drawSprite(win->window, spr->sprite, NULL);
 		list = list->next;
 	}
+	if (player == false)
+		display_perso(game->perso, game->win);
 }
