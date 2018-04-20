@@ -9,6 +9,5 @@
 
 int	main(void)
 {
-	loop_game();
-	return (0);
+	return (loop_game());
 }

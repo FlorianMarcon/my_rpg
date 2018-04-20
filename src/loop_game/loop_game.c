@@ -7,24 +7,26 @@
 
 #include <SFML/Graphics.h>
 #include <stdlib.h>
-#include "graphique.h"
+#include "game.h"
+#include "map.h"
 
 int	loop_game(void)
 {
-	window_t *win = generate_window(800, 600, 32);
+	game_t *game = initialisation_game();
 
-	if (win == NULL)
+	if (game == NULL)
 		return (84);
-	while (sfRenderWindow_isOpen(win->window)) {
-		while (sfRenderWindow_pollEvent(win->window, &win->event))
-		{
-			if (win->event.type == sfEvtClosed)
-			sfRenderWindow_close(win->window);
-		}
-		sfRenderWindow_clear(win->window, sfBlack);
-		sfRenderWindow_display(win->window);
+	game->map = search_map(game->list_map, game->index);
+	game->map_graph = generate_map_graph(game->map, game);
+	game->perso->position.x = game->map->iso[0][0].x - 27;
+	game->perso->position.y = game->map->iso[0][0].y - 32;
+	while (sfRenderWindow_isOpen(game->win->window) &&
+					game->map_graph != NULL) {
+		event(game);
+		display(game);
 	}
-	free(win);
-
+	destroy_map_graph(game->map_graph);
+	free(game->win);
+	free(game);
 	return (0);
 }
