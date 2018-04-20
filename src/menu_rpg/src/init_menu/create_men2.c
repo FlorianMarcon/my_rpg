@@ -9,7 +9,7 @@
 
 void	draw_menu(menu_t *men, sfRenderWindow *window, lock_t *lock, set_t *set)
 {
-	if (lock->lock == 0) {
+	if (lock->lock == 0 || lock->lock == 2) {
 		sfRenderWindow_drawSprite(window, men->sprite6, NULL);
 		sfRenderWindow_drawSprite(window, men->sprite7, NULL);
 		sfRenderWindow_drawSprite(window, men->sprite1, NULL);
@@ -18,16 +18,17 @@ void	draw_menu(menu_t *men, sfRenderWindow *window, lock_t *lock, set_t *set)
 	}
 	if (lock->lock == 1) {
 		sfRenderWindow_drawSprite(window, set->sprite, NULL);
+		sfRenderWindow_drawSprite(window, men->sprite8, NULL);
 	}		
 }
 
 void	anim_but1(menu_t *men, sfRenderWindow *window, sfVector2i pos1)
 {
 	if (((pos1.x >= men->pos_but2.x) && (pos1.x <= men->pos_but2.x + 550))
-	    && ((pos1.y >= men->pos_but2.y) && (pos1.y <= men->pos_but2.y + 200))) {
-		if (sfMouse_isButtonPressed(sfMouseLeft))
-			sfRenderWindow_close(window);
-			sfRenderWindow_drawSprite(window, men->sprite2, NULL);
+	    && ((pos1.y >= men->pos_but2.y) && (pos1.y <= men->pos_but2.y + 200)))
+		sfRenderWindow_drawSprite(window, men->sprite2, NULL);
+	if (sfMouse_isButtonPressed(sfMouseLeft) && pos1.y > 728 && pos1.y < 799) {
+		sfRenderWindow_close(window);
 	}
 }
 
@@ -49,11 +50,15 @@ void	anim_but3(menu_t *men, sfRenderWindow *window, sfVector2i pos1)
 	}
 }
 
-void	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock)
+void	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set)
 {
-	if (lock->lock == 0) {
+	if (lock->lock == 0 || lock->lock == 2) {
 		anim_but1(men, window, pos1);
 		anim_but2(men, window, pos1, lock);
 		anim_but3(men, window, pos1);
+	}
+	if (lock->lock == 1) {
+		anim_check(men, pos1);
+		anim_back(set, window, pos1, lock);
 	}
 }

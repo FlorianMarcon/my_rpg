@@ -7,6 +7,7 @@
 SRC	=	src/init_menu/create_men.c	\
 		src/init_menu/create_men2.c	\
 		src/init_menu/create_set.c	\
+		src/init_menu/anim_settings.c	\
 		src/main.c			\
 
 
