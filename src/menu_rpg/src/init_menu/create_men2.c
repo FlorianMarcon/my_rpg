@@ -42,23 +42,28 @@ void	anim_but2(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *loc
 	}
 }
 
-void	anim_but3(menu_t *men, sfRenderWindow *window, sfVector2i pos1)
+int	anim_but3(menu_t *men, sfRenderWindow *window, sfVector2i pos1, int i)
 {
 	if (((pos1.x >= men->pos_but1.x) && (pos1.x <= men->pos_but1.x + 550))
 	    && ((pos1.y >= men->pos_but1.y) && (pos1.y <= men->pos_but1.y + 200))) {
 		sfRenderWindow_drawSprite(window, men->sprite, NULL);
+		if (sfMouse_isButtonPressed(sfMouseLeft)) {
+			return (1);
+		}
 	}
+	return (i);
 }
 
-void	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set)
+int	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set, int i)
 {
 	if (lock->lock == 0 || lock->lock == 2) {
 		anim_but1(men, window, pos1);
 		anim_but2(men, window, pos1, lock);
-		anim_but3(men, window, pos1);
+		i = anim_but3(men, window, pos1, i);
 	}
 	if (lock->lock == 1) {
 		anim_check(men, pos1);
 		anim_back(set, window, pos1, lock);
 	}
+	return (i);
 }

@@ -41,10 +41,17 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/object/generate_object.c		\
 		$(WAY)/object/generate_list_object.c		\
 		$(WAY)/object/search_object.c		\
+		$(WAY)/menu_rpg/src/button_menu/anim_button.c	\
+		$(WAY)/menu_rpg/src/init_menu/anim_settings.c	\
+		$(WAY)/menu_rpg/src/init_menu/create_men.c	\
+		$(WAY)/menu_rpg/src/init_menu/create_men2.c	\
+		$(WAY)/menu_rpg/src/init_menu/create_set.c	\
+		$(WAY)/menu_rpg/src/menu_crea.c			\
+		
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	=	-W -Wall -Wextra -Werror -g3 -I./include
+CFLAGS	=	-W -Wall -Wextra -g3 -I./include
 
 LDFLAGS	=	-lcsfml-system -lcsfml-window -lcsfml-graphics -lm
 

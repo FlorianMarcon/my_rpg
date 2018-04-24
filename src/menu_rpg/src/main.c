@@ -29,7 +29,7 @@ int	main(void)
 		set_pos_men(men, set);
 		sfRenderWindow_clear(window, sfWhite);
 		draw_menu(men, window, ptr, set);
-		anim_menu(men, window, pos1, ptr, set);
+		anim_menu(men, window, pos1, ptr);
 		sfRenderWindow_display(window);
 	}
 	sfSprite_destroy(men->sprite);
