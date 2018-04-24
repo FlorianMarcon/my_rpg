@@ -80,4 +80,6 @@ void	anim_but1(menu_t *menu, sfRenderWindow *window, sfVector2i pos1);
 
 void	anim_back(set_t *set, sfRenderWindow *win, sfVector2i pos1, lock_t *lock);
 
+int	create_menu(set_t *set, lock_t *ptr, menu_t *men, sfRenderWindow *window, sfVector2i pos1, int i);
+
 #endif

@@ -33,7 +33,7 @@ int	loop_game(void)
 		pos1 = sfMouse_getPositionRenderWindow(game->win->window);
 		sfRenderWindow_clear(game->win->window, sfBlack);
 		if (i == 0)
-			i = create_menu(set, ptr, men, game->win->window, pos1);
+			i = create_menu(set, ptr, men, game->win->window, pos1, i);
 		event(game);
 		if (i != 0)
 			display(game);
