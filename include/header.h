@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include "inventory.h"
 
 #ifndef HEADER_MY_
 #define HEADER_MY_

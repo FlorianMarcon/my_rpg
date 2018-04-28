@@ -47,7 +47,8 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/menu_rpg/src/init_menu/create_men2.c	\
 		$(WAY)/menu_rpg/src/init_menu/create_set.c	\
 		$(WAY)/menu_rpg/src/menu_crea.c			\
-		
+		$(WAY)/inventory/launch_inventory.c			\
+		$(WAY)/inventory/create_inventory.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

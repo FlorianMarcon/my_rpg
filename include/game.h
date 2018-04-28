@@ -17,6 +17,7 @@
 #include "graphique.h"
 #include "my.h"
 #include "map.h"
+#include "inventory.h"
 
 typedef struct game_s {
 
@@ -45,7 +46,7 @@ game_t	*initialisation_game(void);
 
 int	loop_game(void);
 
-void	display(game_t *game);
+void	display(game_t *game, inv_t *tmp);
 
 void	event(game_t *game);
 

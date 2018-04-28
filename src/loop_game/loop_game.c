@@ -13,6 +13,7 @@
 
 int	loop_game(void)
 {
+	inv_t *tmp = init_inventory();;
 	game_t *game = initialisation_game();
 	set_t *set = init_set();
 	lock_t *ptr = malloc(sizeof(lock_t));
@@ -35,8 +36,10 @@ int	loop_game(void)
 		if (i == 0)
 			i = create_menu(set, ptr, men, game->win->window, pos1, i);
 		event(game);
-		if (i != 0)
-			display(game);
+		if (i != 0) {
+			tmp = inventory(game->win->window, tmp);
+			display(game, tmp);
+		}
 	}
 	destroy_map_graph(game->map_graph);
 	free(game->win);
