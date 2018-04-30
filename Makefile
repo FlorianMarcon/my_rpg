@@ -19,14 +19,14 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/move_perso/display.c		\
 		$(WAY)/move_perso/move_perso.c	\
 		$(WAY)/move_perso/detect_obj.c		\
-		$(WAY)/loop_game/loop_game.c	\
+		$(WAY)/game/loop_game.c	\
+		$(WAY)/game/initialisation_game.c	\
 		$(WAY)/map/generate_map.c		\
 		$(WAY)/map/generate_list_map.c		\
 		$(WAY)/map/generate_map_graph.c		\
 		$(WAY)/map/destroy.c		\
 		$(WAY)/map/search_map.c		\
 		$(WAY)/utilitaries/change_map.c		\
-		$(WAY)/utilitaries/initialisation_game.c	\
 		$(WAY)/utilitaries/is_extension.c	\
 		$(WAY)/utilitaries/create_two_d_map.c	\
 		$(WAY)/utilitaries/create_quad.c	\
@@ -41,18 +41,19 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/object/generate_object.c		\
 		$(WAY)/object/generate_list_object.c		\
 		$(WAY)/object/search_object.c		\
-		$(WAY)/menu_rpg/src/button_menu/anim_button.c	\
-		$(WAY)/menu_rpg/src/init_menu/anim_settings.c	\
-		$(WAY)/menu_rpg/src/init_menu/create_men.c	\
-		$(WAY)/menu_rpg/src/init_menu/create_men2.c	\
-		$(WAY)/menu_rpg/src/init_menu/create_set.c	\
-		$(WAY)/menu_rpg/src/menu_crea.c			\
-		$(WAY)/menu_rpg/loop_menu.c			\
+		$(WAY)/menu/anim_button.c			\
+		$(WAY)/menu/anim_settings.c			\
+		$(WAY)/menu/create_men.c			\
+		$(WAY)/menu/create_men2.c			\
+		$(WAY)/menu/create_set.c			\
+		$(WAY)/menu/menu_crea.c			\
+		$(WAY)/menu/loop_menu.c			\
 		$(WAY)/inventory/launch_inventory.c			\
 		$(WAY)/inventory/create_inventory.c			\
 		$(WAY)/quete/create_quete.c		\
 		$(WAY)/quete/generate_list_quete.c		\
 		$(WAY)/quete/run_quete.c		\
+		$(WAY)/quete/display_quete.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

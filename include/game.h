@@ -97,4 +97,6 @@ void	run_quete(game_t *game, int id);
 
 quete_t	*search_quete(game_t *game, int id);
 
+void	display_quete(game_t *game);
+
 #endif

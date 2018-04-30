@@ -67,11 +67,7 @@ int     fill_map(int fd, map_t *map)
 		return (1);
 	for (int y = 0; y != map->height; y++) {
 		str = get_next_line(fd);
-		if (str == NULL) {
-			free(arr_map);
-			return (1);
-		} else if ((arr_map[y] = malloc(sizeof(*(arr_map[y])) * (map->width))) == NULL) {
-			free(str);
+		if (str == NULL || (arr_map[y] = malloc(sizeof(*(arr_map[y])) * (map->width))) == NULL) {
 			free(arr_map);
 			return (1);
 		} else {
@@ -84,7 +80,6 @@ int     fill_map(int fd, map_t *map)
 	map->map = arr_map;
 	return (0);
 }
-
 
 map_t	*generate_map(char *path)
 {

@@ -14,7 +14,7 @@
 int	loop_game(game_t *game, inv_t *tmp)
 {
 	int i = 0;
-	
+
 	while (i == 0 && game->map_graph != NULL) {
 		tmp = inventory(tmp);
 		display(game, tmp);
