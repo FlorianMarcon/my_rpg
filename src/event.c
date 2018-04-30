@@ -20,8 +20,6 @@ void	event(game_t *game)
 			game->draw_line = false;
 		affect_move_perso(game);
 	}
+	run_quete(game, game->map->map[game->perso->y][game->perso->x]);
 	change_map(game);
-//	if (game->change_map == true) {
-//		change_map(game);
-//	}
 }

@@ -49,10 +49,13 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/menu_rpg/src/menu_crea.c			\
 		$(WAY)/inventory/launch_inventory.c			\
 		$(WAY)/inventory/create_inventory.c			\
+		$(WAY)/quete/create_quete.c		\
+		$(WAY)/quete/generate_list_quete.c		\
+		$(WAY)/quete/run_quete.c		\
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	=	-W -Wall -Wextra -g3 -I./include
+CFLAGS	=	-W -Wall -Wextra -Werror -g3 -I./include
 
 LDFLAGS	=	-lcsfml-system -lcsfml-window -lcsfml-graphics -lm
 
