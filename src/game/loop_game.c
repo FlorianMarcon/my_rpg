@@ -13,7 +13,7 @@
 
 int	loop_game(void)
 {
-	inv_t *tmp = init_inventory();;
+	inv_t *tmp = init_inventory();
 	game_t *game = initialisation_game();
 	set_t *set = init_set();
 	lock_t *ptr = malloc(sizeof(lock_t));
