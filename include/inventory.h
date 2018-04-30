@@ -21,6 +21,8 @@ typedef struct inv {
 
 inv_t	*init_inventory(void);
 
-inv_t	*inventory(sfRenderWindow *win, inv_t *tmp);
+inv_t	*inventory(inv_t *tmp);
+
+void	display_inventory(sfRenderWindow *win, sfSprite *sprite);
 
 #endif
