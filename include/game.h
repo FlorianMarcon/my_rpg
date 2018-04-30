@@ -52,7 +52,7 @@ typedef struct game_s {
 
 game_t	*initialisation_game(void);
 
-int	loop_game(void);
+int	loop_game(game_t *game, inv_t *tmp);
 
 void	display(game_t *game, inv_t *tmp);
 
@@ -88,6 +88,8 @@ void	dep_down(game_t *game);
 void	affect_move_perso(game_t *game);
 
 void	display_map(game_t *game, window_t *win, bool line);
+
+int	loop_menu(void);
 
 // quete
 
