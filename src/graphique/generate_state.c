@@ -23,7 +23,8 @@ sfRenderStates 	*generate_state(char *str, char *shader)
 	if (shader == NULL)
 		states->shader = NULL;
 	else
-		states->shader = sfShader_createFromFile("./shader/simple.vert", NULL, shader);
+//		states->shader = sfShader_createFromFile("./shader/simple.vert", shader);
+	states->shader = sfShader_createFromFile("./shader/simple.vert", NULL, shader);
 	states->texture = sfTexture_createFromFile(str, NULL);
 	if (states->texture == NULL) {
 		free(states);

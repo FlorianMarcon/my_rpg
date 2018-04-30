@@ -10,11 +10,11 @@
 int	colision_x(perso_t *perso, map_t *map, int x)
 {
 	if (x == 0 && perso->x < 13) {
-		if (map->map[perso->x + 1][perso->y] < 20)
+		if (map->map[perso->x + 1][perso->y] < 20 || map->map[perso->x + 1][perso->y] >= 100)
 			return (0);
 	}
 	if (x == 1 && perso->x > 0) {
-		if (map->map[perso->x - 1][perso->y] < 20)
+		if (map->map[perso->x - 1][perso->y] < 20 || map->map[perso->x - 1][perso->y] >= 100)
 			return (0);
 	}
 	return (-1);

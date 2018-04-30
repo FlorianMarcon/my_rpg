@@ -10,6 +10,7 @@
 
 #define PATH_DIR_MAP "./map/"
 #define PATH_DIR_OBJ "./object/"
+#define PATH_DIR_QUETE "./quete/"
 #define BACKGROUND "./matter/background.jpg"
 
 #include <stdbool.h>
@@ -17,6 +18,7 @@
 #include "graphique.h"
 #include "my.h"
 #include "map.h"
+#include "quete.h"
 
 typedef struct game_s {
 
@@ -35,6 +37,12 @@ typedef struct game_s {
 
 	//object
 	linked_list_t *list_obj;
+
+	//quete
+	linked_list_t *list_quete;
+	sfSprite *textbox;
+	sfText *text;
+	bool display_textbox;
 
 	// joueur
 	perso_t *perso;
@@ -79,5 +87,11 @@ void	dep_down(game_t *game);
 void	affect_move_perso(game_t *game);
 
 void	display_map(game_t *game, window_t *win, bool line);
+
+// quete
+
+void	run_quete(game_t *game, int id);
+
+quete_t	*search_quete(game_t *game, int id);
 
 #endif
