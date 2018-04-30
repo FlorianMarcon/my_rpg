@@ -7,7 +7,7 @@
 
 #include "inventory.h"
 
-inv_t	*inventory(sfRenderWindow *window, inv_t *tmp)
+inv_t	*inventory(inv_t *tmp)
 {
 	
 	if(sfKeyboard_isKeyPressed(sfKeyI)) {

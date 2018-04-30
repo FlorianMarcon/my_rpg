@@ -37,7 +37,7 @@ int	loop_game(void)
 			i = create_menu(set, ptr, men, game->win->window, pos1, i);
 		event(game);
 		if (i != 0) {
-			tmp = inventory(game->win->window, tmp);
+			tmp = inventory(tmp);
 			display(game, tmp);
 		}
 	}
