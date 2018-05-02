@@ -20,6 +20,15 @@ typedef struct my_clock_s
 	struct my_clock_s *next;
 } my_clock_t;
 
+typedef struct stat_s
+{
+	int att_m;
+	int att_p;
+	int defence;
+	int xp;
+	int vie;
+} stat_t;
+
 typedef struct perso_s
 {
 	char const	*name;
@@ -30,6 +39,7 @@ typedef struct perso_s
 	sfIntRect	rect;
 	int		x;
 	int		y;
+	stat_t		stat;
 } perso_t;
 
 typedef	struct param_s

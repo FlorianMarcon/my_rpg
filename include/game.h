@@ -99,4 +99,6 @@ quete_t	*search_quete(game_t *game, int id);
 
 void	display_quete(game_t *game);
 
+void	replace_perso(game_t *game, int x, int y);
+
 #endif

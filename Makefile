@@ -19,6 +19,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/move_perso/display.c		\
 		$(WAY)/move_perso/move_perso.c	\
 		$(WAY)/move_perso/detect_obj.c		\
+		$(WAY)/move_perso/replace_perso.c	\
 		$(WAY)/game/loop_game.c	\
 		$(WAY)/game/initialisation_game.c	\
 		$(WAY)/map/generate_map.c		\
