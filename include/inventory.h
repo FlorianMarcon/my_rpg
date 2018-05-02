@@ -12,6 +12,16 @@
 
 //#include "game.h"
 
+typedef struct obj_inv {
+	char *type;
+	sfSprite *sprite;
+	sfTexture *texture;
+	sfVector2f pos;
+	int att;
+	int att_mag;
+	struct obj_inv *next;
+} obj_inv_t;
+
 typedef struct inv {
 	sfSprite *sprite;
 	sfTexture *texture;
