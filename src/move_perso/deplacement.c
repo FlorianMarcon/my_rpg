@@ -63,7 +63,7 @@ void	dep_left(game_t *game)
 
 	game->perso->mouvement.y = 0;
 	game->perso->mouvement.x = -1;
-	if (game->perso->x != 13 && detect_col(game->perso, game->map, 0) != -1) {
+	if (game->perso->x != game->map->height - 2 && detect_col(game->perso, game->map, 0) != -1) {
 		while (game->perso->position.x < x + 26 && game->perso->position.y < y + 18) {
 			loop_move(my_clock, game->perso,game-> win);
 			display(game, NULL);
@@ -83,7 +83,7 @@ void	dep_down(game_t *game)
 	float y = game->perso->position.y;
 	my_clock_t *my_clock = init_linked_clock();
 
-	if (game->perso->y != 13 && detect_col(game->perso, game->map, 10) != -1) {
+	if (game->perso->y != game->map->width - 2 && detect_col(game->perso, game->map, 10) != -1) {
 		game->perso->mouvement.x = 0;
 		game->perso->mouvement.y = -1;
 		while (game->perso->position.x < x + 36.4 && game->perso->position.y < y + 13.4) {
