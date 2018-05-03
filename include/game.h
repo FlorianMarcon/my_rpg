@@ -11,6 +11,7 @@
 #define PATH_DIR_MAP "./map/"
 #define PATH_DIR_OBJ "./object/"
 #define PATH_DIR_QUETE "./quete/"
+#define PATH_DIR_INV "./inv/"
 #define BACKGROUND "./matter/background.jpg"
 
 #include <stdbool.h>
@@ -47,6 +48,9 @@ typedef struct game_s {
 
 	// joueur
 	perso_t *perso;
+
+	//inventory
+	linked_list_t *list_inventory;
 
 } game_t;
 
