@@ -29,6 +29,18 @@ void	initialisation_list_necessary(game_t *game)
 	game->list_inventory = generate_list_inventory(PATH_DIR_INV);
 }
 
+pause_t	*init_pause(void)
+{
+	pause_t *game = malloc(sizeof(pause_t));
+	
+	game->pause = sfSprite_create();
+	game->texture_pause = sfTexture_createFromFile("./matter/pause.png", NULL);
+	sfSprite_setTexture(game->pause, game->texture_pause, sfTrue);
+	game->pos_pause = (sfVector2f){1200, 1200};
+	sfSprite_setPosition(game->pause, game->pos_pause);
+	return (game);
+}
+
 game_t	*initialisation_game(void)
 {
 	game_t *game = malloc(sizeof(*game));

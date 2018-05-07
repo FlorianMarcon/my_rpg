@@ -46,19 +46,27 @@ typedef struct game_s {
 	sfText *text;
 	bool display_textbox;
 
-	// joueur
+	//joueur
 	perso_t *perso;
 
 	//inventory
 	linked_list_t *list_inventory;
 
+	//pause
+	
 } game_t;
 
+typedef struct pause_s {
+	sfSprite *pause;
+	sfTexture *texture_pause;
+	sfVector2f pos_pause;
+} pause_t;
+	
 game_t	*initialisation_game(void);
 
-int	loop_game(game_t *game, inv_t *tmp);
+int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
 
-void	display(game_t *game, inv_t *tmp);
+void	display(game_t *game, inv_t *tmp, pause_t *pause);
 
 void	event(game_t *game);
 
@@ -103,6 +111,12 @@ quete_t	*search_quete(game_t *game, int id);
 
 void	display_quete(game_t *game);
 
+void	display_pause(game_t *game, pause_t *pause);
+
 void	replace_perso(game_t *game, int x, int y);
+
+//pause
+
+pause_t	*init_pause(void);
 
 #endif
