@@ -53,6 +53,7 @@ sprite_t	*generate_sprite_from_object(object_t *obj, sfVector2f *pos)
 	pos->y -= (obj->size.y * 0.75);
 	sfSprite_setPosition(spr->sprite, *pos);
 	sfSprite_setTexture(spr->sprite, spr->texture, sfTrue);
+	spr->states = generate_state(obj->path, obj->shader);
 	return (spr);
 }
 

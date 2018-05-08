@@ -2,4 +2,4 @@ e
 0 0 0
 30
 ./matter/png_quete.png
-a supprimer
+./shader/transparent.frag

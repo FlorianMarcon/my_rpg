@@ -47,7 +47,7 @@ void	display_map(game_t *game, window_t *win, bool line)
 			player = true;
 		}
 		if (spr != NULL || spr->sprite != NULL)
-			sfRenderWindow_drawSprite(win->window, spr->sprite, NULL);
+			sfRenderWindow_drawSprite(win->window, spr->sprite, spr->states);
 		list = list->next;
 	}
 	if (player == false)

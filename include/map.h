@@ -25,6 +25,7 @@ typedef struct sprite_s {
 	int y;
 	sfTexture *texture;
 	sfSprite *sprite;
+	sfRenderStates *states;
 
 	sfIntRect *rect;
 
@@ -47,7 +48,6 @@ typedef struct map_s {
 
 	int x_center;
 	int y_center;
-
 }map_t;
 
 typedef struct map_graph_s {
@@ -68,6 +68,8 @@ typedef struct object_s {
 	char *name;
 
 	sfTexture *texture;
+	char *path;
+	char *shader;
 	sfIntRect rect;
 	sfVector2u size;
 	int max_rect;

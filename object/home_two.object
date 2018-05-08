@@ -2,3 +2,4 @@ home_one
 0 0 0
 25
 ./matter/home_two.png
+./shader/transparent.frag

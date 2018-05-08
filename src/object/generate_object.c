@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include "graphique.h"
 #include "map.h"
 
 int	fill_setting_object(int fd, object_t *obj)
@@ -49,12 +50,14 @@ object_t	*generate_object(char *file)
 	}
 	obj->name = get_next_line(fd);
 	res = fill_setting_object(fd, obj);
-	obj->texture = sfTexture_createFromFile(get_next_line(fd), &obj->rect);
+	obj->path = get_next_line(fd);
+	obj->texture = sfTexture_createFromFile(obj->path, &obj->rect);
 	if (res || obj->name == NULL || obj->texture == NULL) {
 		free(obj);
 		return (NULL);
 	}
 	obj->size = sfTexture_getSize(obj->texture);
+	obj->shader = get_next_line(fd);
 	close(fd);
 	return (obj);
 }

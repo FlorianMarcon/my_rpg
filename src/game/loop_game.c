@@ -10,16 +10,7 @@
 #include "game.h"
 #include "map.h"
 #include "header.h"
-/*
-int	pause_launch(pause_t *pause)
-{
-	int i = 0;
 
-	while (i == 0) {
-	}
-	return (0);
-}
-*/
 int	loop_game(game_t *game, inv_t *tmp, pause_t *pause)
 {
 	int i = 0;
