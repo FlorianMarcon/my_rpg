@@ -18,6 +18,7 @@ quete_t	*create_quete(char *path)
 	quete_t *quete = malloc(sizeof(*quete));
 	char *str;
 	int fd;
+	unsigned int i = 0;
 
 	if ((fd = open(path, O_RDONLY)) == -1 || quete == NULL)
 		return (NULL);
@@ -33,6 +34,7 @@ quete_t	*create_quete(char *path)
 			create_node(quete->obj_need, str);
 	}
 	free(str);
-	quete->message = get_next_line(fd);
+	for (; i != 8 && (quete->message[i] = get_next_line(fd)) != NULL; i++);
+	quete->size_message = i;
 	return (quete);
 }

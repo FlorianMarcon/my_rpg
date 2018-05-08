@@ -65,15 +65,17 @@ sprite_t	*add_object_graph_list(map_t *map, linked_list_t *tex, sfVector2i *a)
 	sfVector2f pos = {map->iso[a->y][a->x].x, map->iso[a->y][a->x].y};
 
 	index = map->map[a->y][a->x];
-	if (index >= 20 && index <= 100) {
-		obj = search_object(tex, index);
-		if (obj == NULL || (spr = generate_sprite_from_object(obj, &pos)) == NULL)
-			return (NULL);
-		else {
-			spr->x = a->x;
-			spr->y = a->y;
-			return (spr);
-		}
+	if (index < 20)
+		return (NULL);
+	else if (index >= 100)
+		index = 100;
+	obj = search_object(tex, index);
+	if (obj == NULL || (spr = generate_sprite_from_object(obj, &pos)) == NULL)
+		return (NULL);
+	else {
+		spr->x = a->x;
+		spr->y = a->y;
+		return (spr);
 	}
 	return (NULL);
 }

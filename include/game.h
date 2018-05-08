@@ -43,7 +43,8 @@ typedef struct game_s {
 	//quete
 	linked_list_t *list_quete;
 	sfSprite *textbox;
-	sfText *text;
+	sfText *text[8];
+	unsigned int size_text;
 	bool display_textbox;
 
 	//joueur
@@ -53,7 +54,7 @@ typedef struct game_s {
 	linked_list_t *list_inventory;
 
 	//pause
-	
+
 } game_t;
 
 typedef struct pause_s {
@@ -61,7 +62,7 @@ typedef struct pause_s {
 	sfTexture *texture_pause;
 	sfVector2f pos_pause;
 } pause_t;
-	
+
 game_t	*initialisation_game(void);
 
 int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);

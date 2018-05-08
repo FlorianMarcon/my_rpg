@@ -13,7 +13,8 @@
 
 typedef struct quete_s {
 	int id;
-	char *message;
+	char *message[9];
+	unsigned int size_message;
 	linked_list_t *obj_need;
 	bool validated;
 } quete_t;
