@@ -20,7 +20,7 @@ int	fill_setting_object(int fd, object_t *obj)
 	if (str == NULL || (tab = parsing_str(str, ' ' | '\t')) == NULL)
 		return (1);
 	free(str);
-	if (len_tab(tab) != 3) {
+	if (len_tab(tab) != 4) {
 		free(tab);
 		return (1);
 	}
@@ -29,6 +29,7 @@ int	fill_setting_object(int fd, object_t *obj)
 	obj->rect.width = my_getnbr(tab[0]);
 	obj->rect.height = my_getnbr(tab[1]);
 	obj->max_rect = my_getnbr(tab[2]);
+	obj->time = sfSeconds(atof(tab[3]));
 	free(tab);
 	if ((str = get_next_line(fd)) == NULL || my_str_isnum(str) == 0)
 		return (1);
@@ -51,7 +52,7 @@ object_t	*generate_object(char *file)
 	obj->name = get_next_line(fd);
 	res = fill_setting_object(fd, obj);
 	obj->path = get_next_line(fd);
-	obj->texture = sfTexture_createFromFile(obj->path, &obj->rect);
+	obj->texture = sfTexture_createFromFile(obj->path, NULL);
 	if (res || obj->name == NULL || obj->texture == NULL) {
 		free(obj);
 		return (NULL);
