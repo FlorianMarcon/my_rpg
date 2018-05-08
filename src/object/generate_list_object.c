@@ -49,8 +49,13 @@ sprite_t	*generate_sprite_from_object(object_t *obj, sfVector2f *pos)
 	spr->sprite = sfSprite_create();
 	spr->rect = obj->rect;
 	spr->nb_rect = 0;
-	pos->x -= (obj->size.x * 0.25);
-	pos->y -= (obj->size.y * 0.75);
+	if (obj->max_rect > 0) {
+		pos->x -= (obj->rect.width * 0.25);
+		pos->y -= (obj->size.y * 0.75);
+	} else {
+		pos->x -= (obj->size.x * 0.25);
+		pos->y -= (obj->size.y * 0.75);
+	}
 	sfSprite_setPosition(spr->sprite, *pos);
 	sfSprite_setTexture(spr->sprite, obj->texture, sfTrue);
 	if (obj->max_rect > 0) {
