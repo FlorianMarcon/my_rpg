@@ -1,0 +1,5 @@
+fire_tree
+0 0 0 0
+40
+./matter/fire_tree.png
+./shader/transparent.frag

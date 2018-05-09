@@ -1,8 +1,8 @@
-16 23 9
-./matter/ice_floor.jpg
+16 23 1
+./matter/grass.png
 ./matter/teleport.jpeg
 ./matter/dark.png
-0 0 0 0 0 82 79 86 86 89 0 0 0 0 0 0
+0 3 0 0 0 82 79 86 86 89 0 0 0 0 0 0
 0 101 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 2 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
