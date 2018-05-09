@@ -15,6 +15,10 @@
 #define BACKGROUND "./matter/background.jpg"
 
 #include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 #include "move_perso.h"
 #include "graphique.h"
 #include "my.h"
@@ -67,7 +71,7 @@ game_t	*initialisation_game(void);
 
 int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
 
-void	display(game_t *game, inv_t *tmp, pause_t *pause);
+void	display(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ptr);
 
 void	event(game_t *game);
 
@@ -119,5 +123,9 @@ void	replace_perso(game_t *game, int x, int y);
 //pause
 
 pause_t	*init_pause(void);
+
+//inv
+
+player_inv_t	*create_obj_in_inv(linked_list_t *mdr, char *name, player_inv_t *tmp);
 
 #endif
