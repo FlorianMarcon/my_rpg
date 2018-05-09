@@ -127,4 +127,8 @@ pause_t	*init_pause(void);
 
 inv_t	*inventory(game_t *game, inv_t *tmp);
 
+//object
+
+void	move_object(game_t *game);
+
 #endif

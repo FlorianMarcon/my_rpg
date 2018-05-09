@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-my_clock_t	*init_linked_clock()
+my_clock_t	*init_linked_clock(void)
 {
 	my_clock_t *my_clock = init_clock();
 	my_clock_t *clock2 = init_clock();

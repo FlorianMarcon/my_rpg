@@ -42,6 +42,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/object/generate_object.c		\
 		$(WAY)/object/generate_list_object.c		\
 		$(WAY)/object/search_object.c		\
+		$(WAY)/object/move_object.c		\
 		$(WAY)/menu/anim_button.c			\
 		$(WAY)/menu/anim_settings.c			\
 		$(WAY)/menu/create_men.c			\
