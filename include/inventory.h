@@ -6,6 +6,7 @@
 */
 
 #include "map.h"
+#include "game.h"
 
 #ifndef INVENTORY_
 #define INVENTORY_
@@ -20,6 +21,16 @@ typedef struct obj_inv {
 	int att;
 	int att_mag;
 } obj_inv_t;
+
+typedef struct player_inv {
+	char *type;
+	sfSprite *sprite;
+	sfTexture *texture;
+	sfVector2f pos;
+	int att;
+	int att_mag;
+	struct player_inv *next;
+} player_inv_t;
 
 typedef struct inv {
 	sfSprite *sprite;

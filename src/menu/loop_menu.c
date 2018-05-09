@@ -34,7 +34,6 @@ int	loop_menu(void)
 				sfRenderWindow_close(game->win->window);
 		pos_mouse = sfMouse_getPositionRenderWindow(game->win->window);
 		sfRenderWindow_clear(game->win->window, sfBlack);
-		//sfRenderWindow_display(game->win->window);
 		create_menu(set, ptr, men, game->win->window, pos_mouse, game, tmp, pause);
 	}
 	destroy_map_graph(game->map_graph);
