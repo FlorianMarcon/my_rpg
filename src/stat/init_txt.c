@@ -15,7 +15,7 @@ void	init_first_txt_node(stat_txt_t *txt, int fd, char *data, sfFont *font)
 
 	txt->txt = sfText_create();
 	pos.x = get_file_pos(fd, buffer);
-	pos.x = 800;
+	pos.x = 40;//800
 	pos.y = get_file_pos(fd, buffer);
 	sfText_setString(txt->txt, data);
 	sfText_setPosition(txt->txt, pos);
@@ -59,13 +59,15 @@ void	not_in_config_file(stat_txt_t *txt, int fd, sfFont *font)
 stat_txt_t	*init_stat_txt(stat_t stat)
 {
 	stat_txt_t *txt = malloc(sizeof(stat_txt_t) * 1);
-	int fd = open("./src/stat/pos_txt", O_RDONLY);
+	int fd = open("./src/stat/pos_txt2", O_RDONLY);
 	sfFont* font;
+	char *buffer = "LVL : ";
 
 	font = sfFont_createFromFile("./font/attack_of_the_cucumbers.ttf");
 	if (fd == -1)
 		return (NULL);
-	init_first_txt_node(txt, fd, get_nb_in_char(stat.vie), font);
+
+	/*init_first_txt_node(txt, fd, get_nb_in_char(stat.vie), font);
 	create_txt_node(txt, fd, get_nb_in_char(stat.att_m), font);
 	create_txt_node(txt, fd, get_nb_in_char(stat.att_p), font);
 	create_txt_node(txt, fd, get_nb_in_char(stat.defence), font);
@@ -73,6 +75,24 @@ stat_txt_t	*init_stat_txt(stat_t stat)
 	create_txt_node(txt, fd, get_nb_in_char(stat.xp_max), font);
 	create_txt_node(txt, fd, get_nb_in_char(stat.lvl), font);
 	create_txt_node(txt, fd, get_nb_in_char(stat.vie_c), font);
-	not_in_config_file(txt, fd, font);
+	not_in_config_file(txt, fd, font);*/
+
+	buffer = my_strcat(buffer, get_nb_in_char(stat.lvl));
+	init_first_txt_node(txt, fd, buffer, font);
+	buffer = my_strcat("XP : ", get_nb_in_char(stat.xp));
+	buffer = my_strcat(buffer, " / ");
+	buffer = my_strcat(buffer, get_nb_in_char(stat.xp_max));
+	create_txt_node(txt, fd, buffer, font);
+	buffer = my_strcat(": ", get_nb_in_char(stat.vie_c));
+	buffer = my_strcat(buffer, " / ");
+	buffer = my_strcat(buffer, get_nb_in_char(stat.vie));
+	create_txt_node(txt, fd, buffer, font);
+	buffer = my_strcat(": " , get_nb_in_char(stat.defence));
+	create_txt_node(txt, fd, buffer, font);
+	buffer = my_strcat(": ", get_nb_in_char(stat.att_m));
+	create_txt_node(txt, fd, buffer, font);
+	buffer = my_strcat(": ", get_nb_in_char(stat.att_p));
+	create_txt_node(txt, fd, buffer, font);
+	free (buffer);
 	return (txt);
 }
