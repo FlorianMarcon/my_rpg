@@ -11,7 +11,7 @@
 #define PATH_DIR_MAP "./map/"
 #define PATH_DIR_OBJ "./object/"
 #define PATH_DIR_QUETE "./quete/"
-#define PATH_DIR_INV "./inv/"
+#define PATH_DIR_INV "./inventory/"
 #define BACKGROUND "./matter/background.jpg"
 
 #include <stdbool.h>

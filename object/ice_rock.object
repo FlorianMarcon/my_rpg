@@ -1,0 +1,5 @@
+ice_rock
+0 0 0 0
+33
+./matter/ice_rock.png
+./shader/transparent.frag

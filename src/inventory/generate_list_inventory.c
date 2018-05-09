@@ -45,16 +45,16 @@ linked_list_t	*generate_list_inventory(char *path)
 	DIR *dir = opendir(path);
 	struct dirent *file;
 	linked_list_t *list = NULL;
-	object_t *obj;
+	obj_inv_t *obj;
 	char *way;
 
 	if (dir == NULL)
 		return (NULL);
 	while ((file = readdir(dir)) != NULL) {
 		way = my_strcat(path, file->d_name);
-		if (is_extension(way, "inv"))
-			obj = generate_object(way);
-		else
+		if (is_extension(way, "inv")) {
+			obj = generate_object_inv(way);
+		} else
 			obj = NULL;
 		if (obj != NULL) {
 			if (list == NULL) {
