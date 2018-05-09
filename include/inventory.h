@@ -5,12 +5,10 @@
 ** header move_perso
 */
 
-#include "map.h"
-
 #ifndef INVENTORY_
 #define INVENTORY_
 
-//#include "game.h"
+#include "map.h"
 
 typedef struct obj_inv {
 	char *type;
