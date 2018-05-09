@@ -15,7 +15,7 @@ int	loop_game(game_t *game, inv_t *tmp, pause_t *pause)
 {
 	replace_perso(game, 0, 0);
 	while (game->map_graph != NULL) {
-		tmp = inventory(tmp);
+		tmp = inventory(game, tmp);
 		display(game, tmp);
 		if (event(game, pause))
 			return (0);

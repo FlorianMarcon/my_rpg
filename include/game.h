@@ -49,6 +49,7 @@ typedef struct game_s {
 
 	//joueur
 	perso_t *perso;
+	bool can_move;
 
 	//inventory
 	linked_list_t *list_inventory;
@@ -121,5 +122,9 @@ void	replace_perso(game_t *game, int x, int y);
 //pause
 
 pause_t	*init_pause(void);
+
+// inventory
+
+inv_t	*inventory(game_t *game, inv_t *tmp);
 
 #endif
