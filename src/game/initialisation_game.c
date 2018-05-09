@@ -46,5 +46,6 @@ game_t	*initialisation_game(void)
 	game->draw_line = false;
 	game->background = generate_sprite_from_file(BACKGROUND);
 	game->perso = create_my_perso();
+	game->stat = init_stat(game->perso->stat);
 	return (game);
 }

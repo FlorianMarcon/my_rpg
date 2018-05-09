@@ -20,6 +20,7 @@
 #include "map.h"
 #include "inventory.h"
 #include "quete.h"
+#include "stat.h"
 
 typedef struct game_s {
 
@@ -47,6 +48,10 @@ typedef struct game_s {
 
 	// joueur
 	perso_t *perso;
+
+	//stat_bar
+	chstat_t *stat;
+
 
 } game_t;
 
@@ -100,5 +105,13 @@ quete_t	*search_quete(game_t *game, int id);
 void	display_quete(game_t *game);
 
 void	replace_perso(game_t *game, int x, int y);
+
+//lvl_up
+
+void	lvl_up(game_t *game);
+
+//colision
+
+int	detect_col(game_t *game, int sens);
 
 #endif

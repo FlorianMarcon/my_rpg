@@ -26,7 +26,11 @@ typedef struct stat_s
 	int att_p;
 	int defence;
 	int xp;
+	int xp_max;
 	int vie;
+	int vie_c;
+	int lvl;
+	bool change;
 } stat_t;
 
 typedef struct perso_s
@@ -63,7 +67,5 @@ void	move_rect(perso_t *perso, int i, float second, sfClock *my_clock);
 my_clock_t	*update_time(my_clock_t *my_clock);
 
 my_clock_t	*init_clock(void);
-
-int	detect_col(perso_t *perso, map_t *map, int x);
 
 #endif

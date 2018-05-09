@@ -20,6 +20,7 @@ void	event(game_t *game)
 			game->draw_line = false;
 		affect_move_perso(game);
 	}
-	run_quete(game, game->map->map[game->perso->y][game->perso->x]);
+	if (game->map->map[game->perso->x][game->perso->y - 1] >= 100)
+		run_quete(game, game->map->map[game->perso->x][game->perso->y - 1]);
 	change_map(game);
 }

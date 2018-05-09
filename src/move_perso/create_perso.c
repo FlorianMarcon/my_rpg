@@ -7,10 +7,8 @@
 
 #include "game.h"
 
-perso_t	*create_my_perso(void)
+void	init_perso_param(perso_t *perso)
 {
-	perso_t *perso = malloc(sizeof(perso_t) * 1);
-
 	perso->texture = sfTexture_createFromFile("./src/dinosaure.png", NULL);
 	perso->sprite = sfSprite_create();
 	perso->rect.top = 0;
@@ -26,18 +24,26 @@ perso_t	*create_my_perso(void)
 	sfSprite_setTexture(perso->sprite, perso->texture, sfTrue);
 	sfSprite_setPosition(perso->sprite, perso->position);
 	sfSprite_setTextureRect(perso->sprite, perso->rect);
-	return (perso);
 }
 
-perso_t	*create_bg(void)
+void	init_perso_stat(perso_t *perso)
+{
+	perso->stat.vie = 100;
+	perso->stat.vie_c = 100;
+	perso->stat.att_m = 10;
+	perso->stat.att_p = 10;
+	perso->stat.defence = 10;
+	perso->stat.xp = 0;
+	perso->stat.xp_max = 100;
+	perso->stat.lvl = 0;
+	perso->stat.change = true;
+}
+
+perso_t	*create_my_perso(void)
 {
 	perso_t *perso = malloc(sizeof(perso_t) * 1);
 
-	perso->texture = sfTexture_createFromFile("./src/capture_map.png", NULL);
-	perso->sprite = sfSprite_create();
-	perso->position.x = 0;
-	perso->position.y = 0;
-	sfSprite_setTexture(perso->sprite, perso->texture, sfTrue);
-	sfSprite_setPosition(perso->sprite, perso->position);
+	init_perso_param(perso);
+	init_perso_stat(perso);
 	return (perso);
 }

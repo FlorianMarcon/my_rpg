@@ -15,6 +15,7 @@ void	display(game_t *game, inv_t *tmp)
 	sfRenderWindow_clear(game->win->window, sfBlack);
 	display_sprite(game->win->window, game->background, NULL);
 	display_map(game, game->win, game->draw_line);
+	display_stat_bar(game);
 	if (tmp != NULL)
 		display_inventory(game->win->window, tmp->sprite);
 	display_quete(game);
