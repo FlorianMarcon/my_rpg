@@ -12,7 +12,7 @@ my_clock_t	*init_linked_clock(void)
 	my_clock_t *my_clock = init_clock();
 	my_clock_t *clock2 = init_clock();
 
-	if ((my_clock->next = malloc(sizeof(my_clock_t *))) == NULL)
+	if (my_clock == NULL || clock2 == NULL)
 		return (0);
 	my_clock->next = clock2;
 	return (my_clock);
