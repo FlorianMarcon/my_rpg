@@ -30,8 +30,6 @@ typedef struct inv {
 
 inv_t	*init_inventory(void);
 
-inv_t	*inventory(inv_t *tmp);
-
 void	display_inventory(sfRenderWindow *win, sfSprite *sprite);
 
 linked_list_t	*generate_list_inventory(char *path);

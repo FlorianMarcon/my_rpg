@@ -50,6 +50,7 @@ typedef struct game_s {
 
 	//joueur
 	perso_t *perso;
+	bool can_move;
 
 	//stat_bar
 	chstat_t *stat;
@@ -69,9 +70,11 @@ game_t	*initialisation_game(void);
 
 int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
 
-void	display(game_t *game, inv_t *tmp, pause_t *pause);
+void	display(game_t *game, inv_t *tmp);
 
-void	event(game_t *game);
+bool	event(game_t *game, pause_t *pause);
+
+bool      loop_pause(game_t *game, pause_t *pause);
 
 //utilitaries
 
@@ -133,5 +136,13 @@ pause_t	*init_pause(void);
 //stat
 
 void	display_stat_bar(game_t *game);
+
+// inventory
+
+inv_t	*inventory(game_t *game, inv_t *tmp);
+
+//object
+
+void	move_object(game_t *game);
 
 #endif
