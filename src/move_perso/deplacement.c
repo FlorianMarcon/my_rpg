@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-my_clock_t	*init_linked_clock()
+my_clock_t	*init_linked_clock(void)
 {
 	my_clock_t *my_clock = init_clock();
 	my_clock_t *clock2 = init_clock();
@@ -44,7 +44,7 @@ void	dep_right(game_t *game)
 		while (game->perso->position.x < x + 26.4 &&
 					game->perso->position.y < y + 18.2) {
 			loop_move(my_clock, game->perso, game->win);
-			display(game, NULL, NULL);
+			display(game, NULL);
 		}
 		game->perso->x -= 1;
 		game->perso->position.x = game->map->iso[game->perso->x][game->perso->y].x - 10;
@@ -66,7 +66,7 @@ void	dep_left(game_t *game)
 	if (game->perso->x != game->map->height - 2 && detect_col(game, 0) != -1) {
 		while (game->perso->position.x < x + 26 && game->perso->position.y < y + 18) {
 			loop_move(my_clock, game->perso,game-> win);
-			display(game, NULL, NULL);
+			display(game, NULL);
 		}
 		game->perso->x += 1;
 		game->perso->position.x = game->map->iso[game->perso->x][game->perso->y].x - 10;
@@ -88,7 +88,7 @@ void	dep_down(game_t *game)
 		game->perso->mouvement.y = -1;
 		while (game->perso->position.x < x + 36.4 && game->perso->position.y < y + 13.4) {
 			loop_move(my_clock, game->perso, game->win);
-			display(game, NULL, NULL);
+			display(game, NULL);
 		}
 		game->perso->y += 1;
 		game->perso->position.x = game->map->iso[game->perso->x][game->perso->y].x - 10;
@@ -110,7 +110,7 @@ void	dep_up(game_t *game)
 		game->perso->mouvement.x = 0;
 		while (game->perso->position.x > x - 36.4 && game->perso->position.y > y - 13.4) {
 			loop_move(my_clock, game->perso, game->win);
-			display(game, NULL, NULL);
+			display(game, NULL);
 		}
 		game->perso->y -= 1;
 		game->perso->position.x = game->map->iso[game->perso->x][game->perso->y].x - 10;

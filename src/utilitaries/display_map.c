@@ -35,6 +35,7 @@ void	display_map(game_t *game, window_t *win, bool line)
 	sprite_t *spr;
 	bool player = false;
 
+	move_object(game);
 	display_floor(map, win);
 	for (int i = 0; map->arr_bottom[i] != NULL; i++)
 		sfRenderWindow_drawVertexArray(win->window, map->arr_bottom[i], map->state_bottom);

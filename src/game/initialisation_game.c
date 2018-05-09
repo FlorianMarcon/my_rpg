@@ -65,5 +65,6 @@ game_t	*initialisation_game(void)
 	game->background = generate_sprite_from_file(BACKGROUND);
 	game->perso = create_my_perso();
 	game->stat = init_stat(game->perso->stat);
+	game->can_move = true;
 	return (game);
 }
