@@ -10,18 +10,7 @@
 #include "game.h"
 #include "graphique.h"
 
-void	display_player_inv(game_t *tmp, player_inv_t *ptr)
-{
-	if (ptr != NULL) {
-		while (ptr != NULL) {
-			sfRenderWindow_drawSprite(tmp->win->window, ptr->sprite, NULL);
-			sfRenderWindow_display(tmp->win->window);
-			ptr = ptr->next;
-		}
-	}
-}
-
-void	display(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ptr)
+void	display(game_t *game, inv_t *tmp)
 {
 	sfRenderWindow_clear(game->win->window, sfBlack);
 	display_sprite(game->win->window, game->background, NULL);
@@ -29,7 +18,6 @@ void	display(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ptr)
 	display_stat_bar(game);
 	if (tmp != NULL)
 		display_inventory(game->win->window, tmp->sprite);
-	display_player_inv(game, ptr);
 	display_quete(game);
 	sfRenderWindow_display(game->win->window);
 }
