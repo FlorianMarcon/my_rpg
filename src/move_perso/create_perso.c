@@ -28,8 +28,8 @@ void	init_perso_param(perso_t *perso)
 
 void	init_perso_stat(perso_t *perso)
 {
-	perso->stat.vie = 100;
-	perso->stat.vie_c = 100;
+	perso->stat.vie = 110;
+	perso->stat.vie_c = 90;
 	perso->stat.att_m = 10;
 	perso->stat.att_p = 10;
 	perso->stat.defence = 10;

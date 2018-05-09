@@ -21,6 +21,8 @@ bool	event(game_t *game, pause_t *stpause)
 		if (sfKeyboard_isKeyPressed(sfKeyM))
 			if (loop_pause(game, stpause))
 				return (true);
+		if (sfKeyboard_isKeyPressed(sfKeyF))
+			launch_fight(game);
 		affect_move_perso(game);
 	}
 	if (game->map->map[game->perso->x][game->perso->y - 1] >= 100)
