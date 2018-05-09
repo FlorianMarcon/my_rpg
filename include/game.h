@@ -145,4 +145,6 @@ inv_t	*inventory(game_t *game, inv_t *tmp);
 
 void	move_object(game_t *game);
 
+void	launch_fight(game_t *game);
+
 #endif
