@@ -46,13 +46,13 @@ int	loop_game(game_t *game, inv_t *tmp, pause_t *pause)
 			sfSprite_setPosition(pause->pause, pause->pos_pause);
 			is_pause = 1;
 		}
-		tmp = inventory(tmp);
+		tmp = inventory(game, tmp);
 /*		if (y == 0) {
 		ptr = create_obj_in_inv(game->list_inventory, "sword", ptr);
 		y++;
 		}*/
 		display(game, tmp, pause, NULL);
-		event(game);
+		event(game, pause);
 		if (is_pause == 1) {
 			if (sfKeyboard_isKeyPressed(sfKeyP)) {
 				pause->pos_pause.x = 1220;
