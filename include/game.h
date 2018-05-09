@@ -11,6 +11,7 @@
 #define PATH_DIR_MAP "./map/"
 #define PATH_DIR_OBJ "./object/"
 #define PATH_DIR_QUETE "./quete/"
+#define PATH_DIR_INV "./inv/"
 #define BACKGROUND "./matter/background.jpg"
 
 #include <stdbool.h>
@@ -43,23 +44,32 @@ typedef struct game_s {
 	//quete
 	linked_list_t *list_quete;
 	sfSprite *textbox;
-	sfText *text;
+	sfText *text[8];
+	unsigned int size_text;
 	bool display_textbox;
 
-	// joueur
+	//joueur
 	perso_t *perso;
 
 	//stat_bar
 	chstat_t *stat;
 
+	//inventory
+	linked_list_t *list_inventory;
 
 } game_t;
 
+typedef struct pause_s {
+	sfSprite *pause;
+	sfTexture *texture_pause;
+	sfVector2f pos_pause;
+} pause_t;
+
 game_t	*initialisation_game(void);
 
-int	loop_game(game_t *game, inv_t *tmp);
+int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
 
-void	display(game_t *game, inv_t *tmp);
+void	display(game_t *game, inv_t *tmp, pause_t *pause);
 
 void	event(game_t *game);
 
@@ -104,6 +114,8 @@ quete_t	*search_quete(game_t *game, int id);
 
 void	display_quete(game_t *game);
 
+void	display_pause(game_t *game, pause_t *pause);
+
 void	replace_perso(game_t *game, int x, int y);
 
 //lvl_up
@@ -113,5 +125,9 @@ void	lvl_up(game_t *game);
 //colision
 
 int	detect_col(game_t *game, int sens);
+
+//pause
+
+pause_t	*init_pause(void);
 
 #endif

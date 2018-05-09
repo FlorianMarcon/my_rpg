@@ -28,5 +28,8 @@ void	run_quete(game_t *game, int id)
 	if (quete == NULL)
 		return;
 	game->display_textbox = true;
-	sfText_setString(game->text, quete->message);
+	for (unsigned int i = 0; i != quete->size_message; i++) {
+		sfText_setString(game->text[i], quete->message[i]);
+	}
+	game->size_text = quete->size_message;
 }

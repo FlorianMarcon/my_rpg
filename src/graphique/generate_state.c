@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 sfRenderStates 	*generate_state(char *str, char *shader)
 {
@@ -18,7 +19,8 @@ sfRenderStates 	*generate_state(char *str, char *shader)
 		free(str);
 		return (NULL);
 	}
-	states->blendMode = sfBlendNone;
+//	states->blendMode = sfBlendNone;
+	states->blendMode = sfBlendAlpha;
 	states->transform = sfTransform_Identity;
 	if (shader == NULL)
 		states->shader = NULL;
