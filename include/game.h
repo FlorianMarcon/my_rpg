@@ -25,6 +25,7 @@
 #include "map.h"
 #include "inventory.h"
 #include "quete.h"
+#include "stat.h"
 
 typedef struct game_s {
 
@@ -53,11 +54,13 @@ typedef struct game_s {
 
 	//joueur
 	perso_t *perso;
+	bool can_move;
+
+	//stat_bar
+	chstat_t *stat;
 
 	//inventory
 	linked_list_t *list_inventory;
-
-	//pause
 
 } game_t;
 
@@ -73,7 +76,9 @@ int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
 
 void	display(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ptr);
 
-void	event(game_t *game);
+bool	event(game_t *game, pause_t *pause);
+
+bool      loop_pause(game_t *game, pause_t *pause);
 
 //utilitaries
 
@@ -120,6 +125,14 @@ void	display_pause(game_t *game, pause_t *pause);
 
 void	replace_perso(game_t *game, int x, int y);
 
+//lvl_up
+
+void	lvl_up(game_t *game);
+
+//colision
+
+int	detect_col(game_t *game, int sens);
+
 //pause
 
 pause_t	*init_pause(void);
@@ -127,5 +140,17 @@ pause_t	*init_pause(void);
 //inv
 
 player_inv_t	*create_obj_in_inv(linked_list_t *mdr, char *name, player_inv_t *tmp);
+
+//stat
+
+void	display_stat_bar(game_t *game);
+
+// inventory
+
+inv_t	*inventory(game_t *game, inv_t *tmp);
+
+//object
+
+void	move_object(game_t *game);
 
 #endif

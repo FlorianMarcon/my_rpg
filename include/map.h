@@ -20,20 +20,6 @@
 #define TRANSLA_X 5
 #define TRANSLA_Y -1
 
-typedef struct sprite_s {
-	int x;
-	int y;
-	sfTexture *texture;
-	sfSprite *sprite;
-	sfRenderStates *states;
-
-	sfIntRect *rect;
-
-	sfVector2u size;
-
-	int max_rect;
-}sprite_t;
-
 typedef struct map_s {
 	int **map;
 	sfVector2f **iso;
@@ -73,10 +59,24 @@ typedef struct object_s {
 	sfIntRect rect;
 	sfVector2u size;
 	int max_rect;
+	sfTime time;
 
 	int number;
 }object_t;
 
+typedef struct sprite_s {
+	int x;
+	int y;
+
+	sfSprite *sprite;
+	sfRenderStates *states;
+
+	sfIntRect rect;
+	int nb_rect;
+	object_t *obj;
+
+	sfClock *clock;
+}sprite_t;
 // generate_map
 
 map_t	*generate_map(char *path);

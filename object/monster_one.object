@@ -1,0 +1,5 @@
+monster_one
+88 100 3 0.2
+40
+./matter/monster_one.png
+./shader/transparent.frag

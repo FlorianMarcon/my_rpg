@@ -7,37 +7,52 @@
 
 #include "game.h"
 
-int	colision_x(perso_t *perso, map_t *map, int x)
+int	colision_x(game_t *game, int x)
 {
 	if (x == 0) {
-		if (map->map[perso->x + 1][perso->y] < 20 || map->map[perso->x + 1][perso->y] >= 100)
+
+		if (game->map->map[game->perso->x + 1][game->perso->y] < 20)
 			return (0);
+		/*else if (game->map->map[game->perso->x + 1][game->perso->y] >= 100) {
+			run_quete(game, game->map->map[game->perso->x + 1][game->perso->y]);
+			printf("**\n");
+		}*/
 	}
-	if (x == 1 && perso->x > 0) {
-		if (map->map[perso->x - 1][perso->y] < 20 || map->map[perso->x + 1][perso->y] >= 100)
+	if (x == 1 && game->perso->x > 0) {
+		if (game->map->map[game->perso->x - 1][game->perso->y] < 20)
 			return (0);
+		/*else if (game->map->map[game->perso->x - 1][game->perso->y] >= 100) {
+			run_quete(game, game->map->map[game->perso->x - 1][game->perso->y]);
+			printf("*\n");
+		}*/
 	}
 	return (-1);
 }
 
-int	colision_y(perso_t *perso, map_t *map, int y)
+int	colision_y(game_t *game, int y)
 {
 	if (y == 10) {
-		if (map->map[perso->x][perso->y + 1] < 20)
+		if (game->map->map[game->perso->x][game->perso->y + 1] < 20)
 			return (0);
+	/*else if (game->map->map[game->perso->x][game->perso->y + 1] >= 100) {
+			run_quete(game, game->map->map[game->perso->x][game->perso->y + 1]);
+		}*/
 	}
-	if (y == 11 && perso->y > 0) {
-		if (map->map[perso->x][perso->y - 1] < 20)
+	if (y == 11 && game->perso->y > 0) {
+		if (game->map->map[game->perso->x][game->perso->y - 1] < 20)
 			return (0);
+		/*else if (game->map->map[game->perso->x][game->perso->y - 1] >= 100) {
+			run_quete(game, game->map->map[game->perso->x][game->perso->y - 1]);
+		}*/
 	}
 	return (-1);
 }
 
-int	detect_col(perso_t *perso, map_t *map, int x)
+int	detect_col(game_t *game, int sens)
 {
-	if (x < 10)
-		return (colision_x(perso, map, x));
+	if (sens < 10)
+		return (colision_x(game, sens));
 	else
-		return (colision_y(perso, map, x));
+		return (colision_y(game, sens));
 	return (0);
 }

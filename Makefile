@@ -17,22 +17,28 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/move_perso/create_perso.c	\
 		$(WAY)/move_perso/deplacement.c		\
 		$(WAY)/move_perso/display.c		\
-		$(WAY)/move_perso/move_perso.c	\
+		$(WAY)/move_perso/move_perso.c		\
 		$(WAY)/move_perso/detect_obj.c		\
 		$(WAY)/move_perso/replace_perso.c	\
-		$(WAY)/game/loop_game.c	\
+		$(WAY)/stat/get_nb_in_char.c		\
+		$(WAY)/stat/init_item.c			\
+		$(WAY)/stat/init_stat.c			\
+		$(WAY)/stat/init_txt.c			\
+		$(WAY)/stat/display_stat.c		\
+		$(WAY)/stat/lvl_up.c			\
+		$(WAY)/game/loop_game.c			\
 		$(WAY)/game/initialisation_game.c	\
 		$(WAY)/map/generate_map.c		\
 		$(WAY)/map/generate_list_map.c		\
 		$(WAY)/map/generate_map_graph.c		\
-		$(WAY)/map/destroy.c		\
-		$(WAY)/map/search_map.c		\
+		$(WAY)/map/destroy.c			\
+		$(WAY)/map/search_map.c			\
 		$(WAY)/utilitaries/change_map.c		\
 		$(WAY)/utilitaries/is_extension.c	\
 		$(WAY)/utilitaries/create_two_d_map.c	\
 		$(WAY)/utilitaries/create_quad.c	\
 		$(WAY)/utilitaries/project_iso_point.c	\
-		$(WAY)/utilitaries/display.c	\
+		$(WAY)/utilitaries/display.c		\
 		$(WAY)/utilitaries/display_map.c	\
 		$(WAY)/graphique/generate_window.c	\
 		$(WAY)/graphique/generate_sprite_from_file.c	\
@@ -40,8 +46,9 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/graphique/generate_state.c	\
 		$(WAY)/graphique/destroy_vertex_array.c	\
 		$(WAY)/object/generate_object.c		\
-		$(WAY)/object/generate_list_object.c		\
+		$(WAY)/object/generate_list_object.c	\
 		$(WAY)/object/search_object.c		\
+		$(WAY)/object/move_object.c		\
 		$(WAY)/menu/anim_button.c			\
 		$(WAY)/menu/anim_settings.c			\
 		$(WAY)/menu/create_men.c			\
@@ -54,9 +61,10 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/inventory/generate_list_inventory.c		\
 		$(WAY)/inventory/manage_inventory_player.c		\
 		$(WAY)/quete/create_quete.c		\
-		$(WAY)/quete/generate_list_quete.c		\
+		$(WAY)/quete/generate_list_quete.c	\
 		$(WAY)/quete/run_quete.c		\
 		$(WAY)/quete/display_quete.c		\
+		$(WAY)/pause/pause.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

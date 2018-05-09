@@ -1,5 +1,5 @@
 basic_box
-95 150 3
+95 150 3 1
 20
 ./matter/small_basic_box.png
 ./shader/transparent.frag

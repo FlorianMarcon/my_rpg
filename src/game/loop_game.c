@@ -48,9 +48,9 @@ int	loop_game(game_t *game, inv_t *tmp, pause_t *pause)
 		}
 		tmp = inventory(tmp);
 /*		if (y == 0) {
-			ptr = create_obj_in_inv(game->list_inventory, "sword", ptr);
-			y++;
-			}*/
+		ptr = create_obj_in_inv(game->list_inventory, "sword", ptr);
+		y++;
+		}*/
 		display(game, tmp, pause, NULL);
 		event(game);
 		if (is_pause == 1) {
