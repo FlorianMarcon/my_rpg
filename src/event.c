@@ -52,4 +52,5 @@ void	event(game_t *game)
 		run_quete(game, game->map->map[game->perso->x][game->perso->y - 1]);
 	change_map(game);
 	move_object(game);
+	lvl_up(game);
 }

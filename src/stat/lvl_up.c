@@ -9,8 +9,8 @@
 
 void	lvl_up(game_t *game)
 {
-	if (game->perso->stat->xp >= game->perso->stat->xp_max) {
-		game->perso->stat->lvl += 1;
-		game->perso->stat->xp_max *= 2;
+	if (game->perso->stat.xp >= game->perso->stat.xp_max) {
+		game->perso->stat.lvl += 1;
+		game->perso->stat.xp_max *= 2;
 	}
 }

@@ -130,4 +130,8 @@ int	detect_col(game_t *game, int sens);
 
 pause_t	*init_pause(void);
 
+//stat
+
+void	display_stat_bar(game_t *game);
+
 #endif

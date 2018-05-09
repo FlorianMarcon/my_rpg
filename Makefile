@@ -25,6 +25,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/stat/init_stat.c			\
 		$(WAY)/stat/init_txt.c			\
 		$(WAY)/stat/display_stat.c		\
+		$(WAY)/stat/lvl_up.c			\
 		$(WAY)/game/loop_game.c			\
 		$(WAY)/game/initialisation_game.c	\
 		$(WAY)/map/generate_map.c		\

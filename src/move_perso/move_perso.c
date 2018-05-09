@@ -9,15 +9,15 @@
 
 void	move_rect(perso_t *perso, int i, float second, sfClock *my_clock)
 {
-	int width = 64;
-	int height = 56;
+	int width = 32;
+	int height = 48;
 
 	perso->rect.top = i * height;
 
 	if (second > 0.1) {
 		sfClock_restart(my_clock);
 		perso->rect.left += width;
-		if (perso->rect.left > 254)
+		if (perso->rect.left >= 128)
 			perso->rect.left = 0;
 	}
 	sfSprite_setTextureRect(perso->sprite, perso->rect);

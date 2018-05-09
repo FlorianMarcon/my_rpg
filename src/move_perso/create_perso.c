@@ -9,12 +9,12 @@
 
 void	init_perso_param(perso_t *perso)
 {
-	perso->texture = sfTexture_createFromFile("./src/dinosaure.png", NULL);
+	perso->texture = sfTexture_createFromFile("./matter/caracter.png", NULL);
 	perso->sprite = sfSprite_create();
 	perso->rect.top = 0;
 	perso->rect.left = 0;
-	perso->rect.width = 64;
-	perso->rect.height = 56;
+	perso->rect.width = 32;
+	perso->rect.height = 48;
 	perso->position.x = 0;
 	perso->position.y = 0;
 	perso->mouvement.x = 0;
