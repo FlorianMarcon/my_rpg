@@ -56,6 +56,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/quete/generate_list_quete.c		\
 		$(WAY)/quete/run_quete.c		\
 		$(WAY)/quete/display_quete.c		\
+		$(WAY)/pause/pause.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

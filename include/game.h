@@ -67,9 +67,11 @@ game_t	*initialisation_game(void);
 
 int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
 
-void	display(game_t *game, inv_t *tmp, pause_t *pause);
+void	display(game_t *game, inv_t *tmp);
 
-void	event(game_t *game);
+bool	event(game_t *game, pause_t *pause);
+
+bool      loop_pause(game_t *game, pause_t *pause);
 
 //utilitaries
 

@@ -37,7 +37,7 @@ void	move_object(game_t *game)
 		list = list->next;
 	}
 }
-void	event(game_t *game)
+bool	event(game_t *game, pause_t *stpause)
 {
 	while (sfRenderWindow_pollEvent(game->win->window, &game->win->event)) {
 		if (game->win->event.type == sfEvtClosed)
@@ -46,9 +46,13 @@ void	event(game_t *game)
 			game->draw_line = true;
 		if (sfKeyboard_isKeyPressed(sfKeyO))
 			game->draw_line = false;
+		if (sfKeyboard_isKeyPressed(sfKeyM))
+			if (loop_pause(game, stpause))
+				return (true);
 		affect_move_perso(game);
 	}
 	run_quete(game, game->map->map[game->perso->y][game->perso->x]);
 	change_map(game);
 	move_object(game);
+	return (false);
 }
