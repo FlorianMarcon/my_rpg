@@ -61,6 +61,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/inventory/generate_list_inventory.c		\
 		$(WAY)/inventory/create_obj_in_inv.c		\
 		$(WAY)/inventory/delete_obj_in_inv.c		\
+		$(WAY)/inventory/drag_and_drop.c		\
 		$(WAY)/quete/create_quete.c		\
 		$(WAY)/quete/generate_list_quete.c	\
 		$(WAY)/quete/run_quete.c		\

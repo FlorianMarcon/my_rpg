@@ -154,6 +154,7 @@ void	display_stat_bar(game_t *game);
 
 void	inventory(game_t *game);
 
+void	drag_and_drop(game_t *game);
 //object
 
 void	move_object(game_t *game);
