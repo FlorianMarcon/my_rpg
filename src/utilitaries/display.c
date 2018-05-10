@@ -44,5 +44,6 @@ void	display(game_t *game, inv_t *tmp)
 	if (game->can_disp == true)
 		display_inv(game, game->list_inv_player);
 	display_quete(game);
+	drag_and_drop(game);
 	sfRenderWindow_display(game->win->window);
 }
