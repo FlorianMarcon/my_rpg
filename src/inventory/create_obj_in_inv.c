@@ -13,7 +13,7 @@ obj_inv_t	*find_my_obj(linked_list_t *tmp, char *name)
 
 	while (tmp != NULL) {
 		ptr = (obj_inv_t *)tmp->data;
-		if (strcmp(ptr->type, name) == 0)
+		if (strcmp(ptr->name, name) == 0)
 				return (ptr);
 			tmp = tmp->next;
 		}
@@ -25,7 +25,7 @@ player_inv_t	*create_node_player(obj_inv_t *obj)
 	player_inv_t *elem = malloc(sizeof(player_inv_t));
 
 	elem->sprite = sfSprite_create();
-	elem->type = obj->type;
+	elem->name = obj->name;
 	if (elem->sprite == NULL) {
 		free(elem);
 		return (NULL);

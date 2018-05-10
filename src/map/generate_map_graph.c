@@ -87,5 +87,6 @@ map_graph_t	*generate_map_graph(map_t *map, game_t *game)
 	graph->arr_line = generate_sprite_line(graph);
 	graph->list_obj = generate_list_sprite(map, game->list_obj);
 	graph->state_telep = generate_state(map->path_sprite_floor, "./shader/teleport.frag");
+	graph->background = generate_sprite_from_file(map->path_sprite_back);
 	return (graph);
 }

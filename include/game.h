@@ -42,7 +42,6 @@ typedef struct game_s {
 
 	// window
 	window_t *win;
-	sfSprite *background;
 
 	//object
 	linked_list_t *list_obj;
