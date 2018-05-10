@@ -71,7 +71,9 @@ OBJ	=	$(SRC:.c=.o)
 
 CFLAGS	=	-W -Wall -Wextra -g3 -I./include
 
-LDFLAGS	=	-lcsfml-system -lcsfml-window -lcsfml-graphics -lm
+LDFLAGS_ME	=	-lcsfml-system -lcsfml-window -lcsfml-graphics -lm
+
+LDFLAGS	=	-lc_graph_prog -lm
 
 WAY_LIB	=	./lib/my
 
@@ -81,9 +83,15 @@ LIB	=	-L$(WAY_LIB) -lmy
 
 NAME	=	my_rpg
 
-all:	$(OBJ)
+all:	$(NAME)
+
+$(NAME):$(OBJ)
 	make -C./$(WAY_LIB)
 	$(CC) -o $(NAME) $(OBJ) $(LIB) $(LDFLAGS)
+
+me:	$(OBJ)
+	make -C./$(WAY_LIB)
+	$(CC) -o $(NAME) $(OBJ) $(LIB) $(LDFLAGS_ME)
 
 clean:
 	make clean -C./$(WAY_TST)

@@ -19,7 +19,6 @@ sfRenderStates 	*generate_state(char *str, char *shader)
 		free(str);
 		return (NULL);
 	}
-//	states->blendMode = sfBlendNone;
 	states->blendMode = sfBlendAlpha;
 	states->transform = sfTransform_Identity;
 	if (shader == NULL)
