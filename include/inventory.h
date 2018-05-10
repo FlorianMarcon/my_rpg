@@ -31,7 +31,6 @@ typedef struct player_inv {
 
 	int quantity;
 
-	bool status;
 	struct player_inv *next;
 } player_inv_t;
 

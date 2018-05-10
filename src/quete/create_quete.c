@@ -13,23 +13,35 @@
 #include "quete.h"
 #include "my.h"
 
+toto_t	*create_toto(char *str)
+{
+	toto_t *toto = malloc(sizeof(*toto));
+	char **tab = parsing_str(str, ' ' | '\t');
+
+	if (toto == NULL || tab == NULL)
+		return (NULL);
+	toto->name = tab[0];
+	toto->quantity = atoi(tab[1]);
+	free(str);
+	return (toto);
+}
 void	quete_stock_object_to_come_back(quete_t *quete, int fd)
 {
 	char *str = NULL;
 
 	while ((str = get_next_line(fd)) != NULL && strcmp(str, "TO BE GIVEN") != 0) {
 		if (quete->obj_need == NULL)
-			quete->obj_need = create_list(str);
+			quete->obj_need = create_list(create_toto(str));
 		else
-			create_node(quete->obj_need, str);
+			create_node(quete->obj_need, create_toto(str));
 	}
 	if (str != NULL)
 		free(str);
 	while ((str = get_next_line(fd)) != NULL) {
 		if (quete->obj_given == NULL)
-			quete->obj_given = create_list(str);
+			quete->obj_given = create_list(create_toto(str));
 		else
-			create_node(quete->obj_given, str);
+			create_node(quete->obj_given, create_toto(str));
 	}
 }
 void	quete_stock_message(quete_t *quete, int fd)
