@@ -49,16 +49,16 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/object/generate_list_object.c	\
 		$(WAY)/object/search_object.c		\
 		$(WAY)/object/move_object.c		\
-		$(WAY)/menu/anim_button.c			\
-		$(WAY)/menu/anim_settings.c			\
-		$(WAY)/menu/create_men.c			\
-		$(WAY)/menu/create_men2.c			\
-		$(WAY)/menu/create_set.c			\
+		$(WAY)/menu/anim_button.c		\
+		$(WAY)/menu/anim_settings.c		\
+		$(WAY)/menu/create_men.c		\
+		$(WAY)/menu/create_men2.c		\
+		$(WAY)/menu/create_set.c		\
 		$(WAY)/menu/menu_crea.c			\
 		$(WAY)/menu/loop_menu.c			\
-		$(WAY)/inventory/launch_inventory.c			\
-		$(WAY)/inventory/create_inventory.c			\
-		$(WAY)/inventory/generate_list_inventory.c		\
+		$(WAY)/inventory/launch_inventory.c	\
+		$(WAY)/inventory/create_inventory.c	\
+		$(WAY)/inventory/generate_list_inventory.c	\
 		$(WAY)/quete/create_quete.c		\
 		$(WAY)/quete/generate_list_quete.c	\
 		$(WAY)/quete/run_quete.c		\
