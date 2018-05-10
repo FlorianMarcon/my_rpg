@@ -23,6 +23,12 @@
 #include "quete.h"
 #include "stat.h"
 
+typedef struct pause_s {
+	sfSprite *pause;
+	sfTexture *texture_pause;
+	sfVector2f pos_pause;
+} pause_t;
+
 typedef struct game_s {
 
 	// map
@@ -59,24 +65,22 @@ typedef struct game_s {
 	linked_list_t *list_inventory;
 	bool can_disp;
 	player_inv_t *list_inv_player;
+	inv_t *back_inv;
+
+	//pause
+	pause_t *pause;
 
 } game_t;
 
-typedef struct pause_s {
-	sfSprite *pause;
-	sfTexture *texture_pause;
-	sfVector2f pos_pause;
-} pause_t;
-
 game_t	*initialisation_game(void);
 
-int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
+int	loop_game(game_t *game);
 
 void	display(game_t *game, inv_t *tmp);
 
-bool	event(game_t *game, pause_t *pause);
+bool	event(game_t *game);
 
-bool      loop_pause(game_t *game, pause_t *pause);
+bool      loop_pause(game_t *game);
 
 //utilitaries
 
@@ -124,7 +128,7 @@ quete_t	*search_quete(game_t *game, int id);
 
 void	display_quete(game_t *game);
 
-void	display_pause(game_t *game, pause_t *pause);
+void	display_pause(game_t *game);
 
 void	replace_perso(game_t *game, int x, int y);
 
@@ -148,7 +152,7 @@ void	display_stat_bar(game_t *game);
 
 // inventory
 
-inv_t	*inventory(game_t *game, inv_t *tmp);
+void	inventory(game_t *game);
 
 //object
 

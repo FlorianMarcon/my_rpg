@@ -72,7 +72,7 @@ void	set_pos_men(menu_t *men, set_t *set);
 
 void	draw_menu(menu_t *men, sfRenderWindow *window, lock_t *lock, set_t *set);
 
-int	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set, game_t *game, inv_t *inv, pause_t *pause);
+int	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set, game_t *game);
 
 void	set_text_menu(menu_t *men, set_t *set);
 
@@ -82,6 +82,6 @@ void	anim_but1(menu_t *menu, sfRenderWindow *window, sfVector2i pos1);
 
 void	anim_back(set_t *set, sfRenderWindow *win, sfVector2i pos1, lock_t *lock);
 
-int	create_menu(set_t *set, lock_t *ptr, menu_t *men, sfRenderWindow *window, sfVector2i pos1, game_t *game, inv_t *inv, pause_t *pause);
+int	create_menu(set_t *set, lock_t *ptr, menu_t *men, sfRenderWindow *window, sfVector2i pos1, game_t *game);
 
 #endif

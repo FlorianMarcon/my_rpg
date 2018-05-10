@@ -12,15 +12,12 @@
 #include "header.h"
 #include "inventory.h"
 
-int	loop_game(game_t *game, inv_t *tmp, pause_t *pause)
+int	loop_game(game_t *game)
 {
-	game->list_inv_player = create_obj_in_inv(game->list_inventory, "whool", game->list_inv_player);
-	game->list_inv_player = create_obj_in_inv(game->list_inventory, "whool", game->list_inv_player);
 	replace_perso(game, 0, 0);
 	while (game->map_graph != NULL && sfRenderWindow_isOpen(game->win->window)) {
-		tmp = inventory(game, tmp);
-		display(game, tmp);
-		if (event(game, pause))
+		display(game, game->back_inv);
+		if (event(game))
 			return (0);
 	}
 	return (0);
