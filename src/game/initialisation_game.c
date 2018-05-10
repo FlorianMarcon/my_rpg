@@ -33,20 +33,25 @@ void	initialisation_list_necessary(game_t *game)
 	game->list_map = generate_list_map(PATH_DIR_MAP);
 	game->list_obj = generate_list_object(PATH_DIR_OBJ);
 	game->list_inventory = generate_list_inventory(PATH_DIR_INV);
+	game->list_inv_player = NULL;
 }
 
 pause_t	*init_pause(void)
 {
-	pause_t *game = malloc(sizeof(pause_t));
+	pause_t *pause = malloc(sizeof(pause_t));
 
-	game->pause = sfSprite_create();
-	game->texture_pause = sfTexture_createFromFile("./matter/pause.png", NULL);
-	sfSprite_setTexture(game->pause, game->texture_pause, sfTrue);
-	game->pos_pause = (sfVector2f){1200, 1200};
-	sfSprite_setPosition(game->pause, game->pos_pause);
-	return (game);
+	pause->pause = sfSprite_create();
+	pause->texture_pause = sfTexture_createFromFile("./matter/pause.png", NULL);
+	sfSprite_setTexture(pause->pause, pause->texture_pause, sfTrue);
+	pause->pos_pause = (sfVector2f){1200, 1200};
+	sfSprite_setPosition(pause->pause, pause->pos_pause);
+	return (pause);
 }
 
+void	init_inv(game_t *game)
+{
+	game->back_inv = init_inventory();
+}
 game_t	*initialisation_game(void)
 {
 	game_t *game = malloc(sizeof(*game));
@@ -66,5 +71,7 @@ game_t	*initialisation_game(void)
 	game->perso = create_my_perso();
 	game->stat = init_stat(game->perso->stat);
 	game->can_move = true;
+	game->pause = init_pause();
+	init_inv(game);
 	return (game);
 }

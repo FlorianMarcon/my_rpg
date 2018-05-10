@@ -13,10 +13,7 @@
 
 int	loop_menu(void)
 {
-	player_inv_t *play = NULL;
 	game_t *game = initialisation_game();
-	pause_t *pause = init_pause();
-	inv_t *tmp = init_inventory();
 	set_t *set = init_set();
 	menu_t *men = init_menu();
 	lock_t *ptr = malloc(sizeof(lock_t));
@@ -35,8 +32,7 @@ int	loop_menu(void)
 				sfRenderWindow_close(game->win->window);
 		pos_mouse = sfMouse_getPositionRenderWindow(game->win->window);
 		sfRenderWindow_clear(game->win->window, sfBlack);
-		//sfRenderWindow_display(game->win->window);
-		create_menu(set, ptr, men, game->win->window, pos_mouse, game, tmp, pause, play);
+		create_menu(set, ptr, men, game->win->window, pos_mouse, game);
 	}
 	destroy_map_graph(game->map_graph);
 	free(game->win);

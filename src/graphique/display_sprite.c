@@ -15,12 +15,14 @@ void	display_inventory(sfRenderWindow *win, sfSprite *spr)
 	sfRenderWindow_drawSprite(win, spr, NULL);
 }
 
-void	display_pause(game_t *tmp, pause_t *pause)
+void	display_pause(game_t *game)
 {
-	if (pause->pause == NULL || tmp->win->window == NULL)
+	pause_t *pause = game->pause;
+
+	if (pause->pause == NULL || game->win->window == NULL)
 		return;
-	sfRenderWindow_drawSprite(tmp->win->window, pause->pause, NULL);
-	sfRenderWindow_display(tmp->win->window);
+	sfRenderWindow_drawSprite(game->win->window, pause->pause, NULL);
+	sfRenderWindow_display(game->win->window);
 }
 
 void	display_sprite(sfRenderWindow *win, sfSprite *spr, sfRenderStates *sta)

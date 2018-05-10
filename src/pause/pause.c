@@ -8,9 +8,10 @@
 #include <stdbool.h>
 #include "game.h"
 
-bool      loop_pause(game_t *game, pause_t *pause)
+bool      loop_pause(game_t *game)
 {
           bool is_pause = true;
+          pause_t *pause = game->pause;
 
           pause->pos_pause.x = 0;
           pause->pos_pause.y = 0;
@@ -23,7 +24,7 @@ bool      loop_pause(game_t *game, pause_t *pause)
                                         return (true);
                     }
                     sfRenderWindow_clear(game->win->window, sfBlack);
-                    display_pause(game, pause);
+                    display_pause(game);
                     sfRenderWindow_display(game->win->window);
           }
           return (false);

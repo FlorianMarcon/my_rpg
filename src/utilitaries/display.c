@@ -10,16 +10,26 @@
 #include "game.h"
 #include "graphique.h"
 
-void	display_inv(game_t *tmp, player_inv_t *ply)
+void	display_inv(game_t *game, player_inv_t *list)
 {
-	while (ply != NULL) {
-		sfRenderWindow_drawSprite(tmp->win->window, ply->sprite, NULL);
-//		sfRenderWindow_display(tmp->win->window);
-		ply = ply->next;
+	sfVector2f pos = {714, 289};
+	unsigned int i = 0;
+
+	while (list != NULL) {
+		sfSprite_setPosition(list->sprite, pos);
+		sfRenderWindow_drawSprite(game->win->window, list->sprite, NULL);
+		pos.x += 80;
+		i++;
+		if (i == 4) {
+			i = 0;
+			pos.x = 714;
+			pos.y += 80;
+		}
+		list = list->next;
 	}
 }
 
-void	display(game_t *game, inv_t *tmp, player_inv_t *ply)
+void	display(game_t *game, inv_t *tmp)
 {
 	sfRenderWindow_clear(game->win->window, sfBlack);
 	display_sprite(game->win->window, game->background, NULL);
@@ -28,7 +38,7 @@ void	display(game_t *game, inv_t *tmp, player_inv_t *ply)
 	if (tmp != NULL)
 		display_inventory(game->win->window, tmp->sprite);
 	if (game->can_disp == true)
-		display_inv(game, ply);
+		display_inv(game, game->list_inv_player);
 	display_quete(game);
 	sfRenderWindow_display(game->win->window);
 }
