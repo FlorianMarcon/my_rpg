@@ -76,15 +76,19 @@ player_inv_t	*create_node_player(obj_inv_t *tmp, int i, int *arr)
 
 player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name, player_inv_t *list)
 {
+	static int dec = 0;
 	fprintf(stderr, "%s START\n", name);
 	int place = calc_place(list);
 	int *pos_in_inv = init_pos_inventory();
 	obj_inv_t *obj = NULL;
 	player_inv_t *new = NULL;
-	
+
 	obj = find_my_obj(tmp, name);
 	if (tmp == NULL)
 		return (list);
+	dec = place;
+	place += dec;
+	printf("%i\n", place);
 	new = create_node_player(obj, place, pos_in_inv);
 	if (new == NULL) {
 		fprintf(stderr, "object not created\n");
