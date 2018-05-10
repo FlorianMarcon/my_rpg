@@ -19,14 +19,13 @@ sfRenderStates 	*generate_state(char *str, char *shader)
 		free(str);
 		return (NULL);
 	}
-//	states->blendMode = sfBlendNone;
 	states->blendMode = sfBlendAlpha;
 	states->transform = sfTransform_Identity;
 	if (shader == NULL)
 		states->shader = NULL;
 	else
-		states->shader = sfShader_createFromFile("./shader/simple.vert", shader);
-//	states->shader = sfShader_createFromFile("./shader/simple.vert", NULL, shader);
+//		states->shader = sfShader_createFromFile("./shader/simple.vert", shader);
+	states->shader = sfShader_createFromFile("./shader/simple.vert", NULL, shader);
 	states->texture = sfTexture_createFromFile(str, NULL);
 	if (states->texture == NULL) {
 		free(states);

@@ -58,7 +58,8 @@ typedef struct game_s {
 	//inventory
 	linked_list_t *list_inventory;
 	bool can_disp;
-	
+	player_inv_t *list_inv_player;
+
 } game_t;
 
 typedef struct pause_s {
@@ -126,6 +127,8 @@ void	display_quete(game_t *game);
 void	display_pause(game_t *game, pause_t *pause);
 
 void	replace_perso(game_t *game, int x, int y);
+
+bool	status_quete(quete_t *quete, game_t *game);
 
 //lvl_up
 

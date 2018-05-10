@@ -13,11 +13,8 @@
 
 int	loop_game(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ply)
 {
-	ply = create_obj_in_inv(game->list_inventory, "sword", ply);
-//	printf("%s\n", ply->type);
-	fprintf(stderr, "anthony le bg\n");
-	ply = create_obj_in_inv(game->list_inventory, "potion", ply);
-	fprintf(stderr, "hello\n");
+	game->list_inv_player = NULL;
+
 	replace_perso(game, 0, 0);
 	while (game->map_graph != NULL && sfRenderWindow_isOpen(game->win->window)) {
 		tmp = inventory(game, tmp);
