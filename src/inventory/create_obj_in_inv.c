@@ -34,7 +34,6 @@ player_inv_t	*create_node_player(obj_inv_t *obj)
 	elem->att = obj->att;
 	elem->att_mag = obj->att_mag;
 	elem->next = NULL;
-	elem->status = false;
 	elem->number = sfText_create();
 	elem->quantity = 1;
 	return (elem);

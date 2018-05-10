@@ -12,6 +12,11 @@
 #include "my.h"
 #include "inventory.h"
 
+typedef struct toto {
+	char *name;
+	int quantity;
+}toto_t;
+
 typedef struct quete_s {
 	int id;
 
