@@ -28,12 +28,31 @@ void	display_floor(map_graph_t *map, window_t *win)
 	}
 }
 
+void	display_object(game_t *game, window_t *win)
+{
+	linked_list_t *list = game->map_graph->list_obj;
+	sprite_t *spr;
+	bool player = false;
+
+	while (list != NULL) {
+		spr = (sprite_t *)list->data;
+		if (player == false && spr->y >= game->perso->x + 1) {
+			display_perso(game->perso, game->win);
+			player = true;
+		}
+		if (spr != NULL && spr->displaying == false) {
+			manage_object_no_displaying(spr);
+		} else if (spr != NULL || spr->sprite != NULL)
+			sfRenderWindow_drawSprite(win->window, spr->sprite, spr->states);
+		list = list->next;
+	}
+	if (player == false)
+		display_perso(game->perso, game->win);
+
+}
 void	display_map(game_t *game, window_t *win, bool line)
 {
 	map_graph_t *map = game->map_graph;
-	linked_list_t *list = map->list_obj;
-	sprite_t *spr;
-	bool player = false;
 
 	move_object(game);
 	display_floor(map, win);
@@ -41,16 +60,5 @@ void	display_map(game_t *game, window_t *win, bool line)
 		sfRenderWindow_drawVertexArray(win->window, map->arr_bottom[i], map->state_bottom);
 	for (int i = 0; line == true && map->arr_line[i] != NULL; i++)
 		sfRenderWindow_drawVertexArray(win->window, map->arr_line[i], NULL);
-	while (list != NULL) {
-		spr = (sprite_t *)list->data;
-		if (player == false && spr->y >= game->perso->x + 1) {
-			display_perso(game->perso, game->win);
-			player = true;
-		}
-		if (spr != NULL || spr->sprite != NULL)
-			sfRenderWindow_drawSprite(win->window, spr->sprite, spr->states);
-		list = list->next;
-	}
-	if (player == false)
-		display_perso(game->perso, game->win);
+	display_object(game, win);
 }

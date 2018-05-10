@@ -158,6 +158,9 @@ void	inventory(game_t *game);
 
 void	move_object(game_t *game);
 
+void      manage_object_no_displaying(sprite_t *spr);
+
+// fight
 void	launch_fight(game_t *game);
 
 #endif

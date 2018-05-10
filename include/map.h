@@ -75,6 +75,9 @@ typedef struct sprite_s {
 	int nb_rect;
 	object_t *obj;
 
+	bool displaying;
+	sfClock *time_no_disp;
+
 	sfClock *clock;
 }sprite_t;
 // generate_map
@@ -104,5 +107,7 @@ linked_list_t	*generate_list_sprite(map_t *map, linked_list_t *list_texture);
 void	destroy_map_graph(map_graph_t *map);
 
 map_t	*search_map(linked_list_t *list_map, int index);
+
+void      no_display_object(linked_list_t *list, unsigned int x, unsigned int y);
 
 #endif

@@ -14,6 +14,7 @@
 
 int	loop_game(game_t *game)
 {
+	no_display_object(game->map_graph->list_obj, 5, 0);
 	replace_perso(game, 0, 0);
 	while (game->map_graph != NULL && sfRenderWindow_isOpen(game->win->window)) {
 		display(game, game->back_inv);

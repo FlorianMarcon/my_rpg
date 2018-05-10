@@ -49,6 +49,8 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/object/generate_list_object.c	\
 		$(WAY)/object/search_object.c		\
 		$(WAY)/object/move_object.c		\
+		$(WAY)/object/manage_object_no_displaying.c	\
+		$(WAY)/object/no_display_object.c	\
 		$(WAY)/menu/anim_button.c			\
 		$(WAY)/menu/anim_settings.c			\
 		$(WAY)/menu/create_men.c			\
@@ -56,9 +58,9 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/menu/create_set.c			\
 		$(WAY)/menu/menu_crea.c			\
 		$(WAY)/menu/loop_menu.c			\
-		$(WAY)/inventory/launch_inventory.c			\
-		$(WAY)/inventory/create_inventory.c			\
-		$(WAY)/inventory/generate_list_inventory.c		\
+		$(WAY)/inventory/launch_inventory.c		\
+		$(WAY)/inventory/create_inventory.c		\
+		$(WAY)/inventory/generate_list_inventory.c	\
 		$(WAY)/inventory/create_obj_in_inv.c		\
 		$(WAY)/inventory/delete_obj_in_inv.c		\
 		$(WAY)/quete/create_quete.c		\
@@ -71,7 +73,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	=	-W -Wall -Wextra -g3 -I./include
+CFLAGS	=	-W -Wall -Wextra -Werror -g3 -I./include
 
 LDFLAGS_ME	=	-lcsfml-system -lcsfml-window -lcsfml-graphics -lm
 
