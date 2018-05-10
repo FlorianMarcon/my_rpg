@@ -36,7 +36,7 @@ void	display_object(game_t *game, window_t *win)
 
 	while (list != NULL) {
 		spr = (sprite_t *)list->data;
-		if (player == false && spr->y >= game->perso->x + 1) {
+		if (player == false && (int)spr->y >= game->perso->x + 1) {
 			display_perso(game->perso, game->win);
 			player = true;
 		}

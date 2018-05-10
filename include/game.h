@@ -66,6 +66,7 @@ typedef struct game_s {
 	bool can_disp;
 	player_inv_t *list_inv_player;
 	inv_t *back_inv;
+	sfFont *font_inv;
 
 	//pause
 	pause_t *pause;

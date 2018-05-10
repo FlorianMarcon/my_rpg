@@ -65,8 +65,8 @@ typedef struct object_s {
 }object_t;
 
 typedef struct sprite_s {
-	int x;
-	int y;
+	unsigned int x;
+	unsigned int y;
 
 	sfSprite *sprite;
 	sfRenderStates *states;

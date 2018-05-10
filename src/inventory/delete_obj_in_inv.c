@@ -9,20 +9,22 @@
 
 player_inv_t	*delete_obj_in_inv(char *name, player_inv_t *list)
 {
-          player_inv_t *tmp = list;
+          player_inv_t *obj = search_obj_inv_player(name, list);
           player_inv_t *re = list;
 
-          while (tmp != NULL && strcmp(tmp->type, name) != 0)
-                    tmp = tmp->next;
-          if (tmp == NULL)
+          if (obj == NULL)
                     return (list);
-          if (tmp == list) {
+          if (obj->quantity > 1) {
+                    obj->quantity--;
+                    return (list);
+          }
+          if (obj == list) {
                     list = list->next;
           } else {
-                    while (re->next != tmp)
+                    while (re->next != obj)
                               re = re->next;
                     re->next = re->next->next;
           }
-          free(tmp);
+          free(obj);
           return (list);
 }

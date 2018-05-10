@@ -35,6 +35,8 @@ player_inv_t	*create_node_player(obj_inv_t *obj)
 	elem->att_mag = obj->att_mag;
 	elem->next = NULL;
 	elem->status = false;
+	elem->number = sfText_create();
+	elem->quantity = 1;
 	return (elem);
 }
 
@@ -47,6 +49,10 @@ player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name, player_inv_t *li
 	obj = find_my_obj(tmp, name);
 	if (obj == NULL)
 		return (list);
+	if ((new = search_obj_inv_player(name, list)) != NULL) {
+		new->quantity++;
+		return (list);
+	}
 	new = create_node_player(obj);
 	if (new == NULL) {
 		return (list);
