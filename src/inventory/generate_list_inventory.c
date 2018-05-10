@@ -23,7 +23,8 @@ obj_inv_t	*generate_object_inv(char *path)
 		return (NULL);
 	if ((obj = malloc(sizeof(*obj))) == NULL)
 		return (NULL);
-	obj->type = get_next_line(fd);
+	obj->name = get_next_line(fd);
+//	obj->type = get_next_line(fd);
 	obj->att = 0;
 	obj->att_mag = 0;
 	if ((str = get_next_line(fd)) != NULL) {
