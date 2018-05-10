@@ -16,8 +16,12 @@ void	display_inv(game_t *game, player_inv_t *list)
 	unsigned int i = 0;
 
 	while (list != NULL) {
+		sfText_setString(list->number, get_nb_in_char(list->quantity));
+		sfText_setFont(list->number, game->font_inv);
+		sfText_setPosition(list->number, pos);
 		sfSprite_setPosition(list->sprite, pos);
 		sfRenderWindow_drawSprite(game->win->window, list->sprite, NULL);
+		sfRenderWindow_drawText(game->win->window, list->number, NULL);
 		pos.x += 80;
 		i++;
 		if (i == 4) {

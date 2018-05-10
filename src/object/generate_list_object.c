@@ -49,6 +49,9 @@ sprite_t	*generate_sprite_from_object(object_t *obj, sfVector2f *pos)
 	spr->sprite = sfSprite_create();
 	spr->rect = obj->rect;
 	spr->nb_rect = 0;
+	spr->clock = NULL;
+	spr->time_no_disp = NULL;
+	spr->displaying = true;
 	if (obj->max_rect > 0) {
 		pos->x -= (obj->rect.width * 0.25);
 		pos->y -= (obj->size.y * 0.75);

@@ -66,6 +66,7 @@ typedef struct game_s {
 	bool can_disp;
 	player_inv_t *list_inv_player;
 	inv_t *back_inv;
+	sfFont *font_inv;
 
 	//pause
 	pause_t *pause;
@@ -159,6 +160,9 @@ void	drag_and_drop(game_t *game);
 
 void	move_object(game_t *game);
 
+void      manage_object_no_displaying(sprite_t *spr);
+
+// fight
 void	launch_fight(game_t *game);
 
 #endif

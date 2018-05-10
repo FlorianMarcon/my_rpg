@@ -51,6 +51,7 @@ pause_t	*init_pause(void)
 void	init_inv(game_t *game)
 {
 	game->back_inv = init_inventory();
+	game->font_inv = sfFont_createFromFile("./font/fibre-font.otf");
 }
 game_t	*initialisation_game(void)
 {
