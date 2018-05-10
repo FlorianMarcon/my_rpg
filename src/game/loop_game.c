@@ -14,7 +14,6 @@
 int	loop_game(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ply)
 {
 	game->list_inv_player = NULL;
-
 	replace_perso(game, 0, 0);
 	while (game->map_graph != NULL && sfRenderWindow_isOpen(game->win->window)) {
 		tmp = inventory(game, tmp);

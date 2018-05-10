@@ -17,7 +17,7 @@ void      quete_give_all_object(quete_t *quete, game_t *game)
           while (list != NULL) {
 		str = (char *)list->data;
 		if (str != NULL)
-			ply = create_obj_in_inv(game->list_obj, str, ply);
+			ply = create_obj_in_inv(game->list_inventory, str, ply);
 		list = list->next;
 	}
 	game->list_inv_player = ply;
