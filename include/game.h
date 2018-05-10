@@ -70,9 +70,9 @@ typedef struct pause_s {
 
 game_t	*initialisation_game(void);
 
-int	loop_game(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ply);
+int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
 
-void	display(game_t *game, inv_t *tmp, player_inv_t *ply);
+void	display(game_t *game, inv_t *tmp);
 
 bool	event(game_t *game, pause_t *pause);
 

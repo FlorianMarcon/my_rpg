@@ -33,6 +33,7 @@ void	initialisation_list_necessary(game_t *game)
 	game->list_map = generate_list_map(PATH_DIR_MAP);
 	game->list_obj = generate_list_object(PATH_DIR_OBJ);
 	game->list_inventory = generate_list_inventory(PATH_DIR_INV);
+	game->list_inv_player = NULL;
 }
 
 pause_t	*init_pause(void)

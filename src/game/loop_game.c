@@ -11,13 +11,12 @@
 #include "map.h"
 #include "header.h"
 
-int	loop_game(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ply)
+int	loop_game(game_t *game, inv_t *tmp, pause_t *pause)
 {
-	game->list_inv_player = NULL;
 	replace_perso(game, 0, 0);
 	while (game->map_graph != NULL && sfRenderWindow_isOpen(game->win->window)) {
 		tmp = inventory(game, tmp);
-		display(game, tmp, ply);
+		display(game, tmp);
 		if (event(game, pause))
 			return (0);
 	}
