@@ -150,8 +150,6 @@ void	display_stat_bar(game_t *game);
 
 inv_t	*inventory(game_t *game, inv_t *tmp);
 
-player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name, player_inv_t *ply);
-
 //object
 
 void	move_object(game_t *game);

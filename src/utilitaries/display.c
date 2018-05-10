@@ -14,14 +14,7 @@ void	display_inv(game_t *game, player_inv_t *list)
 {
 	sfVector2f pos = {714, 289};
 	unsigned int i = 0;
-	player_inv_t *aa = list;
 
-	while (aa != NULL) {
-		i ++;
-		aa = aa->next;
-	}
-	fprintf(stderr, "nb object %u\n", i);
-	i = 0;
 	while (list != NULL) {
 		sfSprite_setPosition(list->sprite, pos);
 		sfRenderWindow_drawSprite(game->win->window, list->sprite, NULL);

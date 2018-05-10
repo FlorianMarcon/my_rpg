@@ -25,6 +25,7 @@ player_inv_t	*create_node_player(obj_inv_t *obj)
 	player_inv_t *elem = malloc(sizeof(player_inv_t));
 
 	elem->sprite = sfSprite_create();
+	elem->type = obj->type;
 	if (elem->sprite == NULL) {
 		free(elem);
 		return (NULL);
@@ -33,19 +34,8 @@ player_inv_t	*create_node_player(obj_inv_t *obj)
 	elem->att = obj->att;
 	elem->att_mag = obj->att_mag;
 	elem->next = NULL;
+	elem->status = false;
 	return (elem);
-}
-
-void	teubb(player_inv_t *list)
-{
-	unsigned int i = 0;
-
-	while (list != NULL)
-	{
-		i++;
-		list = list->next;
-	}
-	fprintf(stderr, "in trutursize = %u\n", i);
 }
 
 player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name, player_inv_t *list)
