@@ -96,6 +96,7 @@ int	change_map(game_t *game);
 
 map_graph_t	*generate_map_graph(map_t *map, game_t *game);
 
+//perso
 void	dep_right(game_t *game);
 
 void	dep_left(game_t *game);
@@ -105,6 +106,10 @@ void	dep_up(game_t *game);
 void	dep_down(game_t *game);
 
 void	affect_move_perso(game_t *game);
+
+void	replace_rect(game_t *game, int i);
+
+//autre
 
 void	display_map(game_t *game, window_t *win, bool line);
 

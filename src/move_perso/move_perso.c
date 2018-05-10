@@ -7,6 +7,14 @@
 
 #include "game.h"
 
+void	replace_rect(game_t *game, int i)
+{
+	int height = 48;
+
+	game->perso->rect.top = i * height;
+	sfSprite_setTextureRect(game->perso->sprite, game->perso->rect);
+}
+
 void	move_rect(perso_t *perso, int i, float second, sfClock *my_clock)
 {
 	int width = 32;
