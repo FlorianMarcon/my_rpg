@@ -57,7 +57,8 @@ typedef struct game_s {
 
 	//inventory
 	linked_list_t *list_inventory;
-
+	bool can_disp;
+	
 } game_t;
 
 typedef struct pause_s {
@@ -68,9 +69,9 @@ typedef struct pause_s {
 
 game_t	*initialisation_game(void);
 
-int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
+int	loop_game(game_t *game, inv_t *tmp, pause_t *pause, player_inv_t *ply);
 
-void	display(game_t *game, inv_t *tmp);
+void	display(game_t *game, inv_t *tmp, player_inv_t *ply);
 
 bool	event(game_t *game, pause_t *pause);
 
@@ -140,6 +141,8 @@ void	display_stat_bar(game_t *game);
 // inventory
 
 inv_t	*inventory(game_t *game, inv_t *tmp);
+
+player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name, player_inv_t *ply);
 
 //object
 

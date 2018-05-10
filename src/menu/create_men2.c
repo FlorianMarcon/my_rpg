@@ -43,24 +43,24 @@ void	anim_but2(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *loc
 	}
 }
 
-int	anim_but3(menu_t *men, sfRenderWindow *window, sfVector2i pos1, game_t *game, inv_t *inv, pause_t *pause)
+int	anim_but3(menu_t *men, sfRenderWindow *window, sfVector2i pos1, game_t *game, inv_t *inv, pause_t *pause, player_inv_t *ply)
 {
 	if (((pos1.x >= men->pos_but1.x) && (pos1.x <= men->pos_but1.x + 550))
 	    && ((pos1.y >= men->pos_but1.y) && (pos1.y <= men->pos_but1.y + 200))) {
 		sfRenderWindow_drawSprite(window, men->sprite, NULL);
 		if (sfMouse_isButtonPressed(sfMouseLeft)) {
-			loop_game(game, inv, pause);
+			loop_game(game, inv, pause, ply);
 		}
 	}
 	return (0);
 }
 
-int	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set, game_t *game, inv_t *inv, pause_t *pause)
+int	anim_menu(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock, set_t *set, game_t *game, inv_t *inv, pause_t *pause, player_inv_t *ply)
 {
 	if (lock->lock == 0 || lock->lock == 2) {
 		anim_but1(men, window, pos1);
 		anim_but2(men, window, pos1, lock);
-		anim_but3(men, window, pos1, game, inv, pause);
+		anim_but3(men, window, pos1, game, inv, pause, ply);
 	}
 	if (lock->lock == 1) {
 		anim_check(men, pos1);

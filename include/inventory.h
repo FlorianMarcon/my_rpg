@@ -9,6 +9,7 @@
 #define INVENTORY_
 
 #include "map.h"
+#include <string.h>
 
 typedef struct obj_inv {
 	char *type;
@@ -18,6 +19,16 @@ typedef struct obj_inv {
 	int att;
 	int att_mag;
 } obj_inv_t;
+
+typedef struct player_inv {
+	char *type;
+	sfSprite *sprite;
+	sfTexture *texture;
+	sfVector2f pos;
+	int att;
+	int att_mag;
+	struct player_inv *next;
+} player_inv_t;
 
 typedef struct inv {
 	sfSprite *sprite;
