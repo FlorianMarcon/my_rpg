@@ -31,6 +31,7 @@ typedef struct map_s {
 	char *path_sprite_floor;
 	char *path_sprite_teleport;
 	char *path_sprite_bottom;
+	char *path_sprite_back;
 
 	int x_center;
 	int y_center;
@@ -46,6 +47,8 @@ typedef struct map_graph_s {
 	sfVertexArray **arr_bottom;
 	sfRenderStates *state_bottom;
 	sfVertexArray **arr_line;
+
+	sfSprite *background;
 
 	linked_list_t *list_obj;
 }map_graph_t;

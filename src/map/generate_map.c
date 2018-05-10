@@ -54,6 +54,12 @@ int	fill_path_sprite(int fd, map_t *map)
 		return (1);
 	}
 	map->path_sprite_bottom = str;
+	if ((str = get_next_line(fd)) == NULL) {
+		free(map->path_sprite_floor);
+		free(map->path_sprite_teleport);
+		return (1);
+	}
+	map->path_sprite_back = str;
 	return (0);
 }
 

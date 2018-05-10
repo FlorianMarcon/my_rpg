@@ -14,6 +14,7 @@
 
 typedef struct obj_inv {
 	char *name;
+	char *type;
 	sfSprite *sprite;
 	sfTexture *texture;
 	sfVector2f pos;
