@@ -59,6 +59,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/inventory/launch_inventory.c			\
 		$(WAY)/inventory/create_inventory.c			\
 		$(WAY)/inventory/generate_list_inventory.c		\
+		$(WAY)/inventory/manage_inventory_player.c		\
 		$(WAY)/quete/create_quete.c		\
 		$(WAY)/quete/generate_list_quete.c	\
 		$(WAY)/quete/run_quete.c		\
