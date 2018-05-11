@@ -11,6 +11,7 @@
 #ifndef __FIGHT__
 #define __FIGHT__
 
+
 /*typedef struct enemy_s {
 	char *enemy_name;
 	int enemy_life;
