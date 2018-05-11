@@ -52,7 +52,6 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/object/move_object.c		\
 		$(WAY)/object/manage_object_no_displaying.c	\
 		$(WAY)/object/no_display_object.c	\
-		$(WAY)/menu/anim_button.c			\
 		$(WAY)/menu/anim_settings.c			\
 		$(WAY)/menu/create_men.c			\
 		$(WAY)/menu/create_men2.c			\
