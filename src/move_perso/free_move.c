@@ -7,24 +7,21 @@
 
 #include "game.h"
 
-void	free_move_perso(perso_t *perso, float second, sfClock *my_clock)//map_t *map)
+void	free_move_perso(perso_t *perso, float second, sfClock *my_clock)
 {
 	if (perso->mouvement.y == 1) {
 		move_rect(perso, 3, second, my_clock);
 		perso->position.y -= 1;
 		perso->position.x -= 2.8;
-	}
-	if (perso->mouvement.y == -1) {
+	} if (perso->mouvement.y == -1) {
 		move_rect(perso, 0, second, my_clock);
 		perso->position.y += 1;
 		perso->position.x += 2.8;
-	}
-	if (perso->mouvement.x == -1) {
+	} if (perso->mouvement.x == -1) {
 		move_rect(perso, 1, second, my_clock);
 		perso->position.x -= 2.175;
 		perso->position.y += 1.5;
-	}
-	if (perso->mouvement.x == 1) {
+	} if (perso->mouvement.x == 1) {
 		move_rect(perso, 2, second, my_clock);
 		perso->position.x += 2.175;
 		perso->position.y -= 1.5;

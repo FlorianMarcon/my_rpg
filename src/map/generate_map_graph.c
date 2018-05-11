@@ -34,7 +34,7 @@ sfVertexArray	**generate_sprite_bottom(map_graph_t *map)
 {
 	sfVector2f **iso = map->iso;
 	sfVertexArray **bot;
-	int o = 0;
+	int y = 0;
 
 	bot = malloc(sizeof(*bot) * (map->map->width * map->map->height));
 	if (bot == NULL)
@@ -42,15 +42,15 @@ sfVertexArray	**generate_sprite_bottom(map_graph_t *map)
 	for (int j = 0; j < map->map->height - 1; j++) {
 		for (int i = 0; i < map->map->width - 1; i++) {
 			if (i == map->map->width - 2)
-			bot[o++] = create_quad_bottom_map(iso[j][i + 1],
+			bot[y++] = create_quad_bottom_map(iso[j][i + 1],
 							iso[j + 1][i + 1]);
 			if (j == map->map->height - 2)
-			bot[o++] = create_quad_bottom_map(iso[j + 1][i],
+			bot[y++] = create_quad_bottom_map(iso[j + 1][i],
 							iso[j + 1][i + 1]);
 
 		}
 	}
-	bot[o] = NULL;
+	bot[y] = NULL;
 	return (bot);
 }
 
