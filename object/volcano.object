@@ -1,0 +1,5 @@
+volcano
+0 0 0 0
+66
+./matter/volcano.png
+./shader/transparent.frag
