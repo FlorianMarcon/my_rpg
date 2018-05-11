@@ -20,10 +20,11 @@ void	anim_check(menu_t *men, sfVector2i pos1)
 	}
 }
 
-void	anim_back(set_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock)
+void	anim_back(set_t *men, sfRenderWindow *window,
+					sfVector2i pos1, lock_t *lock)
 {
-	if ((pos1.x >= 537) && (pos1.x <= 645) && (pos1.y >= 816) &&
-	    (pos1.y <= 940)) {
+	if ((pos1.x >= 537) && (pos1.x <= 645)
+				&& (pos1.y >= 816) && (pos1.y <= 940)) {
 		sfRenderWindow_drawSprite(window, men->sprite1, NULL);
 		if (sfMouse_isButtonPressed(sfMouseLeft))
 			lock->lock = 0;

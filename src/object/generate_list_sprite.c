@@ -12,15 +12,15 @@
 #include "map.h"
 #include "game.h"
 
-void    set_sprite_from_object(object_t *obj, sprite_t *spr)
+void	set_sprite_from_object(object_t *obj, sprite_t *spr)
 {
-        spr->obj = obj;
-        spr->sprite = sfSprite_create();
-        spr->rect = obj->rect;
-        spr->nb_rect = 0;
-        spr->clock = NULL;
-        spr->time_no_disp = NULL;
-        spr->displaying = true;
+	spr->obj = obj;
+	spr->sprite = sfSprite_create();
+	spr->rect = obj->rect;
+	spr->nb_rect = 0;
+	spr->clock = NULL;
+	spr->time_no_disp = NULL;
+	spr->displaying = true;
 }
 sprite_t	*generate_sprite_from_object(object_t *obj, sfVector2f *pos)
 {
@@ -28,14 +28,14 @@ sprite_t	*generate_sprite_from_object(object_t *obj, sfVector2f *pos)
 
 	if (spr == NULL)
 		return (NULL);
-        set_sprite_from_object(obj, spr);
-        if (obj->max_rect > 0) {
-                pos->x -= (obj->rect.width * 0.25);
-                pos->y -= (obj->size.y * 0.75);
-        } else {
-                pos->x -= (obj->size.x * 0.25);
-                pos->y -= (obj->size.y * 0.75);
-        }
+	set_sprite_from_object(obj, spr);
+	if (obj->max_rect > 0) {
+		pos->x -= (obj->rect.width * 0.25);
+		pos->y -= (obj->size.y * 0.75);
+	} else {
+		pos->x -= (obj->size.x * 0.25);
+		pos->y -= (obj->size.y * 0.75);
+	}
 	sfSprite_setPosition(spr->sprite, *pos);
 	sfSprite_setTexture(spr->sprite, obj->texture, sfTrue);
 	if (obj->max_rect > 0) {

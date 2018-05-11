@@ -16,11 +16,13 @@ void	initialisation_quete(game_t *game)
 	unsigned int y = 550;
 
 	game->textbox = sfSprite_create();
-	sfSprite_setTexture(game->textbox, sfTexture_createFromFile("./matter/textbox.png", NULL), sfTrue);
+	sfSprite_setTexture(game->textbox, sfTexture_createFromFile(
+					"./matter/textbox.png", NULL), sfTrue);
 	game->display_textbox = false;
 	for (unsigned int i = 0; i != 8; i++) {
 		game->text[i] = sfText_create();
-		sfText_setFont(game->text[i], sfFont_createFromFile("./font/attack_of_the_cucumbers.ttf"));
+		sfText_setFont(game->text[i], sfFont_createFromFile(
+					"./font/attack_of_the_cucumbers.ttf"));
 		sfText_setPosition(game->text[i], (sfVector2f){215, y});
 		y += 35;
 	}
@@ -41,7 +43,8 @@ pause_t	*init_pause(void)
 	pause_t *pause = malloc(sizeof(pause_t));
 
 	pause->pause = sfSprite_create();
-	pause->texture_pause = sfTexture_createFromFile("./matter/pause.png", NULL);
+	pause->texture_pause = sfTexture_createFromFile(
+						"./matter/pause.png", NULL);
 	sfSprite_setTexture(pause->pause, pause->texture_pause, sfTrue);
 	pause->pos_pause = (sfVector2f){1200, 1200};
 	sfSprite_setPosition(pause->pause, pause->pos_pause);

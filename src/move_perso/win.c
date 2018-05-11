@@ -8,7 +8,7 @@
 #include "game.h"
 #include "graphique.h"
 
-param_t	*gp()
+param_t	*gp(void)
 {
 	static param_t *var;
 	static int ps = 0;

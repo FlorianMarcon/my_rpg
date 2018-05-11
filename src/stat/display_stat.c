@@ -62,7 +62,6 @@ void	load_stat_from_perso(stat_txt_t *txt, stat_t perso_stat)
 	txt = txt->next;
 	buffer = my_strcat(" ", get_nb_in_char(perso_stat.att_p));
 	sfText_setString(txt->txt, buffer);
-	free (buffer);
 }
 
 void	display_stat_bar(game_t *game)

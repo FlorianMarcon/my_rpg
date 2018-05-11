@@ -70,7 +70,7 @@ stat_txt_t	*init_stat_txt(stat_t stat)
 	buffer = my_strcat(get_nb_in_char(stat.xp), " / ");
 	buffer = my_strcat(buffer, get_nb_in_char(stat.xp_max));
 	create_txt_node(txt, fd, buffer, font);
-       	buffer = my_strcat(": ", get_nb_in_char(stat.vie_c));
+	buffer = my_strcat(": ", get_nb_in_char(stat.vie_c));
 	buffer = my_strcat(buffer, " / ");
 	buffer = my_strcat(buffer, get_nb_in_char(stat.vie));
 	create_txt_node(txt, fd, buffer, font);
