@@ -11,27 +11,31 @@
 #include "quete.h"
 #include "game.h"
 
+linked_list_t	*generate_list_quete_create(char *way, linked_list_t *list)
+{
+	quete_t *quete = create_quete(way);
+
+	if (quete != NULL) {
+		if (list == NULL) {
+			list = create_list(quete);
+		} else
+			create_node(list, quete);
+	}
+	return (list);
+}
 linked_list_t	*generate_list_quete(char *path)
 {
 	DIR *dir = opendir(path);
 	struct dirent *file;
 	linked_list_t *list = NULL;
-	quete_t *quete;
 	char *way;
 
 	if (dir == NULL)
 		return (NULL);
 	while ((file = readdir(dir)) != NULL) {
 		way = my_strcat(path, file->d_name);
-		if (is_extension(way, "quete"))
-			quete = create_quete(way);
-		else
-			quete = NULL;
-		if (quete != NULL) {
-			if (list == NULL) {
-				list = create_list(quete);
-			} else
-				create_node(list, quete);
+		if (is_extension(way, "quete")) {
+			list = generate_list_quete_create(way, list);
 		}
 		free(way);
 	}

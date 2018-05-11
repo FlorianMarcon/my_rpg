@@ -14,8 +14,6 @@
 int	loop_menu(void)
 {
 	game_t *game = initialisation_game();
-	pause_t *pause = init_pause();
-	inv_t *tmp = init_inventory();
 	set_t *set = init_set();
 	menu_t *men = init_menu();
 	lock_t *ptr = malloc(sizeof(lock_t));
@@ -24,6 +22,8 @@ int	loop_menu(void)
 	if (game == NULL)
 		return (84);
 	game->map = search_map(game->list_map, game->index);
+	if (game->map == NULL)
+		return (84);
 	game->map_graph = generate_map_graph(game->map, game);
 	game->perso->position.x = game->map->iso[0][0].x - 27;
 	game->perso->position.y = game->map->iso[0][0].y - 32;
@@ -34,8 +34,7 @@ int	loop_menu(void)
 				sfRenderWindow_close(game->win->window);
 		pos_mouse = sfMouse_getPositionRenderWindow(game->win->window);
 		sfRenderWindow_clear(game->win->window, sfBlack);
-		//sfRenderWindow_display(game->win->window);
-		create_menu(set, ptr, men, game->win->window, pos_mouse, game, tmp, pause);
+		create_menu(set, ptr, men, game->win->window, pos_mouse, game);
 	}
 	destroy_map_graph(game->map_graph);
 	free(game->win);

@@ -11,12 +11,23 @@
 #include "map.h"
 #include "game.h"
 
+linked_list_t	*generate_list_map_create(char *way, linked_list_t *list)
+{
+	map_t *map = generate_map(way);
+
+	if (map == NULL)
+		return (list);
+	if (list == NULL) {
+		list = create_list(map);
+	} else
+		create_node(list, map);
+	return (list);
+}
 linked_list_t	*generate_list_map(char *path)
 {
 	DIR *dir = opendir(path);
 	struct dirent *file;
 	linked_list_t *list = NULL;
-	map_t *map;
 	char *way;
 
 	if (dir == NULL)
@@ -24,15 +35,7 @@ linked_list_t	*generate_list_map(char *path)
 	while ((file = readdir(dir)) != NULL) {
 		way = my_strcat(path, file->d_name);
 		if (is_extension(way, "map"))
-			map = generate_map(way);
-		else
-			map = NULL;
-		if (map != NULL) {
-			if (list == NULL) {
-				list = create_list(map);
-			} else
-				create_node(list, map);
-		}
+			list = generate_list_map_create(way, list);
 		free(way);
 	}
 	closedir(dir);

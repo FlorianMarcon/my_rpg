@@ -24,6 +24,12 @@
 #include "stat.h"
 #include "fight.h"
 
+typedef struct pause_s {
+	sfSprite *pause;
+	sfTexture *texture_pause;
+	sfVector2f pos_pause;
+} pause_t;
+
 typedef struct game_s {
 
 	// map
@@ -37,7 +43,6 @@ typedef struct game_s {
 
 	// window
 	window_t *win;
-	sfSprite *background;
 
 	//object
 	linked_list_t *list_obj;
@@ -58,27 +63,28 @@ typedef struct game_s {
 
 	//inventory
 	linked_list_t *list_inventory;
+	bool can_disp;
+	player_inv_t *list_inv_player;
+	inv_t *back_inv;
+	sfFont *font_inv;
 
 	//fight
 	fight_t *fight;
 
-} game_t;
+	//pause
+	pause_t *pause;
 
-typedef struct pause_s {
-	sfSprite *pause;
-	sfTexture *texture_pause;
-	sfVector2f pos_pause;
-} pause_t;
+} game_t;
 
 game_t	*initialisation_game(void);
 
-int	loop_game(game_t *game, inv_t *tmp, pause_t *pause);
+int	loop_game(game_t *game);
 
 void	display(game_t *game, inv_t *tmp);
 
-bool	event(game_t *game, pause_t *pause);
+bool	event(game_t *game);
 
-bool      loop_pause(game_t *game, pause_t *pause);
+bool      loop_pause(game_t *game);
 
 //utilitaries
 
@@ -126,9 +132,11 @@ quete_t	*search_quete(game_t *game, int id);
 
 void	display_quete(game_t *game);
 
-void	display_pause(game_t *game, pause_t *pause);
+void	display_pause(game_t *game);
 
 void	replace_perso(game_t *game, int x, int y);
+
+bool	status_quete(quete_t *quete, game_t *game);
 
 //lvl_up
 
@@ -148,14 +156,20 @@ void	display_stat_bar(game_t *game);
 
 // inventory
 
-inv_t	*inventory(game_t *game, inv_t *tmp);
+void	inventory(game_t *game);
 
 //object
 
 void	move_object(game_t *game);
 
+<<<<<<< HEAD
 // fight
 
+=======
+void      manage_object_no_displaying(sprite_t *spr);
+
+// fight
+>>>>>>> 27450cfa2a42189553d159480495400d31faa012
 void	launch_fight(game_t *game);
 
 void	run_fight(game_t *game);

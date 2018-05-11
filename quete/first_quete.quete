@@ -1,7 +1,11 @@
 101
-object need to come back
-until "MESSAGE"
-MESSAGE
+MSG NO VAL
 Bienvenue dans le Royaun de KIGENI jeune PADAWAN
   N'hesite pas a voyager et a decouvrir notre
              merveilleux monde
+MSG VAL
+Bien jouée fratée
+MUST BE GIVEN
+whool 3
+TO BE GIVEN
+sword 2

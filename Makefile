@@ -47,6 +47,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/graphique/destroy_vertex_array.c	\
 		$(WAY)/object/generate_object.c		\
 		$(WAY)/object/generate_list_object.c	\
+		$(WAY)/object/generate_list_sprite.c	\
 		$(WAY)/object/search_object.c		\
 		$(WAY)/object/move_object.c		\
 		$(WAY)/menu/anim_button.c		\
@@ -59,10 +60,26 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/inventory/launch_inventory.c	\
 		$(WAY)/inventory/create_inventory.c	\
 		$(WAY)/inventory/generate_list_inventory.c	\
+		$(WAY)/object/manage_object_no_displaying.c	\
+		$(WAY)/object/no_display_object.c	\
+		$(WAY)/menu/anim_button.c			\
+		$(WAY)/menu/anim_settings.c			\
+		$(WAY)/menu/create_men.c			\
+		$(WAY)/menu/create_men2.c			\
+		$(WAY)/menu/create_set.c			\
+		$(WAY)/menu/menu_crea.c			\
+		$(WAY)/menu/loop_menu.c			\
+		$(WAY)/inventory/launch_inventory.c		\
+		$(WAY)/inventory/create_inventory.c		\
+		$(WAY)/inventory/generate_list_inventory.c	\
+		$(WAY)/inventory/create_obj_in_inv.c		\
+		$(WAY)/inventory/delete_obj_in_inv.c		\
+		$(WAY)/inventory/search_obj_inv_player.c	\
 		$(WAY)/quete/create_quete.c		\
 		$(WAY)/quete/generate_list_quete.c	\
 		$(WAY)/quete/run_quete.c		\
 		$(WAY)/quete/display_quete.c		\
+		$(WAY)/quete/status_quete.c		\
 		$(WAY)/pause/pause.c			\
 		$(WAY)/fight/main_fight.c			\
 		$(WAY)/fight/display_fight.c			\
@@ -74,7 +91,9 @@ OBJ	=	$(SRC:.c=.o)
 
 CFLAGS	=	-W -Wall -Wextra -Werror -g3 -I./include
 
-LDFLAGS	=	-lcsfml-system -lcsfml-window -lcsfml-graphics -lm
+LDFLAGS_ME	=	-lcsfml-system -lcsfml-window -lcsfml-graphics -lm
+
+LDFLAGS	=	-lc_graph_prog -lm
 
 WAY_LIB	=	./lib/my
 
@@ -84,9 +103,15 @@ LIB	=	-L$(WAY_LIB) -lmy
 
 NAME	=	my_rpg
 
-all:	$(OBJ)
+all:	$(NAME)
+
+$(NAME):$(OBJ)
 	make -C./$(WAY_LIB)
 	$(CC) -o $(NAME) $(OBJ) $(LIB) $(LDFLAGS)
+
+me:	$(OBJ)
+	make -C./$(WAY_LIB)
+	$(CC) -o $(NAME) $(OBJ) $(LIB) $(LDFLAGS_ME)
 
 clean:
 	make clean -C./$(WAY_TST)

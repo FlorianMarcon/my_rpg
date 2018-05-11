@@ -15,13 +15,15 @@ sfVertexArray	**generate_sprite_floor(map_graph_t *map)
 	sfVertexArray **floor;
 	int a = 0;
 
-	floor = malloc(sizeof(*floor) * ((map->map->width - 1) * (map->map->height - 1) + 1));
+	floor = malloc(sizeof(*floor) * ((map->map->width - 1) *
+						(map->map->height - 1) + 1));
 	if (floor == NULL) {
 		return (NULL);
 	}
 	for (int j = 0; j < map->map->height - 1; j++) {
 		for (int i = 0; i < map->map->width - 1; i++) {
-			floor[a++] = create_quad(iso[j][i], iso[j][i + 1], iso[j + 1][i + 1], iso[j + 1][i]);
+			floor[a++] = create_quad(iso[j][i], iso[j][i + 1],
+					iso[j + 1][i + 1], iso[j + 1][i]);
 		}
 	}
 	floor[a] = NULL;
@@ -40,9 +42,11 @@ sfVertexArray	**generate_sprite_bottom(map_graph_t *map)
 	for (int j = 0; j < map->map->height - 1; j++) {
 		for (int i = 0; i < map->map->width - 1; i++) {
 			if (i == map->map->width - 2)
-			bot[o++] = create_quad_bottom_map(iso[j][i + 1], iso[j + 1][i + 1]);
+			bot[o++] = create_quad_bottom_map(iso[j][i + 1],
+							iso[j + 1][i + 1]);
 			if (j == map->map->height - 2)
-			bot[o++] = create_quad_bottom_map(iso[j + 1][i], iso[j + 1][i + 1]);
+			bot[o++] = create_quad_bottom_map(iso[j + 1][i],
+							iso[j + 1][i + 1]);
 
 		}
 	}
@@ -56,7 +60,8 @@ sfVertexArray	**generate_sprite_line(map_graph_t *map)
 	sfVertexArray **arr_line;
 	int a = 0;
 
-	if ((arr_line = malloc(sizeof(*arr_line) * ((map->map->width) * (map->map->height) * 3))) == NULL)
+	if ((arr_line = malloc(sizeof(*arr_line) * ((map->map->width) *
+					(map->map->height) * 3))) == NULL)
 		return (NULL);
 	for (int j = 0; j < map->map->height - 1; j++) {
 		for (int i = 0; i < map->map->width - 1; i++) {
@@ -86,6 +91,8 @@ map_graph_t	*generate_map_graph(map_t *map, game_t *game)
 	graph->state_bottom = generate_state(map->path_sprite_bottom, NULL);
 	graph->arr_line = generate_sprite_line(graph);
 	graph->list_obj = generate_list_sprite(map, game->list_obj);
-	graph->state_telep = generate_state(map->path_sprite_floor, "./shader/teleport.frag");
+	graph->state_telep = generate_state(map->path_sprite_floor,
+						"./shader/teleport.frag");
+	graph->background = generate_sprite_from_file(map->path_sprite_back);
 	return (graph);
 }

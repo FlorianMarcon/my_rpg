@@ -38,29 +38,29 @@ void	display_text(window_t *win, stat_txt_t *txt)
 
 void	load_stat_from_perso(stat_txt_t *txt, stat_t perso_stat)
 {
-	char *buffer = "LVL : ";
+	char *buffer = " ";
 
 	buffer = my_strcat(buffer, get_nb_in_char(perso_stat.lvl));
 	perso_stat.change = false;
 	sfText_setString(txt->txt, buffer);
 	txt = txt->next;
-	buffer = my_strcat("XP : ", get_nb_in_char(perso_stat.xp));
+	buffer = my_strcat(" ", get_nb_in_char(perso_stat.xp));
 	buffer = my_strcat(buffer, " / ");
 	buffer = my_strcat(buffer, get_nb_in_char(perso_stat.xp_max));
 	sfText_setString(txt->txt, buffer);
 	txt = txt->next;
-	buffer = my_strcat(": ", get_nb_in_char(perso_stat.vie_c));
+	buffer = my_strcat(" ", get_nb_in_char(perso_stat.vie_c));
 	buffer = my_strcat(buffer, " / ");
 	buffer = my_strcat(buffer, get_nb_in_char(perso_stat.vie));
 	sfText_setString(txt->txt, buffer);
 	txt = txt->next;
-	buffer = my_strcat(": " , get_nb_in_char(perso_stat.defence));
+	buffer = my_strcat(" " , get_nb_in_char(perso_stat.defence));
 	sfText_setString(txt->txt, buffer);
 	txt = txt->next;
-	buffer = my_strcat(": ", get_nb_in_char(perso_stat.att_m));
+	buffer = my_strcat(" ", get_nb_in_char(perso_stat.att_m));
 	sfText_setString(txt->txt, buffer);
 	txt = txt->next;
-	buffer = my_strcat(": ", get_nb_in_char(perso_stat.att_p));
+	buffer = my_strcat(" ", get_nb_in_char(perso_stat.att_p));
 	sfText_setString(txt->txt, buffer);
 	free (buffer);
 }

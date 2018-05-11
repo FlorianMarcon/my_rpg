@@ -55,13 +55,13 @@ perso_t	*affect_free_move_perso(perso_t *perso, float second, sfClock *my_clock)
 		perso->mouvement.y = 1;
 		perso->mouvement.x = 0;
 		move_perso(perso, second, my_clock, map);
-	} if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+	} if (sfKeyboard_isKeyPressed(sfLeft)) {
 		perso->mouvement.x = 0;
 		perso->mouvement.y = -1;
 		/*while (perso->position.x != map->map_iso[perso->y][perso->x + 1].x && perso->position.y != map->map_iso[perso->y][perso->x + 1].y)
 			move_perso(perso, second, my_clock, map);*/
 		move_perso(perso, second, my_clock, map);
-	} if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
+	} if (sfKeyboard_isKeyPressed(sfKeyDown)) {
 		perso->mouvement.y = 0;
 		perso->mouvement.x = -1;
 		move_perso(perso, second, my_clock, map);

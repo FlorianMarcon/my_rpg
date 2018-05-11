@@ -1,4 +1,5 @@
 sword
+weapon
 10
 5
-./matter/iglou.png
+./inventory/sprite/sword_inv.png

@@ -30,7 +30,7 @@ void	init_first_item(item_t *item, char *buffer)
 	item->sprite = sfSprite_create();
 	item->texture = sfTexture_createFromFile(buffer, NULL);
 	item->position.x = 0;
-	item->position.y = 800;
+	item->position.y = 0;
 	item->next = NULL;
 	sfSprite_setTexture(item->sprite, item->texture, sfTrue);
 	sfSprite_setPosition(item->sprite, item->position);

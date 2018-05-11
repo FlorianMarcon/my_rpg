@@ -21,15 +21,26 @@ quete_t	*search_quete(game_t *game, int id)
 	}
 	return (NULL);
 }
+void	active_message_quete(game_t *game, char **tab, unsigned int size)
+{
+	for (unsigned int i = 0; i != size; i++) {
+		sfText_setString(game->text[i], tab[i]);
+	}
+	game->size_text = size;
+}
+
 void	run_quete(game_t *game, int id)
 {
 	quete_t *quete = search_quete(game, id);
 
 	if (quete == NULL)
 		return;
+	quete->validated = status_quete(quete, game);
+	if (quete->validated == true) {
+		active_message_quete(game, quete->message_val,
+						quete->size_message_val);
+	} else
+		active_message_quete(game, quete->message_no_val,
+						quete->size_message_no_val);
 	game->display_textbox = true;
-	for (unsigned int i = 0; i != quete->size_message; i++) {
-		sfText_setString(game->text[i], quete->message[i]);
-	}
-	game->size_text = quete->size_message;
 }

@@ -1,0 +1,5 @@
+rock
+0 0 0 0
+38
+./matter/rock_grass.png
+./shader/transparent.frag
