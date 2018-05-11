@@ -1,5 +1,5 @@
-png_quete
+rock
 0 0 0 0
-100
-./matter/paysan.png
+38
+./matter/rock_grass.png
 ./shader/transparent.frag
