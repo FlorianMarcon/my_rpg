@@ -75,7 +75,6 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/fight/init_fight.c			\
 		$(WAY)/fight/attack.c			\
 		$(WAY)/fight/annimation.c		\
-		#$(WAY)/fight/scene.c
 
 OBJ	=	$(SRC:.c=.o)
 
