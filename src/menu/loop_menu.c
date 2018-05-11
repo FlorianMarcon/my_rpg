@@ -22,6 +22,8 @@ int	loop_menu(void)
 	if (game == NULL)
 		return (84);
 	game->map = search_map(game->list_map, game->index);
+	if (game->map == NULL)
+		return (84);
 	game->map_graph = generate_map_graph(game->map, game);
 	game->perso->position.x = game->map->iso[0][0].x - 27;
 	game->perso->position.y = game->map->iso[0][0].y - 32;
