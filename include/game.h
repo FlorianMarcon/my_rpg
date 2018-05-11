@@ -162,14 +162,12 @@ void	inventory(game_t *game);
 
 void	move_object(game_t *game);
 
-<<<<<<< HEAD
 // fight
 
-=======
 void      manage_object_no_displaying(sprite_t *spr);
 
 // fight
->>>>>>> 27450cfa2a42189553d159480495400d31faa012
+
 void	launch_fight(game_t *game);
 
 void	run_fight(game_t *game);
