@@ -10,11 +10,14 @@
 
 void	lance_baton(game_t *game)
 {
-	game->fight->ennemy->vie -= game->perso->stat.att_p -
+	int dommage = game->perso->stat.att_p -
 		(game->perso->stat.att_p * game->fight->ennemy->defence / 100);
+//	sfVector2f pos = {700, 600};
+
+	game->fight->ennemy->vie -= dommage;
 	if (game->fight->ennemy->vie < 0)
 		game->fight->ennemy->vie = 0;
-	//annimation_p(game);
+	//annimation_dommage(game, dommage, pos);
 }
 
 void	wingardium(game_t *game)
@@ -28,11 +31,12 @@ void	wingardium(game_t *game)
 
 void	enn_att1(game_t *game)
 {
-	game->perso->stat.vie_c -= game->fight->ennemy->att_p -
+	int dommage = game->fight->ennemy->att_p -
 	(game->fight->ennemy->att_p * game->perso->stat.defence / 100);
+	game->perso->stat.vie_c -= dommage;
 	if (game->perso->stat.vie_c < 0)
 		game->perso->stat.vie_c = 0;
-	//annimation_enn_1(game);
+	//annimation_enn_1(game, dommage);
 }
 
 void	enn_att2(game_t *game)

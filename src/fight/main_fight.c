@@ -118,7 +118,6 @@ void	event_fight(game_t *game)
 		}
 	}
 	wait_sec(2);
-
 }
 
 /*void	ennemy_tour()
