@@ -26,7 +26,7 @@ void	draw_menu(menu_t *men, sfRenderWindow *window, lock_t *lock, set_t *set)
 void	anim_but1(menu_t *men, sfRenderWindow *window, sfVector2i pos1)
 {
 	if (((pos1.x >= men->pos_but2.x) && (pos1.x <= men->pos_but2.x + 550))
-	    && ((pos1.y >= men->pos_but2.y) && (pos1.y <= men->pos_but2.y + 200)))
+		&& ((pos1.y >= men->pos_but2.y) && (pos1.y <= men->pos_but2.y + 200)))
 		sfRenderWindow_drawSprite(window, men->sprite2, NULL);
 	if (sfMouse_isButtonPressed(sfMouseLeft) && pos1.y > 728 && pos1.y < 799) {
 		sfRenderWindow_close(window);
@@ -36,7 +36,7 @@ void	anim_but1(menu_t *men, sfRenderWindow *window, sfVector2i pos1)
 void	anim_but2(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *lock)
 {
 	if (((pos1.x >= men->pos_but5.x) && (pos1.x <= men->pos_but5.x + 550))
-	    && ((pos1.y >= men->pos_but5.y) && (pos1.y <= men->pos_but5.y + 200))) {
+		&& ((pos1.y >= men->pos_but5.y) && (pos1.y <= men->pos_but5.y + 200))) {
 			sfRenderWindow_drawSprite(window, men->sprite4, NULL);
 			if (sfMouse_isButtonPressed(sfMouseLeft))
 				lock->lock = 1;
@@ -46,7 +46,7 @@ void	anim_but2(menu_t *men, sfRenderWindow *window, sfVector2i pos1, lock_t *loc
 int	anim_but3(menu_t *men, sfRenderWindow *window, sfVector2i pos1, game_t *game)
 {
 	if (((pos1.x >= men->pos_but1.x) && (pos1.x <= men->pos_but1.x + 550))
-	    && ((pos1.y >= men->pos_but1.y) && (pos1.y <= men->pos_but1.y + 200))) {
+		&& ((pos1.y >= men->pos_but1.y) && (pos1.y <= men->pos_but1.y + 200))) {
 		sfRenderWindow_drawSprite(window, men->sprite, NULL);
 		if (sfMouse_isButtonPressed(sfMouseLeft)) {
 			loop_game(game);

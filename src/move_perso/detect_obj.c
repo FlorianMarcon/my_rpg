@@ -13,20 +13,12 @@ int	colision_x(game_t *game, int x)
 
 		if (game->map->map[game->perso->x + 1][game->perso->y] < 20)
 			return (0);
-		/*else if (game->map->map[game->perso->x + 1][game->perso->y] >= 100) {
-			run_quete(game, game->map->map[game->perso->x + 1][game->perso->y]);
-		printf("**\n");
-		}*/
 		replace_rect(game, 1);
 	}
 	if (x == 1 && game->perso->x > 0) {
 		if (game->map->map[game->perso->x - 1][game->perso->y] < 20)
 			return (0);
 		replace_rect(game, 2);
-		/*else if (game->map->map[game->perso->x - 1][game->perso->y] >= 100) {
-			run_quete(game, game->map->map[game->perso->x - 1][game->perso->y]);
-			printf("*\n");
-		}*/
 	}
 	return (-1);
 }
@@ -37,17 +29,11 @@ int	colision_y(game_t *game, int y)
 		if (game->map->map[game->perso->x][game->perso->y + 1] < 20)
 			return (0);
 		replace_rect(game, 0);
-	/*else if (game->map->map[game->perso->x][game->perso->y + 1] >= 100) {
-			run_quete(game, game->map->map[game->perso->x][game->perso->y + 1]);
-		}*/
 	}
 	if (y == 11 && game->perso->y > 0) {
 		if (game->map->map[game->perso->x][game->perso->y - 1] < 20)
 			return (0);
 		replace_rect(game, 3);
-		/*else if (game->map->map[game->perso->x][game->perso->y - 1] >= 100) {
-			run_quete(game, game->map->map[game->perso->x][game->perso->y - 1]);
-		}*/
 	}
 	return (-1);
 }

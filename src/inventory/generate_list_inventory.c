@@ -13,6 +13,22 @@
 #include "inventory.h"
 #include "game.h"
 
+void	set_attack_object_inv(obj_inv_t *obj, int fd)
+{
+	char *str = NULL;
+
+	obj->att = 0;
+	obj->att_mag = 0;
+	if ((str = get_next_line(fd)) != NULL) {
+		obj->att = atoi(str);
+		free(str);
+	}
+	if ((str = get_next_line(fd)) != NULL) {;
+		obj->att_mag = atoi(str);
+		free(str);
+	}
+}
+
 obj_inv_t	*generate_object_inv(char *path)
 {
 	int fd = open(path, O_RDONLY);
@@ -25,28 +41,33 @@ obj_inv_t	*generate_object_inv(char *path)
 		return (NULL);
 	obj->name = get_next_line(fd);
 	obj->type = get_next_line(fd);
-	obj->att = 0;
-	obj->att_mag = 0;
-	if ((str = get_next_line(fd)) != NULL) {
-		obj->att = atoi(str);
-		free(str);
-	}
-	if ((str = get_next_line(fd)) != NULL) {;
-		obj->att_mag = atoi(str);
-		free(str);
-	}
+	set_attack_object_inv(obj, fd);
 	if ((str = get_next_line(fd)) != NULL) {;
 		obj->texture = sfTexture_createFromFile(str, NULL);
 		free(str);
 	}
 	return (obj);
 }
+
+linked_list_t	*generate_list_inv_create(char *way, linked_list_t *li)
+{
+	obj_inv_t *obj;
+
+	obj = generate_object_inv(way);
+	if (obj == NULL)
+		return (li);
+	if (li == NULL) {
+		li = create_list(obj);
+	} else
+		create_node(li, obj);
+	return (li);
+
+}
 linked_list_t	*generate_list_inventory(char *path)
 {
 	DIR *dir = opendir(path);
 	struct dirent *file;
 	linked_list_t *list = NULL;
-	obj_inv_t *obj;
 	char *way;
 
 	if (dir == NULL)
@@ -54,14 +75,7 @@ linked_list_t	*generate_list_inventory(char *path)
 	while ((file = readdir(dir)) != NULL) {
 		way = my_strcat(path, file->d_name);
 		if (is_extension(way, "inv")) {
-			obj = generate_object_inv(way);
-		} else
-			obj = NULL;
-		if (obj != NULL) {
-			if (list == NULL) {
-				list = create_list(obj);
-			} else
-				create_node(list, obj);
+			list = generate_list_inv_create(way, list);
 		}
 		free(way);
 	}
