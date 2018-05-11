@@ -11,7 +11,8 @@ sfText	*set_txt_dommage(int dommage)
 {
 	sfText *text = sfText_create();
 	sfVector2f pos = {700, 300};
-	sfFont *font = sfFont_createFromFile("./font/attack_of_the_cucumbers.ttf");
+	sfFont *font = sfFont_createFromFile("./font/\
+	attack_of_the_cucumbers.ttf");
 	char *buffer = "-";
 	sfColor color = {155, 255, 155, 150};
 
@@ -32,7 +33,8 @@ void	annimation_dommage(game_t *game, int dommage, sfVector2f pos)
 	int x = 155;
 
 	while (x > 20) {
-		while (sfRenderWindow_pollEvent(game->win->window, &game->win->event)) {
+		while (sfRenderWindow_pollEvent(game->win->window,\
+		&game->win->event)) {
 			if (game->win->event.type == sfEvtClosed) {
 				sfRenderWindow_close(game->win->window);
 				return;

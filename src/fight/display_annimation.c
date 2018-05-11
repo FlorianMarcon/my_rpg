@@ -9,5 +9,5 @@
 
 void	display_annimation(game_t *game, sfText *txt)
 {
-	
+
 }

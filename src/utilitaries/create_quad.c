@@ -10,8 +10,8 @@
 #include <stdlib.h>
 #include "map.h"
 
-sfVertexArray *create_quad(sfVector2f point1, sfVector2f point2,\
-					sfVector2f point3, sfVector2f point4)
+sfVertexArray	*create_quad(sfVector2f point1, sfVector2f point2,\
+		sfVector2f point3, sfVector2f point4)
 {
 	sfVertexArray *vertex_array = sfVertexArray_create();
 	sfVertex vertex1 = {.position = point1, .color = sfWhite,\
@@ -30,7 +30,7 @@ sfVertexArray *create_quad(sfVector2f point1, sfVector2f point2,\
 	return (vertex_array);
 }
 
-sfVertexArray *create_quad_bottom_map(sfVector2f point1, sfVector2f point2)
+sfVertexArray	*create_quad_bottom_map(sfVector2f point1, sfVector2f point2)
 {
 	sfVector2f point3 = {point2.x, point2.y + 50};
 	sfVector2f point4 = {point1.x, point1.y + 50};
@@ -53,11 +53,11 @@ sfVertexArray *create_quad_bottom_map(sfVector2f point1, sfVector2f point2)
 	return (vertex_array);
 }
 
-sfVertexArray   *create_line(sfVector2f point1, sfVector2f point2, sfColor color)
+sfVertexArray	*create_line(sfVector2f point1, sfVector2f p2, sfColor color)
 {
 	sfVertexArray *vertex_array = sfVertexArray_create();
 	sfVertex vertex1 = {.position = point1, .color = color};
-	sfVertex vertex2 = {.position = point2, .color = color};
+	sfVertex vertex2 = {.position = p2, .color = color};
 
 	sfVertexArray_append(vertex_array, vertex1);
 	sfVertexArray_append(vertex_array, vertex2);

@@ -111,6 +111,6 @@ void	destroy_map_graph(map_graph_t *map);
 
 map_t	*search_map(linked_list_t *list_map, int index);
 
-void      no_display_object(linked_list_t *list, unsigned int x, unsigned int y);
+void	no_display_object(linked_list_t *list, unsigned int x, unsigned int y);
 
 #endif

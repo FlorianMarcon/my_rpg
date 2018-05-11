@@ -29,7 +29,8 @@ int	loop_menu(void)
 	game->perso->position.y = game->map->iso[0][0].y - 32;
 	set_text_menu(men, set);
 	while (sfRenderWindow_isOpen(game->win->window)) {
-		while (sfRenderWindow_pollEvent(game->win->window, &game->win->event))
+		while (sfRenderWindow_pollEvent(game->win->window,\
+		&game->win->event))
 			if (game->win->event.type == sfEvtClosed)
 				sfRenderWindow_close(game->win->window);
 		pos_mouse = sfMouse_getPositionRenderWindow(game->win->window);

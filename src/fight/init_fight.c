@@ -7,7 +7,8 @@
 
 #include "game.h"
 
-void	init_first_txt_fight_node(linked_txt_t *txt, int fd, char *data, sfFont *font)
+void	init_first_txt_fight_node(linked_txt_t *txt, int fd, char *data,\
+	sfFont *font)
 {
 	sfVector2f pos;
 	sfColor textcolor = {255, 255, 255, 175};
@@ -25,7 +26,8 @@ void	init_first_txt_fight_node(linked_txt_t *txt, int fd, char *data, sfFont *fo
 	txt->next = NULL;
 }
 
-void	create_txt_fight_node(linked_txt_t *txt, int fd, char *data, sfFont *font)
+void	create_txt_fight_node(linked_txt_t *txt, int fd, char *data,\
+	sfFont *font)
 {
 	sfVector2f pos;
 	linked_txt_t *new = malloc(sizeof(stat_txt_t) * 1);
@@ -50,18 +52,18 @@ linked_txt_t *init_fight_txt(void)
 {
 	int fd = open("./src/fight/txt/file_txt", O_RDONLY);
 	linked_txt_t *txt = malloc(sizeof(linked_txt_t) * 1);
-	sfFont *font = sfFont_createFromFile("./font/attack_of_the_cucumbers.ttf");
+	sfFont *fo = sfFont_createFromFile("font/attack_of_the_cucumbers.ttf");
 	sfVector2f pos = {40, 750};
 
 	if (fd == -1)
 		return (NULL);
-	init_first_txt_fight_node(txt, fd, "Attack :", font);
+	init_first_txt_fight_node(txt, fd, "Attack :", fo);
 	sfText_setCharacterSize(txt->text, 30);
 	sfText_setPosition(txt->text, pos);
-	create_txt_fight_node(txt, fd, "Lance baton (A)", font);
-	create_txt_fight_node(txt, fd, "Wingardium (Q)", font);
-	create_txt_fight_node(txt, fd, "Vie : ", font);
-	create_txt_fight_node(txt, fd, "Vie enn :", font);
+	create_txt_fight_node(txt, fd, "Lance baton (A)", fo);
+	create_txt_fight_node(txt, fd, "Wingardium (Q)", fo);
+	create_txt_fight_node(txt, fd, "Vie : ", fo);
+	create_txt_fight_node(txt, fd, "Vie enn :", fo);
 	return (txt);
 }
 

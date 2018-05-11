@@ -45,15 +45,13 @@ char	**parsing_str(char *str, char separator)
 	int a = 0;
 	int c = 0;
 
-	if (str == NULL)
-		return (NULL);
-	tab = malloc(sizeof(*tab) * (nb_element(str, separator) + 1));
-	if (tab == NULL)
+	if (str != NULL)
+	if (!(tab = malloc(sizeof(*tab) * (nb_element(str, separator) + 1))))
 		return (NULL);
 	while (i < my_strlen(str) && str[i] != '\0') {
-		if ((str[i] & separator) == str[i]) {
+		if ((str[i] & separator) == str[i])
 			i++;
-		} else {
+		else {
 			c = len_until_separator(&str[i], separator);
 			tab[a] = malloc(sizeof(*tab[a]) * (c + 1));
 			my_strncpy(tab[a++], &str[i], c);

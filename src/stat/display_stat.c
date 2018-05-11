@@ -19,8 +19,8 @@ void	display_items(game_t *game)
 	item_t *tmp = game->stat->item;
 
 	while (tmp != NULL) {
-		sfRenderWindow_drawSprite(game->win->window,
-						tmp->sprite, NULL);
+		sfRenderWindow_drawSprite(game->win->window,\
+		tmp->sprite, NULL);
 		tmp = tmp->next;
 	}
 }

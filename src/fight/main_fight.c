@@ -16,7 +16,7 @@ void	wait_sec(float sec)
 	my_clock = sfClock_create();
 	while (second < sec) {
 		my_time = sfClock_getElapsedTime(my_clock);
-                second = my_time.microseconds / 1000000.0;
+		second = my_time.microseconds / 1000000.0;
 	}
 }
 
@@ -85,7 +85,8 @@ void	load_stat(game_t *game, linked_txt_t *txt)
 	buffer = my_strcat(buffer, get_nb_in_char(game->perso->stat.vie));
 	sfText_setString(txt->text, buffer);
 	txt = txt->next;
-	buffer = my_strcat("Vie enn : ", get_nb_in_char(game->fight->ennemy->vie));
+	buffer = my_strcat("Vie enn : ",\
+		get_nb_in_char(game->fight->ennemy->vie));
 	buffer = my_strcat(buffer, " / ");
 	buffer = my_strcat(buffer, get_nb_in_char(game->fight->ennemy->vie_m));
 	sfText_setString(txt->text, buffer);
@@ -102,7 +103,8 @@ void	event_fight(game_t *game)
 	int i = 0;
 
 	while (i == 0) {
-		while (sfRenderWindow_pollEvent(game->win->window, &game->win->event)) {
+		while (sfRenderWindow_pollEvent(game->win->window,\
+		&game->win->event)) {
 			if (game->win->event.type == sfEvtClosed) {
 				sfRenderWindow_close(game->win->window);
 				return;
@@ -120,7 +122,7 @@ void	event_fight(game_t *game)
 	wait_sec(2);
 }
 
-/*void	ennemy_tour()
+/*void	ennemy_tour(void)
 {
 	int i = rand()
 	if (i == 1)
@@ -141,9 +143,9 @@ int	check_life(game_t *game)
 {
 	sfText *txt = sfText_create();
 	sfVector2f pos = {200, 300};
-	sfFont *font = sfFont_createFromFile("./font/attack_of_the_cucumbers.ttf");
+	sfFont *fo = sfFont_createFromFile("font/attack_of_the_cucumbers.ttf");
 
-	sfText_setFont(txt, font);
+	sfText_setFont(txt, fo);
 	sfText_setCharacterSize(txt, 90);
 	sfText_setColor(txt, sfGreen);
 	sfText_setPosition(txt, pos);
@@ -184,6 +186,5 @@ void	run_fight(game_t *game)
 		display_fight(game, NULL);
 		ennemy_tour(game);
 		i = check_life(game);
-
 	}
 }

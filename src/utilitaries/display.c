@@ -20,7 +20,8 @@ void	display_inv(game_t *game, player_inv_t *list)
 		sfText_setFont(list->number, game->font_inv);
 		sfText_setPosition(list->number, pos);
 		sfSprite_setPosition(list->sprite, pos);
-		sfRenderWindow_drawSprite(game->win->window, list->sprite, NULL);
+		sfRenderWindow_drawSprite(game->win->window, list->sprite,\
+		NULL);
 		sfRenderWindow_drawText(game->win->window, list->number, NULL);
 		pos.x += 80;
 		i++;

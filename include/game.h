@@ -84,7 +84,7 @@ void	display(game_t *game, inv_t *tmp);
 
 bool	event(game_t *game);
 
-bool      loop_pause(game_t *game);
+bool	loop_pause(game_t *game);
 
 //utilitaries
 
@@ -94,12 +94,13 @@ sfVector2f	**create_two_d_map(map_t *map);
 
 sfVector2f	project_iso_point(int x, int y, map_t *map);
 
-sfVertexArray *create_quad(sfVector2f point1, sfVector2f point2,\
-					sfVector2f point3, sfVector2f point4);
+sfVertexArray	*create_quad(sfVector2f point1, sfVector2f point2,\
+		sfVector2f point3, sfVector2f point4);
 
-sfVertexArray *create_quad_bottom_map(sfVector2f point1, sfVector2f point2);
+sfVertexArray	*create_quad_bottom_map(sfVector2f point1, sfVector2f point2);
 
-sfVertexArray   *create_line(sfVector2f point1, sfVector2f point2, sfColor color);
+sfVertexArray	*create_line(sfVector2f point1, sfVector2f point2,\
+		sfColor color);
 
 int	change_map(game_t *game);
 
