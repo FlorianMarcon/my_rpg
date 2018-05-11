@@ -13,7 +13,7 @@ obj_inv_t	*find_my_obj(linked_list_t *tmp, char *name)
 
 	while (tmp != NULL) {
 		ptr = (obj_inv_t *)tmp->data;
-		if (strcmp(ptr->name, name) == 0)
+		if (my_strcmp(ptr->name, name) == 0)
 				return (ptr);
 			tmp = tmp->next;
 		}
@@ -39,7 +39,8 @@ player_inv_t	*create_node_player(obj_inv_t *obj)
 	return (elem);
 }
 
-player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name, player_inv_t *list)
+player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name,
+							player_inv_t *list)
 {
 	obj_inv_t *obj = NULL;
 	player_inv_t *new = NULL;
