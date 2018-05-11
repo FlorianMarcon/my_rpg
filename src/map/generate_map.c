@@ -43,17 +43,15 @@ int	fill_path_sprite(int fd, map_t *map)
 	if ((str = get_next_line(fd)) == NULL)
 		return (1);
 	map->path_sprite_floor = str;
-	if ((str = get_next_line(fd)) == NULL) {
-		free(map->path_sprite_floor);
+	if ((str = get_next_line(fd)) == NULL)
 		return (1);
-	}
 	map->path_sprite_teleport = str;
-	if ((str = get_next_line(fd)) == NULL) {
-		free(map->path_sprite_floor);
-		free(map->path_sprite_teleport);
+	if ((str = get_next_line(fd)) == NULL)
 		return (1);
-	}
 	map->path_sprite_bottom = str;
+	if ((str = get_next_line(fd)) == NULL)
+		return (1);
+	map->path_sprite_back = str;
 	return (0);
 }
 
@@ -67,8 +65,8 @@ int     fill_map(int fd, map_t *map)
 		return (1);
 	for (int y = 0; y != map->height; y++) {
 		str = get_next_line(fd);
-		if (str == NULL || (arr_map[y] = malloc(sizeof(*(arr_map[y])) * (map->width))) == NULL) {
-			free(arr_map);
+		if (str == NULL || (arr_map[y] = malloc(sizeof(*(arr_map[y]))
+						* (map->width))) == NULL) {
 			return (1);
 		} else {
 			tab = parsing_str(str, ' ');

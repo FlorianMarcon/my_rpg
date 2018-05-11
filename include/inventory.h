@@ -13,6 +13,7 @@
 #include <stdbool.h>
 
 typedef struct obj_inv {
+	char *name;
 	char *type;
 	sfSprite *sprite;
 	sfTexture *texture;
@@ -22,7 +23,7 @@ typedef struct obj_inv {
 } obj_inv_t;
 
 typedef struct player_inv {
-	char *type;
+	char *name;
 	sfSprite *sprite;
 	sfText *number;
 	sfVector2f pos;

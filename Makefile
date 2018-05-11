@@ -47,6 +47,7 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/graphique/destroy_vertex_array.c	\
 		$(WAY)/object/generate_object.c		\
 		$(WAY)/object/generate_list_object.c	\
+		$(WAY)/object/generate_list_sprite.c	\
 		$(WAY)/object/search_object.c		\
 		$(WAY)/object/move_object.c		\
 		$(WAY)/object/manage_object_no_displaying.c	\

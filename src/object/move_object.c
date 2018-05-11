@@ -9,9 +9,10 @@
 
 void	move_rect_object(sprite_t *spr)
 {
-	int diff = spr->obj->time.microseconds - sfClock_getElapsedTime(spr->clock).microseconds;
-
+	int diff = spr->obj->time.microseconds -
+				sfClock_getElapsedTime(spr->clock).microseconds;
 	if (diff > 0)
+	
 		return;
 	sfClock_restart(spr->clock);
 	sfSprite_setTextureRect(spr->sprite, spr->rect);

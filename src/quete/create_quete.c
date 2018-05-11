@@ -29,7 +29,8 @@ void	quete_stock_object_to_come_back(quete_t *quete, int fd)
 {
 	char *str = NULL;
 
-	while ((str = get_next_line(fd)) != NULL && strcmp(str, "TO BE GIVEN") != 0) {
+	while ((str = get_next_line(fd)) != NULL &&
+					my_strcmp(str, "TO BE GIVEN") != 0) {
 		if (quete->obj_need == NULL)
 			quete->obj_need = create_list(create_toto(str));
 		else
@@ -49,14 +50,16 @@ void	quete_stock_message(quete_t *quete, int fd)
 	unsigned int i = 0;
 	char *str = get_next_line(fd);
 
-	while ((str = get_next_line(fd)) != NULL && strcmp(str, "MSG VAL") != 0) {
+	while ((str = get_next_line(fd)) != NULL &&
+					my_strcmp(str, "MSG VAL") != 0) {
 		quete->message_no_val[i++] = str;
 	}
 	quete->size_message_no_val = i;
 	if (str != NULL)
 		free(str);
 	i = 0;
-	while ((str = get_next_line(fd)) != NULL && strcmp(str, "MUST BE GIVEN") != 0) {
+	while ((str = get_next_line(fd)) != NULL &&
+					my_strcmp(str, "MUST BE GIVEN") != 0) {
 		quete->message_val[i++] = str;
 	}
 	quete->size_message_val = i;

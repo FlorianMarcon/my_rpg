@@ -37,8 +37,10 @@ void	run_quete(game_t *game, int id)
 		return;
 	quete->validated = status_quete(quete, game);
 	if (quete->validated == true) {
-		active_message_quete(game, quete->message_val, quete->size_message_val);
+		active_message_quete(game, quete->message_val,
+						quete->size_message_val);
 	} else
-		active_message_quete(game, quete->message_no_val, quete->size_message_no_val);
+		active_message_quete(game, quete->message_no_val,
+						quete->size_message_no_val);
 	game->display_textbox = true;
 }
