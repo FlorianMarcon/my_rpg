@@ -64,7 +64,11 @@ SRC	+=	$(WAY)/move_perso/win.c			\
 		$(WAY)/quete/run_quete.c		\
 		$(WAY)/quete/display_quete.c		\
 		$(WAY)/pause/pause.c			\
-		$(WAY)/fight/scene.c			\
+		$(WAY)/fight/main_fight.c			\
+		$(WAY)/fight/display_fight.c			\
+		$(WAY)/fight/init_fight.c			\
+		$(WAY)/fight/attack.c			\
+		#$(WAY)/fight/scene.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

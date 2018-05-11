@@ -24,8 +24,10 @@ bool	event(game_t *game, pause_t *stpause)
 		if (sfKeyboard_isKeyPressed(sfKeyZ)) {
 			game->perso->stat.xp += 10;
 		}
-		if (sfKeyboard_isKeyPressed(sfKeyF))
-			launch_fight(game);
+		if (sfKeyboard_isKeyPressed(sfKeyF)) {
+			//launch_fight(game);
+			run_fight(game);
+		}
 		affect_move_perso(game);
 	}
 	if (game->map->map[game->perso->x][game->perso->y - 1] >= 100)

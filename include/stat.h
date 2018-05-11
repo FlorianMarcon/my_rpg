@@ -46,4 +46,8 @@ chstat_t	*init_stat(stat_t stat);
 
 char	*get_nb_in_char(int nb);
 
+void	init_first_item(item_t *item, char *buffer);
+
+void	create_item_node(item_t *item, int fd, char *buffer);
+
 #endif

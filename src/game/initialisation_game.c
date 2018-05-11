@@ -66,5 +66,6 @@ game_t	*initialisation_game(void)
 	game->perso = create_my_perso();
 	game->stat = init_stat(game->perso->stat);
 	game->can_move = true;
+	game->fight = init_fight();
 	return (game);
 }

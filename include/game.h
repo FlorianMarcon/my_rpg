@@ -22,6 +22,7 @@
 #include "inventory.h"
 #include "quete.h"
 #include "stat.h"
+#include "fight.h"
 
 typedef struct game_s {
 
@@ -57,6 +58,9 @@ typedef struct game_s {
 
 	//inventory
 	linked_list_t *list_inventory;
+
+	//fight
+	fight_t *fight;
 
 } game_t;
 
@@ -150,6 +154,18 @@ inv_t	*inventory(game_t *game, inv_t *tmp);
 
 void	move_object(game_t *game);
 
+// fight
+
 void	launch_fight(game_t *game);
+
+void	run_fight(game_t *game);
+
+void	display_fight(game_t *game, sfText *txt);
+
+void	wingardium(game_t *game);
+
+void	lance_baton(game_t *game);
+
+void	ennemy_tour(game_t *game);
 
 #endif
