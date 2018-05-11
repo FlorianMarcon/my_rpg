@@ -65,8 +65,10 @@ sfVertexArray	**generate_sprite_line(map_graph_t *map)
 		return (NULL);
 	for (int j = 0; j < map->map->height - 1; j++) {
 		for (int i = 0; i < map->map->width - 1; i++) {
-			arr_line[a++] = create_line(iso[j][i], iso[j][i + 1], sfBlack);
-			arr_line[a++] = create_line(iso[j][i], iso[j + 1][i], sfBlack);
+			arr_line[a++] = create_line(iso[j][i],
+							iso[j][i + 1], sfBlack);
+			arr_line[a++] = create_line(iso[j][i],
+							iso[j + 1][i], sfBlack);
 		}
 	}
 	arr_line[a] = NULL;
@@ -77,7 +79,6 @@ map_graph_t	*generate_map_graph(map_t *map, game_t *game)
 {
 	map_graph_t *graph;
 
-	(void)game;
 	if (map == NULL)
 		return (NULL);
 	if ((graph = malloc(sizeof(*graph))) == NULL)

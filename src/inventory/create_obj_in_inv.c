@@ -39,12 +39,30 @@ player_inv_t	*create_node_player(obj_inv_t *obj)
 	return (elem);
 }
 
+player_inv_t	*add_obj_in_inv(obj_inv_t *obj, player_inv_t *li)
+{
+	player_inv_t *new = NULL;
+	player_inv_t *re = li;
+
+	new = create_node_player(obj);
+	if (new == NULL) {
+		return (li);
+	}
+	if (li == NULL) {
+		li = new;
+	} else {
+		while (re->next != NULL) {
+			re = re->next;
+		}
+		re->next = new;
+	}
+	return (li);
+}
 player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name,
 							player_inv_t *list)
 {
 	obj_inv_t *obj = NULL;
 	player_inv_t *new = NULL;
-	player_inv_t *re = list;
 
 	obj = find_my_obj(tmp, name);
 	if (obj == NULL)
@@ -53,17 +71,6 @@ player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name,
 		new->quantity++;
 		return (list);
 	}
-	new = create_node_player(obj);
-	if (new == NULL) {
-		return (list);
-	}
-	if (list == NULL) {
-		list = new;
-	} else {
-		while (re->next != NULL) {
-			re = re->next;
-		}
-		re->next = new;
-	}
+	list = add_obj_in_inv(obj, list);
 	return (list);
 }

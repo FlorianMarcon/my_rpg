@@ -9,6 +9,8 @@
 
 menu_t	*suite_init_menu(menu_t *elem)
 {
+	elem->texture7 = sfTexture_createFromFile(
+				"src/png_menu/stars.png", NULL);
 	elem->pos_sts = (sfVector2f){0, 0};
 	elem->pos_but1 = (sfVector2f){320, 325};
 	elem->pos_but2 = (sfVector2f){320, 715};
@@ -18,9 +20,9 @@ menu_t	*suite_init_menu(menu_t *elem)
 	elem->pos_bck = (sfVector2f){0, 0};
 	elem->pos_but = (sfVector2f){320, 325};
 	elem->sprite8 = sfSprite_create();
-	elem->texture8 = sfTexture_createFromFile("src/png_menu/check.png", NULL); 	
+	elem->texture8 = sfTexture_createFromFile(
+				"src/png_menu/check.png", NULL);
 	elem->pos_but8 = (sfVector2f){-25, 145};
-	
 	return (elem);
 }
 
@@ -42,16 +44,21 @@ menu_t	*init_menu(void)
 	menu_t *elem = malloc(sizeof(menu_t));
 
 	elem = suite_init_menu_2(elem);
-	elem->texture = sfTexture_createFromFile("src/png_menu/play_on.png", NULL); 
-	elem->texture1 = sfTexture_createFromFile("src/png_menu/play_off.png", NULL);
-	elem->texture2 = sfTexture_createFromFile("src/png_menu/quit_on.png", NULL);
-	elem->texture3 = sfTexture_createFromFile("src/png_menu/quit_off.png", NULL);
-	elem->texture4 = sfTexture_createFromFile("src/png_menu/setting_on.png", NULL);
-	elem->texture5 = sfTexture_createFromFile("src/png_menu/setting_off.png", NULL);
-	elem->texture6 = sfTexture_createFromFile("src/png_menu/bckl.png", NULL);
-	elem->texture7 = sfTexture_createFromFile("src/png_menu/stars.png", NULL);
+	elem->texture = sfTexture_createFromFile(
+				"src/png_menu/play_on.png", NULL);
+	elem->texture1 = sfTexture_createFromFile(
+				"src/png_menu/play_off.png", NULL);
+	elem->texture2 = sfTexture_createFromFile(
+				"src/png_menu/quit_on.png", NULL);
+	elem->texture3 = sfTexture_createFromFile(
+				"src/png_menu/quit_off.png", NULL);
+	elem->texture4 = sfTexture_createFromFile(
+				"src/png_menu/setting_on.png", NULL);
+	elem->texture5 = sfTexture_createFromFile(
+				"src/png_menu/setting_off.png", NULL);
+	elem->texture6 = sfTexture_createFromFile(
+				"src/png_menu/bckl.png", NULL);
 	elem = suite_init_menu(elem);
-	
 	return (elem);
 }
 
