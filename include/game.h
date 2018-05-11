@@ -22,7 +22,7 @@
 #include "inventory.h"
 #include "quete.h"
 #include "stat.h"
-//#include "fight.h"
+#include "fight.h"
 
 typedef struct pause_s {
 	sfSprite *pause;
@@ -69,7 +69,7 @@ typedef struct game_s {
 	sfFont *font_inv;
 
 	//fight
-	//fight_t *fight;
+	fight_t *fight;
 
 	//pause
 	pause_t *pause;
