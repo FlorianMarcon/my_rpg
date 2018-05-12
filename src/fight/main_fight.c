@@ -20,62 +20,10 @@ void	wait_sec(float sec)
 	}
 }
 
-void	load_enn_value(ennemy_t *enn, char *buffer, int fd)
-{
-	buffer = get_next_line(fd);
-	enn->vie_m = my_getnbr(buffer);
-	buffer = get_next_line(fd);
-	enn->vie = my_getnbr(buffer);
-	buffer = get_next_line(fd);
-	enn->att_m = my_getnbr(buffer);
-	buffer = get_next_line(fd);
-	enn->att_p = my_getnbr(buffer);
-	buffer = get_next_line(fd);
-	enn->defence = my_getnbr(buffer);
-	buffer = get_next_line(fd);
-	enn->xp_g = my_getnbr(buffer);
-}
-
-void	load_enn_sprite(ennemy_t *enn, int fd, char *buffer)
-{
-
-	buffer = get_next_line(fd);
-	printf("%s\n", buffer);
-	enn->texture = sfTexture_createFromFile(buffer, NULL);
-	enn->sprite = sfSprite_create();
-	/*perso->rect.top = 0;
-	perso->rect.left = 0;
-	perso->rect.width = 32;
-	perso->rect.height = 48;*/
-	enn->position.x = get_file_pos(fd, buffer);
-	enn->position.y = get_file_pos(fd, buffer);
-	sfSprite_setTexture(enn->sprite, enn->texture, sfTrue);
-	sfSprite_setPosition(enn->sprite, enn->position);
-	//sfSprite_setTextureRect(perso->sprite, perso->rect);
-
-}
-
-void	load_ennemy(game_t *game)
-{
-	char buffer[] = "./ennemies/200";
-	int fd = 0;
-
-//	buffer = my_strcat(buffer,
-//	get_nb_in_char(game->map->map[game->perso->x][game->perso->y]));
-//	buffer = "./ennemies/200";
-	if ((fd = open(buffer, O_RDONLY)) == -1)
-		return;
-	load_enn_sprite(game->fight->ennemy, fd, buffer);
-	load_enn_value(game->fight->ennemy, buffer, fd);
-	//free (buffer);
-}
-
 void	load_stat(game_t *game, linked_txt_t *txt)
 {
 	char *buffer;
 
-	sfText_setString(txt->text, "Attack :");
-	txt = txt->next;
 	sfText_setString(txt->text, "Lance baton (A)");
 	txt = txt->next;
 	sfText_setString(txt->text, "Wingardium (Q)");
@@ -117,7 +65,6 @@ void	event_fight(game_t *game)
 			i = 1;
 		}
 	}
-	wait_sec(2);
 }
 
 /*void	ennemy_tour()
@@ -140,7 +87,7 @@ void	modify_fight_stat(game_t *game)
 int	check_life(game_t *game)
 {
 	sfText *txt = sfText_create();
-	sfVector2f pos = {200, 300};
+	sfVector2f pos = {300, 300};
 	sfFont *font = sfFont_createFromFile("./font/attack_of_the_cucumbers.ttf");
 
 	sfText_setFont(txt, font);
@@ -150,12 +97,15 @@ int	check_life(game_t *game)
 	if (game->perso->stat.vie_c == 0) {
 		sfText_setString(txt, "YOU LOST");
 		display_fight(game, txt);
+		game->perso->stat.xp += game->fight->ennemy->xp_g / 2;
+		game->perso->stat.vie_c = game->perso->stat.vie;
 		wait_sec(3);
 		return (0);
 	}
 	if (game->fight->ennemy->vie == 0) {
 		sfText_setString(txt, "YOU WIN");
 		display_fight(game, txt);
+		game->perso->stat.xp += game->fight->ennemy->xp_g;
 		wait_sec(3);
 		return (0);
 	}
@@ -184,6 +134,5 @@ void	run_fight(game_t *game)
 		display_fight(game, NULL);
 		ennemy_tour(game);
 		i = check_life(game);
-
 	}
 }

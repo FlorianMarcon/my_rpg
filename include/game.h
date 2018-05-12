@@ -180,4 +180,12 @@ void	lance_baton(game_t *game);
 
 void	ennemy_tour(game_t *game);
 
+void	load_ennemy(game_t *game);
+
+void	annimation_dommage(game_t *game, int dommage, sfVector2f pos, int ref);
+
+void	wait_sec(float sec);
+
+void	load_stat(game_t *game, linked_txt_t *txt);
+
 #endif

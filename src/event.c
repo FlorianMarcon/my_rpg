@@ -26,7 +26,8 @@ bool	event(game_t *game)
 		}
 		if (sfKeyboard_isKeyPressed(sfKeyF)) {
 			//launch_fight(game);
-			run_fight(game);
+			if (run_fight(game) == 0)
+				return (false);
 		}
 		affect_move_perso(game);
 		inventory(game);
