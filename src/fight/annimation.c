@@ -54,6 +54,7 @@ void	move_sprite(int ref, game_t *game)
 		sens *= -1;
 		sfSprite_setPosition(game->fight->item->next->next->sprite,
 			game->fight->item->next->next->position);
+		//move_ennemy_rect();
 	}
 }
 

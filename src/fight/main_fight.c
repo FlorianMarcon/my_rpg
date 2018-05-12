@@ -24,7 +24,7 @@ void	load_stat(game_t *game, linked_txt_t *txt)
 {
 	char *buffer;
 
-	sfText_setString(txt->text, "Lance baton (A)");
+	sfText_setString(txt->text, "Launch stick (A)");
 	txt = txt->next;
 	sfText_setString(txt->text, "Wingardium (Q)");
 	txt = txt->next;

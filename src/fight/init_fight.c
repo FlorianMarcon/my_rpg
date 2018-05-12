@@ -57,7 +57,7 @@ linked_txt_t *init_fight_txt(void)
 
 	if (fd == -1)
 		return (NULL);
-	init_first_txt_fight_node(txt, fd, "Lance baton (A)", font);
+	init_first_txt_fight_node(txt, fd, "Launch stick (A)", font);
 	create_txt_fight_node(txt, fd, "Wingardium (Q)", font);
 	create_txt_fight_node(txt, fd, "Life : ", font);
 	create_txt_fight_node(txt, fd, "Enn life :", font);
