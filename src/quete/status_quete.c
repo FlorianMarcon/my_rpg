@@ -18,8 +18,8 @@ void	quete_give_all_object(quete_t *quete, game_t *game)
 		toto = (toto_t *)list->data;
 		if (toto != NULL)
 			for (int i = 0; i != toto->quantity; i++)
-				ply = create_obj_in_inv(game->list_inventory,
-							toto->name, ply);
+				ply = create_obj_in_inv(game->list_inventory,\
+				toto->name, ply);
 		list = list->next;
 	}
 	game->list_inv_player = ply;
@@ -47,7 +47,8 @@ bool	is_present(toto_t *toto, player_inv_t *list)
 	int quant = toto->quantity;
 
 	while (list != NULL) {
-		if (my_strcmp(need, list->name) == 0 && list->quantity == quant)
+		if (my_strcmp(need, list->name) == 0 &&\
+		list->quantity == quant)
 			return (true);
 		list = list->next;
 	}
@@ -62,8 +63,8 @@ bool	status_quete(quete_t *quete, game_t *game)
 		return (true);
 	while (needed != NULL) {
 		toto = (toto_t *)needed->data;
-		if (toto != NULL && is_present(toto,
-						game->list_inv_player) == false) {
+		if (toto != NULL && is_present(toto,\
+		game->list_inv_player) == false) {
 			return (false);
 		}
 		needed = needed->next;

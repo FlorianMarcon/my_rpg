@@ -16,7 +16,7 @@ void	wait_sec(float sec)
 	my_clock = sfClock_create();
 	while (second < sec) {
 		my_time = sfClock_getElapsedTime(my_clock);
-                second = my_time.microseconds / 1000000.0;
+		second = my_time.microseconds / 1000000.0;
 	}
 }
 
@@ -33,7 +33,8 @@ void	load_stat(game_t *game, linked_txt_t *txt)
 	buffer = my_strcat(buffer, get_nb_in_char(game->perso->stat.vie));
 	sfText_setString(txt->text, buffer);
 	txt = txt->next;
-	buffer = my_strcat("Vie enn : ", get_nb_in_char(game->fight->ennemy->vie));
+	buffer = my_strcat("Vie enn : ",\
+		get_nb_in_char(game->fight->ennemy->vie));
 	buffer = my_strcat(buffer, " / ");
 	buffer = my_strcat(buffer, get_nb_in_char(game->fight->ennemy->vie_m));
 	sfText_setString(txt->text, buffer);
@@ -50,7 +51,8 @@ void	event_fight(game_t *game)
 	int i = 0;
 
 	while (i == 0) {
-		while (sfRenderWindow_pollEvent(game->win->window, &game->win->event)) {
+		while (sfRenderWindow_pollEvent(game->win->window,\
+		&game->win->event)) {
 			if (game->win->event.type == sfEvtClosed) {
 				sfRenderWindow_close(game->win->window);
 				return;
@@ -67,7 +69,7 @@ void	event_fight(game_t *game)
 	}
 }
 
-/*void	ennemy_tour()
+/*void	ennemy_tour(void)
 {
 	int i = rand()
 	if (i == 1)

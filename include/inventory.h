@@ -50,8 +50,9 @@ linked_list_t	*generate_list_inventory(char *path);
 
 player_inv_t	*delete_obj_in_inv(char *name, player_inv_t *list);
 
-player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name, player_inv_t *list);
+player_inv_t	*create_obj_in_inv(linked_list_t *tmp, char *name,\
+		player_inv_t *list);
 
-player_inv_t        *search_obj_inv_player(char *name, player_inv_t *list);
+player_inv_t	*search_obj_inv_player(char *name, player_inv_t *list);
 
 #endif

@@ -29,7 +29,7 @@ void	load_enn_sprite(ennemy_t *enn, int fd)
 
 	buffer = get_next_line(fd);
 	buffer = get_next_line(fd);
-	printf("%s\n", buffer);
+	//printf("%s\n", buffer);
 	enn->texture = sfTexture_createFromFile(buffer, NULL);
 	enn->sprite = sfSprite_create();
 	enn->rect.top = get_file_pos(fd, buffer);

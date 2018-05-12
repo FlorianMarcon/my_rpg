@@ -9,7 +9,8 @@
 
 void	init_perso_param(perso_t *perso)
 {
-	perso->texture = sfTexture_createFromFile("./matter/caracter.png", NULL);
+	perso->texture = sfTexture_createFromFile("./matter/caracter.png",\
+	NULL);
 	perso->sprite = sfSprite_create();
 	perso->rect.top = 0;
 	perso->rect.left = 0;

@@ -41,14 +41,15 @@ void	dep_right(game_t *game)
 	game->perso->mouvement.y = 0;
 	game->perso->mouvement.x = 1;
 	if (game->perso->x != 0 && detect_col(game, 1) != -1) {
-		while (game->perso->position.x < x + 26.4 &&
-					game->perso->position.y < y + 18.2) {
+		while (game->perso->position.x < x + 26.4 && game->perso->position.y < y + 18.2) {
 			loop_move(my_clock, game->perso, game->win);
 			display(game, NULL);
 		}
 		game->perso->x -= 1;
-		game->perso->position.x = game->map->iso[game->perso->x][game->perso->y].x - 10;
-		game->perso->position.y = game->map->iso[game->perso->x][game->perso->y].y - 27;
+		game->perso->position.x = game->map->iso[game->perso->x]\
+		[game->perso->y].x - 10;
+		game->perso->position.y = game->map->iso[game->perso->x]\
+		[game->perso->y].y - 27;
 		game->perso->mouvement.x = 0;
 		sfSprite_setPosition(game->perso->sprite, game->perso->position);
 	}
@@ -69,8 +70,10 @@ void	dep_left(game_t *game)
 			display(game, NULL);
 		}
 		game->perso->x += 1;
-		game->perso->position.x = game->map->iso[game->perso->x][game->perso->y].x - 10;
-		game->perso->position.y = game->map->iso[game->perso->x][game->perso->y].y - 27;
+		game->perso->position.x = game->map->iso[game->perso->x]\
+		[game->perso->y].x - 10;
+		game->perso->position.y = game->map->iso[game->perso->x]\
+		[game->perso->y].y - 27;
 		game->perso->mouvement.x = 0;
 		sfSprite_setPosition(game->perso->sprite, game->perso->position);
 	}
@@ -91,8 +94,10 @@ void	dep_down(game_t *game)
 			display(game, NULL);
 		}
 		game->perso->y += 1;
-		game->perso->position.x = game->map->iso[game->perso->x][game->perso->y].x - 10;
-		game->perso->position.y = game->map->iso[game->perso->x][game->perso->y].y - 27;
+		game->perso->position.x = game->map->iso[game->perso->x]\
+		[game->perso->y].x - 10;
+		game->perso->position.y = game->map->iso[game->perso->x]\
+		[game->perso->y].y - 27;
 		game->perso->mouvement.y = 0;
 		sfSprite_setPosition(game->perso->sprite, game->perso->position);
 	}
@@ -113,8 +118,10 @@ void	dep_up(game_t *game)
 			display(game, NULL);
 		}
 		game->perso->y -= 1;
-		game->perso->position.x = game->map->iso[game->perso->x][game->perso->y].x - 10;
-		game->perso->position.y = game->map->iso[game->perso->x][game->perso->y].y - 27;
+		game->perso->position.x = game->map->iso[game->perso->x]\
+		[game->perso->y].x - 10;
+		game->perso->position.y = game->map->iso[game->perso->x]\
+		[game->perso->y].y - 27;
 		game->perso->mouvement.y = 0;
 		sfSprite_setPosition(game->perso->sprite, game->perso->position);
 	}

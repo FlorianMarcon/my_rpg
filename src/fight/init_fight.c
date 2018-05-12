@@ -7,7 +7,8 @@
 
 #include "game.h"
 
-void	init_first_txt_fight_node(linked_txt_t *txt, int fd, char *data, sfFont *font)
+void	init_first_txt_fight_node(linked_txt_t *txt, int fd, char *data,\
+	sfFont *font)
 {
 	sfVector2f pos;
 	sfColor textcolor = {255, 255, 255, 175};
@@ -25,7 +26,8 @@ void	init_first_txt_fight_node(linked_txt_t *txt, int fd, char *data, sfFont *fo
 	txt->next = NULL;
 }
 
-void	create_txt_fight_node(linked_txt_t *txt, int fd, char *data, sfFont *font)
+void	create_txt_fight_node(linked_txt_t *txt, int fd, char *data,\
+	sfFont *font)
 {
 	sfVector2f pos;
 	linked_txt_t *new = malloc(sizeof(stat_txt_t) * 1);

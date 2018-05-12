@@ -21,19 +21,16 @@ bool	event(game_t *game)
 		if (sfKeyboard_isKeyPressed(sfKeyM))
 			if (loop_pause(game))
 				return (true);
-		if (sfKeyboard_isKeyPressed(sfKeyZ)) {
+		if (sfKeyboard_isKeyPressed(sfKeyZ))
 			game->perso->stat.xp += 10;
-		}
-		if (sfKeyboard_isKeyPressed(sfKeyF)) {
-			//launch_fight(game);
-			if (run_fight(game) == 0)
-				return (false);
-		}
+		if (sfKeyboard_isKeyPressed(sfKeyF))
+			run_fight(game);
 		affect_move_perso(game);
 		inventory(game);
 	}
 	if (game->map->map[game->perso->x][game->perso->y - 1] >= 100)
-		run_quete(game, game->map->map[game->perso->x][game->perso->y - 1]);
+		run_quete(game, game->map->map[game->perso->x]\
+		[game->perso->y - 1]);
 	change_map(game);
 	move_object(game);
 	lvl_up(game);

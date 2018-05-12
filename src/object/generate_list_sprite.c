@@ -46,7 +46,8 @@ sprite_t	*generate_sprite_from_object(object_t *obj, sfVector2f *pos)
 	return (spr);
 }
 
-sprite_t	*add_object_graph_list(map_t *map, linked_list_t *tex, sfVector2i *a)
+sprite_t	*add_object_graph_list(map_t *map, linked_list_t *tex,\
+		sfVector2i *a)
 {
 	object_t *obj;
 	sprite_t *spr = NULL;
@@ -59,7 +60,8 @@ sprite_t	*add_object_graph_list(map_t *map, linked_list_t *tex, sfVector2i *a)
 	else if (index >= 100)
 		index = 100;
 	obj = search_object(tex, index);
-	if (obj == NULL || (spr = generate_sprite_from_object(obj, &pos)) == NULL)
+	if (obj == NULL || (spr = generate_sprite_from_object(obj, &pos))\
+	== NULL)
 		return (NULL);
 	else {
 		spr->x = a->x;

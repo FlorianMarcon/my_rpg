@@ -60,7 +60,6 @@ void	move_sprite(int ref, game_t *game)
 void	annimation_dommage(game_t *game, int dommage, sfVector2f pos, int ref)
 {
 	sfText *text = set_txt_dommage(dommage, pos);
-	//sfVector2f pos = {700, 300};
 	sfColor color = {155, 255, 0, 155};
 	int x = 155;
 

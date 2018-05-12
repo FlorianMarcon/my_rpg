@@ -7,7 +7,8 @@
 
 #include "header.h"
 
-int	create_menu(set_t *set, lock_t *ptr, menu_t *men, sfRenderWindow *window, sfVector2i pos1, game_t *game)
+int	create_menu(set_t *set, lock_t *ptr, menu_t *men,\
+	sfRenderWindow *window, sfVector2i pos1, game_t *game)
 {
 	men->pos_sts.x -= 0.1;
 	set_pos_men(men, set);
