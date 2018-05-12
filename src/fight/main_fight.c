@@ -28,12 +28,12 @@ void	load_stat(game_t *game, linked_txt_t *txt)
 	txt = txt->next;
 	sfText_setString(txt->text, "Wingardium (Q)");
 	txt = txt->next;
-	buffer = my_strcat("Vie : ", get_nb_in_char(game->perso->stat.vie_c));
+	buffer = my_strcat("Life : ", get_nb_in_char(game->perso->stat.vie_c));
 	buffer = my_strcat(buffer, " / ");
 	buffer = my_strcat(buffer, get_nb_in_char(game->perso->stat.vie));
 	sfText_setString(txt->text, buffer);
 	txt = txt->next;
-	buffer = my_strcat("Vie enn : ",\
+	buffer = my_strcat("Enn life : ",\
 		get_nb_in_char(game->fight->ennemy->vie));
 	buffer = my_strcat(buffer, " / ");
 	buffer = my_strcat(buffer, get_nb_in_char(game->fight->ennemy->vie_m));
