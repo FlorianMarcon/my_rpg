@@ -29,7 +29,7 @@ int	fill_setting_object(int fd, object_t *obj)
 	obj->rect.width = my_getnbr(tab[0]);
 	obj->rect.height = my_getnbr(tab[1]);
 	obj->max_rect = my_getnbr(tab[2]);
-	obj->time = sfSeconds(atof(tab[3]));
+	obj->time = sfSeconds(my_getnbr(tab[3]));
 	free(tab);
 	if ((str = get_next_line(fd)) == NULL || my_str_isnum(str) == 0)
 		return (1);

@@ -21,7 +21,7 @@ toto_t	*create_toto(char *str)
 	if (toto == NULL || tab == NULL)
 		return (NULL);
 	toto->name = tab[0];
-	toto->quantity = atoi(tab[1]);
+	toto->quantity = my_getnbr(tab[1]);
 	free(str);
 	return (toto);
 }
@@ -78,7 +78,7 @@ quete_t	*create_quete(char *path)
 	str = get_next_line(fd);
 	quete->obj_need = NULL;
 	quete->obj_given = NULL;
-	quete->id = atoi(str);
+	quete->id = my_getnbr(str);
 	quete->validated = false;
 	free(str);
 	quete_stock_message(quete, fd);

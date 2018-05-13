@@ -20,11 +20,11 @@ void	set_attack_object_inv(obj_inv_t *obj, int fd)
 	obj->att = 0;
 	obj->att_mag = 0;
 	if ((str = get_next_line(fd)) != NULL) {
-		obj->att = atoi(str);
+		obj->att = my_getnbr(str);
 		free(str);
 	}
 	if ((str = get_next_line(fd)) != NULL) {;
-		obj->att_mag = atoi(str);
+		obj->att_mag = my_getnbr(str);
 		free(str);
 	}
 }
