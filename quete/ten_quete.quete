@@ -1,0 +1,12 @@
+110
+MSG NO VAL
+EHHH valeureux guerrier, je suis bien embete..
+j'ai perdu mon anneau, pourrais-tu me la retrouver?
+MSG VAL
+OH mon anneau! Tu es incroyable! Pour te recompenser
+voici un petit remontant..
+Look ton inventaire
+MUST BE GIVEN
+ring 1
+TO BE GIVEN
+potion 1
