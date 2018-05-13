@@ -20,5 +20,6 @@ int	change_map(game_t *game)
 	destroy_map_graph(game->map_graph);
 	game->map = map;
 	game->map_graph = generate_map_graph(game->map, game);
+	replace_perso(game, game->perso->x, game->perso->y);
 	return (0);
 }

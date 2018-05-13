@@ -21,7 +21,7 @@ void	init_perso_param(perso_t *perso)
 	perso->mouvement.x = 0;
 	perso->mouvement.y = 0;
 	perso->x = 0;
-	perso->y = 0;
+	perso->y = 1;
 	sfSprite_setTexture(perso->sprite, perso->texture, sfTrue);
 	sfSprite_setPosition(perso->sprite, perso->position);
 	sfSprite_setTextureRect(perso->sprite, perso->rect);
