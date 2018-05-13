@@ -48,7 +48,7 @@ bool	is_present(toto_t *toto, player_inv_t *list)
 
 	while (list != NULL) {
 		if (my_strcmp(need, list->name) == 0 &&\
-		list->quantity == quant)
+		list->quantity >= quant)
 			return (true);
 		list = list->next;
 	}
