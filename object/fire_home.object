@@ -1,0 +1,5 @@
+fire_home
+0 0 0 0
+41
+./matter/fire_home.png
+./shader/transparent.frag

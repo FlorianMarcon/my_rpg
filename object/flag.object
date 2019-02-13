@@ -1,0 +1,5 @@
+flag
+88 300 8 0.2
+28
+./matter/flag.png
+./shader/transparent.frag

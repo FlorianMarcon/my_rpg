@@ -1,0 +1,10 @@
+112
+MSG NO VAL
+je t'echange "ring" contre 42 "whool"
+MSG VAL
+Je savais que tu voulais cette anneau..
+Merci pour l'echange
+MUST BE GIVEN
+whool 42
+TO BE GIVEN
+ring 1

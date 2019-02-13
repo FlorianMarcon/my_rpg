@@ -1,0 +1,5 @@
+ice_flower
+0 0 0 0
+34
+./matter/ice_flower.png
+./shader/transparent.frag
